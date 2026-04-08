@@ -1,132 +1,162 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>NSHD Library File</th>
-      <th>Topic</th>
-      <th>Subtopic 1</th>
-      <th>Subtopic 2</th>
-      <th>Subtopic 3</th>
-      <th>Subtopic 4</th>
-      <th>NSHD Variable Name</th>
-      <th>Showcase Field ID</th>
-      <th>UKLLC Dataset Name(s)</th>
-      <th>Variable Label</th>
-      <th>Value labels</th>
-      <th>Units</th>
-      <th>Form</th>
-      <th>Question Number</th>
-      <th>Year of collection</th>
-      <th>Is variable derived?</th>
-      <th>Is variable sensitive?</th>
-      <th>Reason variable is sensitive</th>
-      <th>Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Long_Data_Sets</td>
-      <td>Raw data (long datasets)</td>
-      <td>Raw diet diaries (1950-2010)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>raw_diet_diaries50</td>
-      <td>100000</td>
-      <td></td>
-      <td>Raw diet diary 1950 (long dataset) at age 4 years </td>
-      <td>{-9.0} Unknown</td>
-      <td>Not applicable</td>
-      <td>Diet Diary</td>
-      <td>Not applicable</td>
-      <td>1950</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-      <td>This is the raw diet diary for 1950 (at age 4 years). These data must be requested by emailing mrclha.swiftinfo.ucl.ac.uk. Please note that this variable is only being displayed on Condor and cannot be added to the basket as it reperesents the full long dataset.</td>
-    </tr>
-    <tr>
-      <td>Long_Data_Sets</td>
-      <td>Raw data (long datasets)</td>
-      <td>Raw diet diaries (1950-2010)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>raw_diet_diaries82</td>
-      <td>100001</td>
-      <td></td>
-      <td>Raw diet diary 1982 (long dataset) at age 36 years </td>
-      <td>{-9.0} Unknown</td>
-      <td>Not applicable</td>
-      <td>Diet Diary</td>
-      <td>Not applicable</td>
-      <td>1982</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-      <td>This is the raw diet diary for 1982 (at age 36 years). These data must be requested by emailing mrclha.swiftinfo.ucl.ac.uk. Please note that this variable is only being displayed on Condor and cannot be added to the basket as it reperesents the full long dataset.</td>
-    </tr>
-    <tr>
-      <td>Long_Data_Sets</td>
-      <td>Raw data (long datasets)</td>
-      <td>Raw diet diaries (1950-2010)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>raw_diet_diaries89</td>
-      <td>100002</td>
-      <td></td>
-      <td>Raw diet diary 1989 (long dataset) at age 43 years </td>
-      <td>{-9.0} Unknown</td>
-      <td>Not applicable</td>
-      <td>Diet Diary</td>
-      <td>Not applicable</td>
-      <td>1989</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-      <td>This is the raw diet diary for 1989 (at age 43 years). These data must be requested by emailing mrclha.swiftinfo.ucl.ac.uk. Please note that this variable is only being displayed on Condor and cannot be added to the basket as it reperesents the full long dataset.</td>
-    </tr>
-    <tr>
-      <td>Long_Data_Sets</td>
-      <td>Raw data (long datasets)</td>
-      <td>Raw diet diaries (1950-2010)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>raw_diet_diaries99</td>
-      <td>100003</td>
-      <td></td>
-      <td>Raw diet diary 1999 (long dataset) at age 53 years </td>
-      <td>{-9.0} Unknown</td>
-      <td>Not applicable</td>
-      <td>Diet Diary</td>
-      <td>Not applicable</td>
-      <td>1999</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-      <td>This is the raw diet diary for 1999 (at age 53 years). These data must be requested by emailing mrclha.swiftinfo.ucl.ac.uk. Please note that this variable is only being displayed on Condor and cannot be added to the basket as it reperesents the full long dataset.</td>
-    </tr>
-    <tr>
-      <td>Long_Data_Sets</td>
-      <td>Raw data (long datasets)</td>
-      <td>Raw diet diaries (1950-2010)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>raw_diet_diaries09</td>
-      <td>100004</td>
-      <td></td>
-      <td>Raw diet diary 2006-10 (long dataset) at age 60-64 years </td>
-      <td>{-9.0} Unknown</td>
-      <td>Not applicable</td>
-      <td>Diet Diary</td>
-      <td>Not applicable</td>
-      <td>2006-10</td>
-      <td>No</td>
-      <td>No</td>
-      <td></td>
-      <td>This is the raw diet diary for 2006-10 (at age 60-64 years). These data must be requested by emailing mrclha.swiftinfo.ucl.ac.uk. Please note that this variable is only being displayed on Condor and cannot be added to the basket as it reperesents the full long dataset.</td>
-    </tr>
-  </tbody>
-</table>
+---
+            layout: default
+            title: Data Table
+            nav_order: 5
+            ---
+            
+            # Data Table
+            
+            <table id="myTable" class="display" style="width:100%; border-collapse: collapse;">
+<thead><tr>
+<th style='border:1px solid #ccc; padding:6px;'>NSHD Library File</th>
+<th style='border:1px solid #ccc; padding:6px;'>Topic</th>
+<th style='border:1px solid #ccc; padding:6px;'>Subtopic 1</th>
+<th style='border:1px solid #ccc; padding:6px;'>Subtopic 2</th>
+<th style='border:1px solid #ccc; padding:6px;'>Subtopic 3</th>
+<th style='border:1px solid #ccc; padding:6px;'>Subtopic 4</th>
+<th style='border:1px solid #ccc; padding:6px;'>NSHD Variable Name</th>
+<th style='border:1px solid #ccc; padding:6px;'>Showcase Field ID</th>
+<th style='border:1px solid #ccc; padding:6px;'>UKLLC Dataset Name(s)</th>
+<th style='border:1px solid #ccc; padding:6px;'>Variable Label</th>
+<th style='border:1px solid #ccc; padding:6px;'>Value labels</th>
+<th style='border:1px solid #ccc; padding:6px;'>Units</th>
+<th style='border:1px solid #ccc; padding:6px;'>Form</th>
+<th style='border:1px solid #ccc; padding:6px;'>Question Number</th>
+<th style='border:1px solid #ccc; padding:6px;'>Year of collection</th>
+<th style='border:1px solid #ccc; padding:6px;'>Is variable derived?</th>
+<th style='border:1px solid #ccc; padding:6px;'>Is variable sensitive?</th>
+<th style='border:1px solid #ccc; padding:6px;'>Reason variable is sensitive</th>
+<th style='border:1px solid #ccc; padding:6px;'>Notes</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style='border:1px solid #ccc; padding:6px;'>Long_Data_Sets</td>
+<td style='border:1px solid #ccc; padding:6px;'>Raw data (long datasets)</td>
+<td style='border:1px solid #ccc; padding:6px;'>Raw diet diaries (1950-2010)</td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'>raw_diet_diaries50</td>
+<td style='border:1px solid #ccc; padding:6px;'>100000</td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'>Raw diet diary 1950 (long dataset) at age 4 years </td>
+<td style='border:1px solid #ccc; padding:6px;'>{-9.0} Unknown</td>
+<td style='border:1px solid #ccc; padding:6px;'>Not applicable</td>
+<td style='border:1px solid #ccc; padding:6px;'>Diet Diary</td>
+<td style='border:1px solid #ccc; padding:6px;'>Not applicable</td>
+<td style='border:1px solid #ccc; padding:6px;'>1950</td>
+<td style='border:1px solid #ccc; padding:6px;'>No</td>
+<td style='border:1px solid #ccc; padding:6px;'>No</td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'>This is the raw diet diary for 1950 (at age 4 years). These data must be requested by emailing mrclha.swiftinfo.ucl.ac.uk. Please note that this variable is only being displayed on Condor and cannot be added to the basket as it reperesents the full long dataset.</td>
+</tr>
+<tr>
+<td style='border:1px solid #ccc; padding:6px;'>Long_Data_Sets</td>
+<td style='border:1px solid #ccc; padding:6px;'>Raw data (long datasets)</td>
+<td style='border:1px solid #ccc; padding:6px;'>Raw diet diaries (1950-2010)</td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'>raw_diet_diaries82</td>
+<td style='border:1px solid #ccc; padding:6px;'>100001</td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'>Raw diet diary 1982 (long dataset) at age 36 years </td>
+<td style='border:1px solid #ccc; padding:6px;'>{-9.0} Unknown</td>
+<td style='border:1px solid #ccc; padding:6px;'>Not applicable</td>
+<td style='border:1px solid #ccc; padding:6px;'>Diet Diary</td>
+<td style='border:1px solid #ccc; padding:6px;'>Not applicable</td>
+<td style='border:1px solid #ccc; padding:6px;'>1982</td>
+<td style='border:1px solid #ccc; padding:6px;'>No</td>
+<td style='border:1px solid #ccc; padding:6px;'>No</td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'>This is the raw diet diary for 1982 (at age 36 years). These data must be requested by emailing mrclha.swiftinfo.ucl.ac.uk. Please note that this variable is only being displayed on Condor and cannot be added to the basket as it reperesents the full long dataset.</td>
+</tr>
+<tr>
+<td style='border:1px solid #ccc; padding:6px;'>Long_Data_Sets</td>
+<td style='border:1px solid #ccc; padding:6px;'>Raw data (long datasets)</td>
+<td style='border:1px solid #ccc; padding:6px;'>Raw diet diaries (1950-2010)</td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'>raw_diet_diaries89</td>
+<td style='border:1px solid #ccc; padding:6px;'>100002</td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'>Raw diet diary 1989 (long dataset) at age 43 years </td>
+<td style='border:1px solid #ccc; padding:6px;'>{-9.0} Unknown</td>
+<td style='border:1px solid #ccc; padding:6px;'>Not applicable</td>
+<td style='border:1px solid #ccc; padding:6px;'>Diet Diary</td>
+<td style='border:1px solid #ccc; padding:6px;'>Not applicable</td>
+<td style='border:1px solid #ccc; padding:6px;'>1989</td>
+<td style='border:1px solid #ccc; padding:6px;'>No</td>
+<td style='border:1px solid #ccc; padding:6px;'>No</td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'>This is the raw diet diary for 1989 (at age 43 years). These data must be requested by emailing mrclha.swiftinfo.ucl.ac.uk. Please note that this variable is only being displayed on Condor and cannot be added to the basket as it reperesents the full long dataset.</td>
+</tr>
+<tr>
+<td style='border:1px solid #ccc; padding:6px;'>Long_Data_Sets</td>
+<td style='border:1px solid #ccc; padding:6px;'>Raw data (long datasets)</td>
+<td style='border:1px solid #ccc; padding:6px;'>Raw diet diaries (1950-2010)</td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'>raw_diet_diaries99</td>
+<td style='border:1px solid #ccc; padding:6px;'>100003</td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'>Raw diet diary 1999 (long dataset) at age 53 years </td>
+<td style='border:1px solid #ccc; padding:6px;'>{-9.0} Unknown</td>
+<td style='border:1px solid #ccc; padding:6px;'>Not applicable</td>
+<td style='border:1px solid #ccc; padding:6px;'>Diet Diary</td>
+<td style='border:1px solid #ccc; padding:6px;'>Not applicable</td>
+<td style='border:1px solid #ccc; padding:6px;'>1999</td>
+<td style='border:1px solid #ccc; padding:6px;'>No</td>
+<td style='border:1px solid #ccc; padding:6px;'>No</td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'>This is the raw diet diary for 1999 (at age 53 years). These data must be requested by emailing mrclha.swiftinfo.ucl.ac.uk. Please note that this variable is only being displayed on Condor and cannot be added to the basket as it reperesents the full long dataset.</td>
+</tr>
+<tr>
+<td style='border:1px solid #ccc; padding:6px;'>Long_Data_Sets</td>
+<td style='border:1px solid #ccc; padding:6px;'>Raw data (long datasets)</td>
+<td style='border:1px solid #ccc; padding:6px;'>Raw diet diaries (1950-2010)</td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'>raw_diet_diaries09</td>
+<td style='border:1px solid #ccc; padding:6px;'>100004</td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'>Raw diet diary 2006-10 (long dataset) at age 60-64 years </td>
+<td style='border:1px solid #ccc; padding:6px;'>{-9.0} Unknown</td>
+<td style='border:1px solid #ccc; padding:6px;'>Not applicable</td>
+<td style='border:1px solid #ccc; padding:6px;'>Diet Diary</td>
+<td style='border:1px solid #ccc; padding:6px;'>Not applicable</td>
+<td style='border:1px solid #ccc; padding:6px;'>2006-10</td>
+<td style='border:1px solid #ccc; padding:6px;'>No</td>
+<td style='border:1px solid #ccc; padding:6px;'>No</td>
+<td style='border:1px solid #ccc; padding:6px;'></td>
+<td style='border:1px solid #ccc; padding:6px;'>This is the raw diet diary for 2006-10 (at age 60-64 years). These data must be requested by emailing mrclha.swiftinfo.ucl.ac.uk. Please note that this variable is only being displayed on Condor and cannot be added to the basket as it reperesents the full long dataset.</td>
+</tr>
+</tbody></table>
+
+    <link rel="stylesheet" 
+          href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    
+    <script>
+    $(document).ready(function() {
+        $('#myTable').DataTable({
+            paging: true,
+            searching: true,
+            info: true,
+            order: [],
+            stripeClasses: ['odd-row', 'even-row']
+        });
+    });
+    </script>
+    
+    <style>
+    .odd-row { background-color: #f9f9f9; }
+    .even-row { background-color: #ffffff; }
+    </style>
+    
+            
