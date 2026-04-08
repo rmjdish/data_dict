@@ -1,5 +1,5 @@
 ---
-title: Clinical data
+title: Biological samples
 layout: home
 nav_order: 10
 ---
