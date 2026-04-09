@@ -1,6 +1,6 @@
 ---
 layout: none
-title: Data Table 22
+title: Data Table 23
 nav_order: 9
 html_head:
   - '<meta http-equiv="Content-Security-Policy" content="script-src * \'unsafe-inline\'">'
@@ -13,7 +13,7 @@ html_head:
       color:white;
       border-radius:4px;
       text-decoration:none;
-      font-weight:bold;
+      font-weight:300;
   ">
     ← Back to Home Page
   </a>
@@ -22,9 +22,14 @@ html_head:
 <p>
 
 
-<h1 style="font-size:20px; font-weight:bold; color:#333; margin-top:20px;">
-  Category: Anthropometric ➡ Physical measures 22
+<h1 style="font-size:20px; font-weight:bold; color:#7f1d1d; margin-top:20px;">
+  Category: Anthropometric ➡ Physical measures 23
 </h1>
+
+<h1 style="font-size:16px; font-weight:bold; color:#333; text-decoration: underline; margin-top:20px;">
+  Category Desription:
+</h1>
+
 
 <p>
 <p>
@@ -2713,7 +2718,6 @@ html_head:
 		border: 1px solid #d0d0d0 !important;
 	}
 
-
 		/* Ensure the YADCF filter header also freezes correctly */
 		.fixedHeader-floating .yadcf-filter-wrapper,
 		.fixedHeader-locked .yadcf-filter-wrapper,
@@ -2724,7 +2728,7 @@ html_head:
 	.dataTables_scrollBody {
 		overflow-y: auto !important;
 		max-height: 600px !important;
-
+	}
 
 	/* Match Just the Docs typography */
     table.dataTable {
@@ -2733,17 +2737,63 @@ html_head:
         line-height: 1.5;
     }	
 
-    .dataTables_wrapper .dataTables_filter input {
-        font-size: 16px;
-        padding: 4px;
-    }
+
+	.dataTables_filter {
+		float: left !important;
+		text-align: left !important;
+	}
 
     .dataTables_wrapper .dataTables_info {
         font-size: 14px;
         margin-bottom: 10px;
     }
 
+	/* SEARCH BAR — LEFT SIDE */
+	.dataTables_wrapper .dataTables_filter {
+		float: left !important;
+		text-align: left !important;
+		margin-left: 0 !important;
+	}
 
+	/* BUTTONS — RIGHT SIDE */
+	.dataTables_wrapper .dt-buttons {
+		float: right !important;
+		text-align: right !important;
+		margin-right: 0 !important;
+	}
+
+	/* Prevent layout overlap */
+	.dataTables_wrapper .dataTables_filter,
+	.dataTables_wrapper .dt-buttons {
+		margin-top: 10px;
+	}
+
+	/* Clear floats so table sits below */
+	.dataTables_wrapper .dataTables_length,
+	.dataTables_wrapper .dataTables_info {
+		clear: both;
+	}
+
+	/* Search label text */
+	.dataTables_wrapper .dataTables_filter label {
+		font-family: Arial, sans-serif;
+		font-size: 14px;
+		font-weight: bold;
+		color: red !important;
+	}
+
+	/* Search input box */
+	.dataTables_wrapper .dataTables_filter input {
+		font-family: Arial, sans-serif;
+		font-size: 15px;
+		padding: 6px 10px;
+		border: 1px solid #999;
+		border-radius: 4px;
+		color: purple !important;
+
+	}	
+	
+	
 	
 </style>
 
@@ -2752,13 +2802,23 @@ $(document).ready(function() {
 
     var table = $('#myTable').DataTable({
         pageLength: 100,
-        dom: 'fBript',
+        dom: "<'top'fB>rtip",
 		scrollX: true,
 		fixedHeader: {
         header: true,
         headerOffset: 0
 		},
-        buttons: [
+            columnDefs: [
+        {
+            targets: 7,   // Showcase Field ID column index (0‑based)
+            render: function (data, type, row) {
+                if (!data || data.trim() === "") return "";
+                var base = "https://datashare.ndph.ox.ac.uk/nshd46/field.cgi?id=";
+                return '<a href="' + base + data + '" target="_blank">' + data + '</a>';
+            }
+        }
+		],
+		buttons: [
             {
                 extend: 'copy',
                 text: 'Copy',
@@ -2800,15 +2860,11 @@ $(document).ready(function() {
 
     // YADCF dropdown filters (cascading)
     yadcf.init(table, [
-    { column_number: 0, filter_type: "select", cumulative_filtering: true },
     { column_number: 1, filter_type: "select", cumulative_filtering: true },
     { column_number: 2, filter_type: "select", cumulative_filtering: true },
     { column_number: 3, filter_type: "select", cumulative_filtering: true },
     { column_number: 4, filter_type: "select", cumulative_filtering: true },
     { column_number: 5, filter_type: "select", cumulative_filtering: true },
-    { column_number: 6, filter_type: "select", cumulative_filtering: true },
-    { column_number: 7, filter_type: "select", cumulative_filtering: true },
-    { column_number: 8, filter_type: "select", cumulative_filtering: true },
     { column_number: 9, filter_type: "select", cumulative_filtering: true },
     // …continue for all columns you want filtered
 	]);
