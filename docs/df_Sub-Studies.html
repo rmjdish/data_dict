@@ -2721,7 +2721,8 @@ html_head:
 <script>
     $(document).ready(function() {
         var table = $('#myTable').DataTable({
-            paging: true,
+            pageLength: 100,
+			paging: true,
             searching: true,
             info: true,
             order: [],
