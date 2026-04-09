@@ -1,12 +1,12 @@
 ---
 layout: none
-title: Data Table 16
+title: Data Table 17
 nav_order: 9
 html_head:
   - '<meta http-equiv="Content-Security-Policy" content="script-src * \'unsafe-inline\'">'
 ---
 
-# Data Table 16
+# Data Table 17
 
 <p>
 
@@ -2656,7 +2656,23 @@ html_head:
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.min.css">
 
 <style>
-    /* Match Just the Docs typography */
+    /* Alternating row shading */
+
+	#myTable tbody tr:nth-child(odd) {
+		background-color: #D3D3D3;
+	}
+	#myTable tbody tr:nth-child(even) {
+		background-color: #E0E0E0;
+	}
+
+    /* Header row shading */
+
+	#myTable thead th {
+		background-color: #A9A9A9 !important;
+	}
+
+	
+	/* Match Just the Docs typography */
     table.dataTable {
         font-family: system-ui, sans-serif;
         font-size: 16px;
@@ -2673,16 +2689,6 @@ html_head:
         margin-bottom: 10px;
     }
 
-    /* Alternating row shading */
-    .odd-row { background-color: #D3D3D3; }
-    .even-row { background-color: #A9A9A9; }
-
-	#myTable tbody tr:nth-child(odd) {
-		background-color: #D3D3D3;
-	}
-	#myTable tbody tr:nth-child(even) {
-		background-color: #A9A9A9;
-	}
 
     /* Dropdown filters */
     select.column-filter {
