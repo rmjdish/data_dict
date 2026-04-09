@@ -2639,23 +2639,19 @@ html_head:
 
 <!-- DataTables CSS -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.4.0/css/fixedHeader.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
 
 <!-- jQuery + DataTables JS -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 
 <!-- Buttons -->
-<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
 
-<!-- Sticky Header -->
-<script src="https://cdn.datatables.net/fixedheader/3.4.0/js/dataTables.fixedHeader.min.js"></script>
+<!-- YADCF for dropdown filters -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.min.css">
 
 <style>
     /* Match Just the Docs typography */
@@ -2721,12 +2717,6 @@ html_head:
 <script>
 $(document).ready(function() {
 
-    // Add a filter input to each header
-    $('#myTable thead th').each(function () {
-        var title = $(this).text();
-        $(this).html(title + '<br><input type="text" class="col-filter" placeholder="Filter">');
-    });
-
     var table = $('#myTable').DataTable({
         pageLength: 200,
         dom: 'Bfrtip',
@@ -2738,7 +2728,6 @@ $(document).ready(function() {
                     columns: ':visible',
                     format: {
                         header: function (data) {
-                            // Remove filter inputs from header before copying
                             return $(data).clone().children().remove().end().text().trim();
                         }
                     }
@@ -2771,16 +2760,20 @@ $(document).ready(function() {
         ]
     });
 
-    // Cascading filters: update all filters when one changes
-    table.columns().every(function () {
-        var column = this;
-
-        $('input', this.header()).on('keyup change clear', function () {
-            if (column.search() !== this.value) {
-                column.search(this.value).draw();
-            }
-        });
-    });
+    // YADCF dropdown filters (cascading)
+    yadcf.init(table, [
+        { column_number: 0, filter_type: "select" },
+        { column_number: 1, filter_type: "select" },
+        { column_number: 2, filter_type: "select" },
+        { column_number: 3, filter_type: "select" },
+        { column_number: 4, filter_type: "select" },
+        { column_number: 5, filter_type: "select" },
+        { column_number: 6, filter_type: "select" },
+        { column_number: 7, filter_type: "select" },
+        { column_number: 8, filter_type: "select" },
+        { column_number: 9, filter_type: "select" },
+        // … add more as needed
+    ]);
 
 });
 </script>
