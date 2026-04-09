@@ -1,6 +1,6 @@
 ---
 layout: none
-title: Data Table 16
+title: Data Table 18
 nav_order: 9
 html_head:
   - '<meta http-equiv="Content-Security-Policy" content="script-src * \'unsafe-inline\'">'
@@ -23,7 +23,7 @@ html_head:
 
 
 <h1 style="font-size:20px; font-weight:bold; color:#333; margin-top:20px;">
-  Category: Anthropometric ➡ Physical measures 16
+  Category: Anthropometric ➡ Physical measures 18
 </h1>
 
 <p>
@@ -2697,8 +2697,31 @@ html_head:
 	
 	.dataTables_scrollBody {
 		overflow-y: auto !important;
-		max-height: 6000px !important;
+		max-height: 900px !important;
 	}
+
+	/* Style the cloned floating header */
+	.fixedHeader-floating {
+		background-color: #D3D3D3 !important;
+		border-bottom: 2px solid #999 !important;
+		z-index: 9999 !important;
+	}
+
+	/* Style each cell in the floating header */
+	.fixedHeader-floating th {
+		background-color: #D3D3D3 !important;
+		border: 2px solid #999 !important;
+		padding: 8px !important;
+	}
+
+	/* Ensure the YADCF filter header also freezes correctly */
+	.fixedHeader-floating .yadcf-filter-wrapper {
+		background-color: #D3D3D3 !important;
+	}
+
+
+
+
 
 
 	/* Match Just the Docs typography */
@@ -2726,10 +2749,8 @@ html_head:
 $(document).ready(function() {
 
     var table = $('#myTable').DataTable({
-        pageLength: 50,
+        pageLength: 100,
         dom: 'fBript',
-		scrollY: "600px",
-		scrollCollapse: true,
 		fixedHeader: {
         header: true,
         headerOffset: 0
