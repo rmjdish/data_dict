@@ -2729,24 +2729,7 @@ html_head:
             stripeClasses: ['odd-row', 'even-row'],
             dom: 'B i f t p',  // Buttons + info + search on top
             buttons: [
-                buttons: [
-            {
-                extend: 'copy',
-                text: 'Copy',
-                exportOptions: {
-                    columns: ':visible',
-                    format: {
-                        header: function (data) {
-                            return $(data).clone().children().remove().end().text().trim();
-                        }
-                    }
-                }
-            },
-            'csv',
-            'excel'
-        ]
-    });
-});, 'csv', 'excel', 'print'
+                'copy', 'csv', 'excel', 'print'
             ],
             fixedHeader: true,
 

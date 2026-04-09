@@ -2719,28 +2719,68 @@ html_head:
 </style>
 
 <script>
-    $(document).ready(function() {
-        var table = $('#myTable').DataTable({
-    dom: 'Bfrtip',
-    buttons: [
-        {
-            extend: 'copy',
-            text: 'Copy',
-            exportOptions: {
-                columns: ':visible',
-                modifier: {
-                    search: 'applied',
-                    order: 'applied'
-                },
-                format: {
-                    header: function (data, columnIdx) {
-                        // Remove filter input values from headers
-                        return $(data).text().trim();
+$(document).ready(function() {
+
+    // Add a filter input to each header
+    $('#myTable thead th').each(function () {
+        var title = $(this).text();
+        $(this).html(title + '<br><input type="text" class="col-filter" placeholder="Filter">');
+    });
+
+    var table = $('#myTable').DataTable({
+        pageLength: 200,
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'copy',
+                text: 'Copy',
+                exportOptions: {
+                    columns: ':visible',
+                    format: {
+                        header: function (data) {
+                            // Remove filter inputs from header before copying
+                            return $(data).clone().children().remove().end().text().trim();
+                        }
+                    }
+                }
+            },
+            {
+                extend: 'csv',
+                text: 'CSV',
+                exportOptions: {
+                    columns: ':visible',
+                    format: {
+                        header: function (data) {
+                            return $(data).clone().children().remove().end().text().trim();
+                        }
+                    }
+                }
+            },
+            {
+                extend: 'excel',
+                text: 'Excel',
+                exportOptions: {
+                    columns: ':visible',
+                    format: {
+                        header: function (data) {
+                            return $(data).clone().children().remove().end().text().trim();
+                        }
                     }
                 }
             }
-        }
-    ]
+        ]
+    });
+
+    // Cascading filters: update all filters when one changes
+    table.columns().every(function () {
+        var column = this;
+
+        $('input', this.header()).on('keyup change clear', function () {
+            if (column.search() !== this.value) {
+                column.search(this.value).draw();
+            }
+        });
+    });
+
 });
 </script>
-
