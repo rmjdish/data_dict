@@ -1,12 +1,12 @@
 ---
 layout: none
-title: Data Table 11
+title: Data Table 12
 nav_order: 9
 html_head:
   - '<meta http-equiv="Content-Security-Policy" content="script-src * \'unsafe-inline\'">'
 ---
 
-# Data Table 11
+# Data Table 12
 
 <table id="myTable" class="display nowrap" style="width:100%; border-collapse: collapse;">
 <thead><tr>
@@ -2762,18 +2762,18 @@ $(document).ready(function() {
 
     // YADCF dropdown filters (cascading)
     yadcf.init(table, [
-        { column_number: 0, filter_type: "select" },
-        { column_number: 1, filter_type: "select" },
-        { column_number: 2, filter_type: "select" },
-        { column_number: 3, filter_type: "select" },
-        { column_number: 4, filter_type: "select" },
-        { column_number: 5, filter_type: "select" },
-        { column_number: 6, filter_type: "select" },
-        { column_number: 7, filter_type: "select" },
-        { column_number: 8, filter_type: "select" },
-        { column_number: 9, filter_type: "select" },
-        // … add more as needed
-    ]);
+    { column_number: 0, filter_type: "select", cumulative_filtering: true },
+    { column_number: 1, filter_type: "select", cumulative_filtering: true },
+    { column_number: 2, filter_type: "select", cumulative_filtering: true },
+    { column_number: 3, filter_type: "select", cumulative_filtering: true },
+    { column_number: 4, filter_type: "select", cumulative_filtering: true },
+    { column_number: 5, filter_type: "select", cumulative_filtering: true },
+    { column_number: 6, filter_type: "select", cumulative_filtering: true },
+    { column_number: 7, filter_type: "select", cumulative_filtering: true },
+    { column_number: 8, filter_type: "select", cumulative_filtering: true },
+    { column_number: 9, filter_type: "select", cumulative_filtering: true },
+    // …continue for all columns you want filtered
+	]);
 
 });
 </script>
