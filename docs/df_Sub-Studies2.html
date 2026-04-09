@@ -1,6 +1,6 @@
 ---
 layout: none
-title: Data Table 18
+title: Data Table 19
 nav_order: 9
 html_head:
   - '<meta http-equiv="Content-Security-Policy" content="script-src * \'unsafe-inline\'">'
@@ -23,7 +23,7 @@ html_head:
 
 
 <h1 style="font-size:20px; font-weight:bold; color:#333; margin-top:20px;">
-  Category: Anthropometric ➡ Physical measures 18
+  Category: Anthropometric ➡ Physical measures 19
 </h1>
 
 <p>
@@ -2701,9 +2701,10 @@ html_head:
 	}
 
 	/* Style the cloned floating header */
-	.fixedHeader-floating {
+	.fixedHeader-floating th {
 		background-color: #D3D3D3 !important;
-		border-bottom: 2px solid #999 !important;
+		border: 2px solid #999 !important;
+		padding: 8px !important;
 		z-index: 9999 !important;
 	}
 
@@ -2751,6 +2752,7 @@ $(document).ready(function() {
     var table = $('#myTable').DataTable({
         pageLength: 100,
         dom: 'fBript',
+		scrollX: true,
 		fixedHeader: {
         header: true,
         headerOffset: 0
