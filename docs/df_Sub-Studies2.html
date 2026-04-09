@@ -2685,45 +2685,45 @@ html_head:
 	}
 
     /* Header row shading */
-
 	#myTable thead th {
 		background-color: #A9A9A9 !important;
-		border: 1px solid #d0d0d0 !important;
 		color: black !important;
 	}
-	
+
+	/* FIXEDHEADER FLOATING + LOCKED */
+	.fixedHeader-floating th,
+	.fixedHeader-locked th,
+	.fixedHeader-floating thead th,
+	.fixedHeader-locked thead th {
+		background-color: #A9A9A9 !important;
+		color: black !important;
+		border: 1px solid #d0d0d0 !important;
+	}
+
+	/* FIXEDHEADER WRAPPER */
+	.fixedHeader-floating,
+	.fixedHeader-locked {
+		background-color: #A9A9A9 !important;
+	}
+
+	/* THE MOST IMPORTANT ONE — scrollX header clone */
+	.dataTables_scrollHeadInner table thead th {
+		background-color: #A9A9A9 !important;
+		color: black !important;
+		border: 1px solid #d0d0d0 !important;
+	}
+
+
+		/* Ensure the YADCF filter header also freezes correctly */
+		.fixedHeader-floating .yadcf-filter-wrapper,
+		.fixedHeader-locked .yadcf-filter-wrapper,
+		#myTable thead .yadcf-filter-wrapper {
+			background-color: #A9A9A9 !important;
+		}
+
 	.dataTables_scrollBody {
 		overflow-y: auto !important;
 		max-height: 600px !important;
-	}
-
-	/* Style the cloned floating header */
-	/* All possible floating header containers */
-	.fixedHeader-floating,
-	.fixedHeader-locked,
-	.fixedHeader-floating thead th,
-	.fixedHeader-locked thead th,
-	.fixedHeader-floating th,
-	.fixedHeader-locked th {
-		background-color: #A9A9A9 !important;
-		color: black !important;
-		border: 1px solid #d0d0d0 !important;
-		padding: 8px !important;
-		z-index: 9999 !important;
-	}	
-
-
-	/* Ensure the YADCF filter header also freezes correctly */
-	#myTable thead .yadcf-filter-wrapper,
-	.fixedHeader-floating .yadcf-filter-wrapper {
-		background-color: #A9A9A9 !important;
-	}
-	.fixedHeader-floating .yadcf-filter-wrapper,
-	.fixedHeader-locked .yadcf-filter-wrapper,
-	#myTable thead .yadcf-filter-wrapper {
-		background-color: #A9A9A9 !important;
-
-
 
 
 	/* Match Just the Docs typography */
