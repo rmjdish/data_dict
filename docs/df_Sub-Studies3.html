@@ -2663,7 +2663,6 @@ html_head:
 </tr>
 </tbody></table>
 
-
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <!-- DataTables JS -->
@@ -2672,10 +2671,11 @@ html_head:
 <!-- Extensions -->
 <script src="https://cdn.datatables.net/fixedheader/3.4.0/js/dataTables.fixedHeader.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
-
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
 
 <!-- DataTables CSS -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.4.0/css/fixedHeader.dataTables.min.css">
 
 
@@ -2685,11 +2685,6 @@ html_head:
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.min.css">
 
 <style>   
-	/* Force DataTables to calculate correct widths 
-	table.dataTable {
-		width: 100% !important;
-	} */
-
 	/* Ensure scrollHead and scrollBody use same table width */
 	.dataTables_scrollHeadInner,
 	.dataTables_scrollBody table {
@@ -2827,22 +2822,11 @@ html_head:
 		overflow: visible !important;
 	}
 
-	/* Force scrollHead + scrollBody to use identical width 
-	.dataTables_scrollHeadInner,
-	.dataTables_scrollBody table {
-		width: max-content !important;
-	} */
 
 	/* Prevent header wrapping (causes misalignment) */
 	#myTable thead th {
 		white-space: nowrap !important;
 	}
-
-	/* Prevent parent containers from shrinking the table */
-	#myTable {
-		width: max-content !important;
-		table-layout: auto !important; 
-	} */	
 
 	table.dataTable {
 		table-layout: fixed !important;
@@ -2869,9 +2853,7 @@ html_head:
 	}
 
 
-
 </style>
-
 
 <script>
 $(document).ready(function() {
@@ -2896,10 +2878,48 @@ $(document).ready(function() {
         },
 		{
 			targets: 9,   // 10th column (Variable Label)
-			className: "col-variable-label",   // set your desired width
+			className: "col-variable-label"   // set your desired width
 		}		
 		],
-			});
+		buttons: [
+            {
+                extend: 'copy',
+                text: 'Copy',
+                exportOptions: {
+                    columns: ':visible',
+                    format: {
+                        header: function (data) {
+                            return $(data).clone().children().remove().end().text().trim();
+                        }
+                    }
+                }
+            },
+            {
+                extend: 'csv',
+                text: 'CSV',
+                exportOptions: {
+                    columns: ':visible',
+                    format: {
+                        header: function (data) {
+                            return $(data).clone().children().remove().end().text().trim();
+                        }
+                    }
+                }
+            },
+            {
+                extend: 'excel',
+                text: 'Excel',
+                exportOptions: {
+                    columns: ':visible',
+                    format: {
+                        header: function (data) {
+                            return $(data).clone().children().remove().end().text().trim();
+                        }
+                    }
+                }
+            }
+        ]
+    });
     
 	// 🔥 CRITICAL: Fix column widths AFTER everything loads
     table.columns.adjust().draw();
