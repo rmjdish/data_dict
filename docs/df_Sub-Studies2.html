@@ -1,7 +1,7 @@
 ---
 layout: none
-title: Data Table 8
-nav_order: 5
+title: Data Table 9
+nav_order: 9
 html_head:
   - '<meta http-equiv="Content-Security-Policy" content="script-src * \'unsafe-inline\'">'
 ---
@@ -2721,33 +2721,26 @@ html_head:
 <script>
     $(document).ready(function() {
         var table = $('#myTable').DataTable({
-            paging: true,
-            searching: true,
-            info: true,
-            order: [],
-            stripeClasses: ['odd-row', 'even-row'],
-            dom: 'B i f t p',  // Buttons + info + search on top
-            buttons: [
-                'copy', 'csv', 'excel', 'print'
-            ],
-            fixedHeader: true,
-
-            initComplete: function () {
-                this.api().columns().every(function () {
-                    var column = this;
-                    var select = $('<select class="column-filter"><option value="">All</option></select>')
-                        .appendTo($(column.header()))
-                        .on('change', function () {
-                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
-                            column.search(val ? '^'+val+'$' : '', true, false).draw();
-                        });
-
-                    column.data().unique().sort().each(function (d) {
-                        select.append('<option value="'+d+'">'+d+'</option>');
-                    });
-                });
+    dom: 'Bfrtip',
+    buttons: [
+        {
+            extend: 'copy',
+            text: 'Copy',
+            exportOptions: {
+                columns: ':visible',
+                modifier: {
+                    search: 'applied',
+                    order: 'applied'
+                },
+                format: {
+                    header: function (data, columnIdx) {
+                        // Remove filter input values from headers
+                        return $(data).text().trim();
+                    }
+                }
             }
-        });
-    });
+        }
+    ]
+});
 </script>
 
