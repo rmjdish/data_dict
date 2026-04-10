@@ -111,7 +111,7 @@ table.dataTable td {
     word-break: break-word !important;
 }
 
-/* Center Field ID column */
+/* Center Field  */
 th.field-id-center,
 td.field-id-center {
     text-align: center !important;
