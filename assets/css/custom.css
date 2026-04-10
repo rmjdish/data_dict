@@ -23,6 +23,19 @@
   padding-left: 1rem !important;
 }
 
+/* Expand the main content area to use all available space */
+.main-content {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Ensure the main container stretches fully */
+.main {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+
 /* Parent page links */
 .nav-list .nav-list-item > .nav-list-link {
   color: #0f766e !important;
