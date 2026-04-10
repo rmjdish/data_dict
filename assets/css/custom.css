@@ -4,12 +4,12 @@
 }
 
 .main {
-  margin-left: 5rem !important;
+  margin-left: 25rem !important;
 }
 
 .site-nav,
 .nav-list {
-  padding-left: 0 !important;
+  padding-left: 10 !important;
   margin-left: 0 !important;
 }
 
