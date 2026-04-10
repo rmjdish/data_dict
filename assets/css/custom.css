@@ -1,8 +1,18 @@
 .side-bar {
-  width: 30rem !important;
-  min-width: 30rem !important;
+  width: 25rem !important;
+  min-width: 25rem !important;
 }
 
 .main {
-  margin-left: 10rem !important;
-} 
+  margin-left: 25rem !important;
+}
+
+.site-nav,
+.nav-list {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.nav-list .nav-list-item {
+  padding-left: 0.5rem !important;
+}
