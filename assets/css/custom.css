@@ -157,8 +157,8 @@ td.field-id-center {
 .page-content > h1:first-of-type {
     font-size: 16px !important;
     font-weight: bold !important;
-    color: #333 !important;
-    text-decoration: underline !important;
+    color: #800020 !important;
+    text-decoration: none !important;
     margin-top: 10px !important;
 }
 
@@ -171,7 +171,7 @@ td.field-id-center {
     font-size: 14px !important;
     font-weight: normal !important;
     color: #444 !important;
-    text-decoration: none !important;
+    text-decoration: underline !important;
     margin-top: 8px !important;
 }
 
