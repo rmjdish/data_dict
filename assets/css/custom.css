@@ -94,6 +94,12 @@
   width: 100% !important;
 }
 
+/* Compensate for vertical scrollbar so header = body width */
+.dataTables_scrollHeadInner {
+  padding-right: calc(100vw - 100%) !important;
+  box-sizing: content-box !important;
+}
+
 /* Do not force inner table widths beyond 100% */
 .dataTables_scrollHeadInner table,
 .dataTables_scrollBody table {
