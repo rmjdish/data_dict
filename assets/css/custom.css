@@ -1,0 +1,14 @@
+/* Narrow sidebar */
+.side-bar {
+    width: 220px;
+}
+
+/* Shift main content */
+.main {
+    margin-left: 220px;
+}
+
+/* Wider content area */
+.page {
+    max-width: 1400px;
+}
