@@ -1,18 +1,24 @@
 .side-bar {
-  width: 15rem !important;
-  min-width: 15rem !important;
+  width: 25rem !important;
+  min-width: 25rem !important;
 }
 
 .main {
-  margin-left: 15rem !important;
+  margin-left: 25rem !important;
 }
 
-.site-nav,
+.site-nav {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+
 .nav-list {
   padding-left: 0 !important;
   margin-left: 0 !important;
+  width: 100% !important;
 }
 
-.nav-list .nav-list-item {
-  padding-left: 0.5rem !important;
+.site-header {
+  padding-left: 1rem !important;
 }
