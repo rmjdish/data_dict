@@ -1,14 +1,14 @@
 /* Narrow sidebar */
 .side-bar {
-    width: 220px;
+    width: 220px !important;
 }
 
 /* Shift main content */
 .main {
-    margin-left: 220px;
+    margin-left: 220px !important;
 }
 
 /* Wider content area */
 .page {
-    max-width: 1400px;
+    max-width: 1400px !important;
 }
