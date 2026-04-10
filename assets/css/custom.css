@@ -123,9 +123,11 @@ table.dataTable {
 }
 
 /* 7. FIX your 10th column width (header + body) */
+/* Make column 10 width identical in header + body + clone */
 #myTable thead th:nth-child(10),
+.dataTables_scrollHeadInner table thead th:nth-child(10),
 #myTable tbody td:nth-child(10),
-.dataTables_scrollHeadInner table thead th:nth-child(10) {
+.dataTables_scrollBody table tbody td:nth-child(10) {
     width: 600px !important;
     max-width: 600px !important;
     min-width: 600px !important;
