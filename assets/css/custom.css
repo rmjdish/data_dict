@@ -1,10 +1,10 @@
 .side-bar {
   width: 15rem !important;
-  min-width: 15rem !important;
+  min-width: 35rem !important;
 }
 
 .main {
-  margin-left: 50rem !important;
+  margin-left: 35rem !important;
 }
 
 .site-nav,
