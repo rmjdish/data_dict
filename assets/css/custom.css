@@ -79,46 +79,31 @@
 }
 
 /* -----------------------------------------------------------
-   DATATABLES — RESPONSIVE + PERFECT HEADER ALIGNMENT
+   DATATABLES — MINIMAL, STABLE ALIGNMENT
 ----------------------------------------------------------- */
 
 /* Wrapper fills content area */
 .dataTables_wrapper {
   width: 100% !important;
-  overflow-x: hidden !important;
 }
 
-/* Scroll containers */
+/* Let DataTables manage scrollX; don't hide or override */
 .dataTables_scroll {
   width: 100% !important;
-  overflow: hidden !important;
 }
 
-.dataTables_scrollHead {
-  width: 100% !important;
-  overflow: hidden !important;
-}
-
-.dataTables_scrollHeadInner {
-  width: 100% !important;
-  box-sizing: border-box !important;
-}
-
-.dataTables_scrollHeadInner table {
-  width: 100% !important;
-  margin: 0 !important;
-  box-sizing: border-box !important;
-}
-
+/* Head + body containers */
+.dataTables_scrollHead,
 .dataTables_scrollBody {
   width: 100% !important;
-  overflow-x: auto !important;
 }
 
+/* Do NOT force 100% on inner tables; let DT calculate */
+.dataTables_scrollHeadInner table,
 .dataTables_scrollBody table {
   width: 100% !important;
   margin: 0 !important;
-  box-sizing: border-box !important;
+  border-collapse: collapse !important;
 }
 
 /* Table layout */
@@ -126,20 +111,12 @@
 table.dataTable {
   width: 100% !important;
   table-layout: auto !important;
-  border-collapse: collapse !important;
 }
 
-/* Header + body cells behave the same */
+/* Cells behave the same */
 table.dataTable th,
 table.dataTable td {
   white-space: normal !important;
-  box-sizing: border-box !important;
-}
-
-/* YADCF filter row cells align with header */
-.dataTables_scrollHeadInner table thead th,
-.dataTables_scrollHeadInner table thead td {
-  box-sizing: border-box !important;
 }
 
 /* Alternating row shading */
