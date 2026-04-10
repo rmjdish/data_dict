@@ -79,26 +79,22 @@
 }
 
 /* -----------------------------------------------------------
-   DATATABLES — MINIMAL, STABLE ALIGNMENT
+   DATATABLES — MINIMAL, NON-CONFLICTING
 ----------------------------------------------------------- */
 
-/* Wrapper fills content area */
+/* Let the wrapper just fill the content area */
 .dataTables_wrapper {
   width: 100% !important;
 }
 
-/* Let DataTables manage scrollX; don't hide or override */
-.dataTables_scroll {
-  width: 100% !important;
-}
-
-/* Head + body containers */
+/* Let DataTables manage scroll; don't override widths aggressively */
+.dataTables_scroll,
 .dataTables_scrollHead,
 .dataTables_scrollBody {
   width: 100% !important;
 }
 
-/* Do NOT force 100% on inner tables; let DT calculate */
+/* Do not force inner table widths beyond 100% */
 .dataTables_scrollHeadInner table,
 .dataTables_scrollBody table {
   width: 100% !important;
@@ -106,20 +102,20 @@
   border-collapse: collapse !important;
 }
 
-/* Table layout */
+/* Table itself */
 #myTable,
 table.dataTable {
   width: 100% !important;
   table-layout: auto !important;
 }
 
-/* Cells behave the same */
+/* Cells */
 table.dataTable th,
 table.dataTable td {
   white-space: normal !important;
 }
 
-/* Alternating row shading */
+/* Visuals you want to keep */
 #myTable tbody tr:nth-child(odd) {
   background-color: #EEEEEE;
 }
@@ -127,7 +123,6 @@ table.dataTable td {
   background-color: #FFFFFF;
 }
 
-/* Header styling */
 #myTable thead th,
 .dataTables_scrollHeadInner table thead th,
 .fixedHeader-floating th,
@@ -142,7 +137,6 @@ table.dataTable td {
   background-color: #A9A9A9 !important;
 }
 
-/* Special column width */
 .col-variable-label {
   width: 600px !important;
   max-width: 600px !important;
@@ -151,7 +145,6 @@ table.dataTable td {
   word-break: break-word !important;
 }
 
-/* Center Field ID column */
 th.field-id-center,
 td.field-id-center,
 .dataTables_scrollHeadInner th.field-id-center,
