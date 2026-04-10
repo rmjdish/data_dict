@@ -32,24 +32,6 @@
 }
 
 /* -----------------------------------------------------------
-   FIX: table-wrapper must not constrain width
------------------------------------------------------------ */
-
-.table-wrapper {
-  width: 100% !important;
-  display: block !important;
-  overflow: visible !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  box-sizing: border-box !important;
-}
-
-/* FIX: remove nowrap from table */
-#myTable {
-  white-space: normal !important;
-}
-
-/* -----------------------------------------------------------
    NAVIGATION COLORS + INDENTATION
 ----------------------------------------------------------- */
 
@@ -113,6 +95,12 @@
     width: 100% !important;
 }
 
+/* Compensate for vertical scrollbar */
+.dataTables_scrollHeadInner {
+    padding-right: calc(100vw - 100%) !important;
+    box-sizing: content-box !important;
+}
+
 /* Header clone + body table must match */
 .dataTables_scrollHeadInner table,
 .dataTables_scrollBody table {
@@ -121,29 +109,31 @@
     border-collapse: collapse !important;
 }
 
-/* REMOVE the broken rule */
+/* Table layout */
 #myTable,
 table.dataTable {
     width: 100% !important;
-    table-layout: auto !important;   /* <-- FIXED */
+    table-layout: auto !important;
 }
 
-/* REMOVE nowrap that breaks alignment */
+/* Cells */
 table.dataTable th,
 table.dataTable td {
     white-space: normal !important;
-}
-
-/* FIX: compensate for vertical scrollbar */
-.dataTables_scrollHeadInner {
-    padding-right: calc(100vw - 100%) !important;
-    box-sizing: content-box !important;
 }
 
 /* Body scroll */
 .dataTables_scrollBody {
     overflow-y: auto !important;
     max-height: 600px !important;
+}
+
+/* Alternating rows */
+#myTable tbody tr:nth-child(odd) {
+    background-color: #EEEEEE;
+}
+#myTable tbody tr:nth-child(even) {
+    background-color: #FFFFFF;
 }
 
 /* Header styling */
@@ -160,14 +150,6 @@ table.dataTable td {
 .fixedHeader-floating,
 .fixedHeader-locked {
     background-color: #A9A9A9 !important;
-}
-
-/* Alternating rows */
-#myTable tbody tr:nth-child(odd) {
-    background-color: #EEEEEE;
-}
-#myTable tbody tr:nth-child(even) {
-    background-color: #FFFFFF;
 }
 
 /* Special column width */
@@ -187,11 +169,11 @@ td.field-id-center,
     text-align: center !important;
 }
 
-
 /* -----------------------------------------------------------
    CATEGORY TREE — MATCH ORIGINAL HTML
 ----------------------------------------------------------- */
 
+/* First H1 (Category Title) */
 .main-content h1:first-of-type,
 .page-content h1:first-of-type,
 .main-content > h1:first-of-type,
@@ -203,6 +185,7 @@ td.field-id-center,
     margin-top: 10px !important;
 }
 
+/* Second H1 (Category Tree Title) */
 .main-content h1:nth-of-type(2),
 .page-content h1:nth-of-type(2),
 .main-content > h1:nth-of-type(2),
@@ -214,6 +197,7 @@ td.field-id-center,
     margin-top: 8px !important;
 }
 
+/* Category description (H2) */
 .main-content h2,
 .page-content h2,
 .main-content > h2,
@@ -225,6 +209,7 @@ td.field-id-center,
     margin-bottom: 6px !important;
 }
 
+/* Back to Home Page button */
 .main-content p > a[href*="data_dict"],
 .page-content p > a[href*="data_dict"] {
     display: inline-block !important;
