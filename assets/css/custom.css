@@ -87,3 +87,20 @@
 .dataTables_scrollBody {
   overflow-x: auto !important;
 }
+
+table.dataTable {
+  width: auto !important;
+  table-layout: auto !important;
+}
+
+table.dataTable th,
+table.dataTable td {
+  white-space: nowrap !important;
+}
+
+.main-content {
+  font-family: Arial, sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.3 !important;
+}
+
