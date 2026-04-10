@@ -1,10 +1,10 @@
 // Widen the sidebar
 .side-bar {
-  width: 18rem; // default is ~15.5rem — increase as needed
-  min-width: 18rem;
+  width: 50rem; // default is ~15.5rem — increase as needed
+  min-width: 50rem;
 }
 
 // Push the main content area to match
 .main {
-  margin-left: 18rem; // should match the sidebar width above
+  margin-left: 50rem; // should match the sidebar width above
 } 
