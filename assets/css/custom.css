@@ -31,12 +31,15 @@
 /* Indent and color child pages */
 .nav-list .nav-list .nav-list-item {
   padding-left: 1rem !important;
+}
+.nav-list .nav-list .nav-list-item > .nav-list-link {
   color: #3b4f7c !important;
 }
 
 /* Indent and color grandchild pages */
 .nav-list .nav-list .nav-list .nav-list-item {
   padding-left: 2rem !important;
+}
+.nav-list .nav-list .nav-list .nav-list-item > .nav-list-link {
   color: #6b5b8e !important;
-
 }
