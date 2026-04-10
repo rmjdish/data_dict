@@ -29,6 +29,15 @@
   width: 100% !important;
 }
 
+table.dataTable {
+  width: 100% !important;
+  table-layout: auto !important;
+}
+
+.dataTables_wrapper {
+  width: 100% !important;
+}
+
 
 /* Parent page links */
 .nav-list .nav-list-item > .nav-list-link {
