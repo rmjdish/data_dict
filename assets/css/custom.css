@@ -121,7 +121,7 @@ table.dataTable {
 }
 
 /* -----------------------------------------------------------
-   MANUAL COLUMN WIDTHS — PURE CSS, NO HTML CHANGES
+   MANUAL COLUMN WIDTHS — PURE CSS (NO HTML CHANGES)
 ----------------------------------------------------------- */
 
 /* Wrap text everywhere */
@@ -133,156 +133,35 @@ table.dataTable {
     word-break: break-word !important;
 }
 
-/* Column 1 */
-#myTable thead th:nth-child(1),
-.dataTables_scrollHeadInner table thead th:nth-child(1),
-.fixedHeader-floating thead th:nth-child(1),
-#myTable tbody td:nth-child(1) {
-    width: 140px !important;
-}
+/* Helper macro to apply widths to:
+   - real header
+   - scrollX header clone
+   - floating header
+   - body cells
+*/
+@layer datatableWidths {
+  @container table-widths {
+    /* Column widths */
+    :root {
+      --w1: 140px; --w2: 160px; --w3: 180px; --w4: 180px; --w5: 160px;
+      --w6: 160px; --w7: 180px; --w8: 120px; --w9: 200px; --w10: 700px;
+      --w11: 250px; --w12: 120px; --w13: 120px; --w14: 140px; --w15: 160px;
+      --w16: 160px; --w17: 160px; --w18: 200px; --w19: 200px;
+    }
 
-/* Column 2 */
-#myTable thead th:nth-child(2),
-.dataTables_scrollHeadInner table thead th:nth-child(2),
-.fixedHeader-floating thead th:nth-child(2),
-#myTable tbody td:nth-child(2) {
-    width: 160px !important;
-}
-
-/* Column 3 */
-#myTable thead th:nth-child(3),
-.dataTables_scrollHeadInner table thead th:nth-child(3),
-.fixedHeader-floating thead th:nth-child(3),
-#myTable tbody td:nth-child(3) {
-    width: 180px !important;
-}
-
-/* Column 4 */
-#myTable thead th:nth-child(4),
-.dataTables_scrollHeadInner table thead th:nth-child(4),
-.fixedHeader-floating thead th:nth-child(4),
-#myTable tbody td:nth-child(4) {
-    width: 180px !important;
-}
-
-/* Column 5 */
-#myTable thead th:nth-child(5),
-.dataTables_scrollHeadInner table thead th:nth-child(5),
-.fixedHeader-floating thead th:nth-child(5),
-#myTable tbody td:nth-child(5) {
-    width: 160px !important;
-}
-
-/* Column 6 */
-#myTable thead th:nth-child(6),
-.dataTables_scrollHeadInner table thead th:nth-child(6),
-.fixedHeader-floating thead th:nth-child(6),
-#myTable tbody td:nth-child(6) {
-    width: 160px !important;
-}
-
-/* Column 7 */
-#myTable thead th:nth-child(7),
-.dataTables_scrollHeadInner table thead th:nth-child(7),
-.fixedHeader-floating thead th:nth-child(7),
-#myTable tbody td:nth-child(7) {
-    width: 180px !important;
-}
-
-/* Column 8 */
-#myTable thead th:nth-child(8),
-.dataTables_scrollHeadInner table thead th:nth-child(8),
-.fixedHeader-floating thead th:nth-child(8),
-#myTable tbody td:nth-child(8) {
-    width: 120px !important;
-}
-
-/* Column 9 */
-#myTable thead th:nth-child(9),
-.dataTables_scrollHeadInner table thead th:nth-child(9),
-.fixedHeader-floating thead th:nth-child(9),
-#myTable tbody td:nth-child(9) {
-    width: 200px !important;
-}
-
-/* Column 10 — big text column */
-#myTable thead th:nth-child(10),
-.dataTables_scrollHeadInner table thead th:nth-child(10),
-.fixedHeader-floating thead th:nth-child(10),
-#myTable tbody td:nth-child(10) {
-    width: 700px !important;
-}
-
-/* Column 11 */
-#myTable thead th:nth-child(11),
-.dataTables_scrollHeadInner table thead th:nth-child(11),
-.fixedHeader-floating thead th:nth-child(11),
-#myTable tbody td:nth-child(11) {
-    width: 250px !important;
-}
-
-/* Column 12 */
-#myTable thead th:nth-child(12),
-.dataTables_scrollHeadInner table thead th:nth-child(12),
-.fixedHeader-floating thead th:nth-child(12),
-#myTable tbody td:nth-child(12) {
-    width: 120px !important;
-}
-
-/* Column 13 */
-#myTable thead th:nth-child(13),
-.dataTables_scrollHeadInner table thead th:nth-child(13),
-.fixedHeader-floating thead th:nth-child(13),
-#myTable tbody td:nth-child(13) {
-    width: 120px !important;
-}
-
-/* Column 14 */
-#myTable thead th:nth-child(14),
-.dataTables_scrollHeadInner table thead th:nth-child(14),
-.fixedHeader-floating thead th:nth-child(14),
-#myTable tbody td:nth-child(14) {
-    width: 140px !important;
-}
-
-/* Column 15 */
-#myTable thead th:nth-child(15),
-.dataTables_scrollHeadInner table thead th:nth-child(15),
-.fixedHeader-floating thead th:nth-child(15),
-#myTable tbody td:nth-child(15) {
-    width: 160px !important;
-}
-
-/* Column 16 */
-#myTable thead th:nth-child(16),
-.dataTables_scrollHeadInner table thead th:nth-child(16),
-.fixedHeader-floating thead th:nth-child(16),
-#myTable tbody td:nth-child(16) {
-    width: 160px !important;
-}
-
-/* Column 17 */
-#myTable thead th:nth-child(17),
-.dataTables_scrollHeadInner table thead th:nth-child(17),
-.fixedHeader-floating thead th:nth-child(17),
-#myTable tbody td:nth-child(17) {
-    width: 160px !important;
-}
-
-/* Column 18 */
-#myTable thead th:nth-child(18),
-.dataTables_scrollHeadInner table thead th:nth-child(18),
-.fixedHeader-floating thead th:nth-child(18),
-#myTable tbody td:nth-child(18) {
-    width: 200px !important;
-}
-
-/* Column 19 */
-#myTable thead th:nth-child(19),
-.dataTables_scrollHeadInner table thead th:nth-child(19),
-.fixedHeader-floating thead th:nth-child(19),
-#myTable tbody td:nth-child(19) {
-    width: 200px !important;
+    /* Apply widths to all header layers + body */
+    @for $i from 1 to 20 {
+      #myTable thead th:nth-child(#{$i}),
+      .dataTables_scrollHeadInner table thead th:nth-child(#{$i}),
+      .fixedHeader-floating thead th:nth-child(#{$i}),
+      #myTable tbody td:nth-child(#{$i}) {
+        width: var(--w#{$i}) !important;
+        min-width: var(--w#{$i}) !important;
+        max-width: var(--w#{$i}) !important;
+        box-sizing: border-box !important;
+      }
+    }
+  }
 }
 
 /* -----------------------------------------------------------
