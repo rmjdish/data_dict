@@ -23,12 +23,20 @@
   padding-left: 1rem !important;
 }
 
-/* Indent child pages */
-.nav-list .nav-list .nav-list-item {
-  padding-left: 1rem !important;
+/* Parent page links */
+.nav-list .nav-list-item > .nav-list-link {
+  color: #5a5a5a !important;
 }
 
-/* Indent grandchild pages */
+/* Indent and color child pages */
+.nav-list .nav-list .nav-list-item {
+  padding-left: 1rem !important;
+  color: #7a7a7a !important;
+}
+
+/* Indent and color grandchild pages */
 .nav-list .nav-list .nav-list .nav-list-item {
   padding-left: 2rem !important;
+  color: #9a9a9a !important;
+
 }
