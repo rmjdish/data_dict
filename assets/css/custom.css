@@ -22,3 +22,13 @@
 .site-header {
   padding-left: 1rem !important;
 }
+
+/* Indent child pages */
+.nav-list .nav-list .nav-list-item {
+  padding-left: 1rem !important;
+}
+
+/* Indent grandchild pages */
+.nav-list .nav-list .nav-list .nav-list-item {
+  padding-left: 2rem !important;
+}
