@@ -221,3 +221,13 @@ td.field-id-center,
     font-weight: 300 !important;
     font-size: 14px !important;
 }
+
+/* Make 10th header column match body width */
+#myTable thead th:nth-child(10),
+.dataTables_scrollHeadInner table thead th:nth-child(10) {
+    width: 600px !important;
+    max-width: 600px !important;
+    min-width: 600px !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+}
