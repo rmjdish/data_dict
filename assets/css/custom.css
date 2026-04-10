@@ -23,20 +23,18 @@
   padding-left: 1rem !important;
 }
 
+/* Make the main content area fill all available horizontal space */
+.main {
+  max-width: none !important;
+  width: calc(100vw - 25rem) !important; /* 25rem = your sidebar width */
+}
+
 /* Expand the main content area to use all available space */
 .main-content {
-  max-width: 100% !important;
+  max-width: none !important;
   width: 100% !important;
 }
 
-table.dataTable {
-  width: 100% !important;
-  table-layout: auto !important;
-}
-
-.dataTables_wrapper {
-  width: 100% !important;
-}
 
 
 /* Parent page links */
