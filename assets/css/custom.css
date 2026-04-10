@@ -79,35 +79,34 @@
 }
 
 /* -----------------------------------------------------------
-   ABSOLUTE FIX FOR DATATABLES MISALIGNMENT
+   DATATABLES — MANUAL COLUMN WIDTHS + WRAPPING
 ----------------------------------------------------------- */
 
-/* 2. REMOVE table-layout: fixed */
+/* Let DataTables calculate widths properly */
 table.dataTable {
     table-layout: auto !important;
 }
 
-/* 3. REMOVE max-content width */
-#myTable {
-    width: 100% !important;
+/* Wrap text in body cells */
+#myTable tbody td {
+    white-space: normal !important;
+    word-break: break-word !important;
 }
 
-/* 4. FIX scroll container mismatch */
+/* Keep header readable */
+#myTable thead th {
+    white-space: normal !important;
+}
+
+/* Scroll containers */
 .dataTables_scroll {
     overflow: hidden !important;
 }
-
 .dataTables_scrollBody {
     overflow-y: auto !important;
 }
 
-/* 5. COMPENSATE for vertical scrollbar */
-.dataTables_scrollHeadInner {
-    padding-right: calc(100vw - 100%) !important;
-    box-sizing: content-box !important;
-}
-
-/* 6. FORCE header + body tables to match */
+/* Header/body width sync */
 .dataTables_scrollHeadInner table,
 .dataTables_scrollBody table {
     width: 100% !important;
@@ -115,17 +114,76 @@ table.dataTable {
     border-collapse: collapse !important;
 }
 
-/* 7. FIX your 10th column width (header + body) */
-#myTable thead th:nth-child(10),
-.dataTables_scrollHeadInner table thead th:nth-child(10),
-#myTable tbody td:nth-child(10),
-.dataTables_scrollBody table tbody td:nth-child(10) {
-    width: 700px !important;
-    max-width: 700px !important;
-    min-width: 700px !important;
-    white-space: normal !important;
-    word-break: break-word !important;
+/* Compensate for scrollbar */
+.dataTables_scrollHeadInner {
+    padding-right: calc(100vw - 100%) !important;
+    box-sizing: content-box !important;
 }
+
+/* -----------------------------------------------------------
+   MANUAL COLUMN WIDTHS (ADJUST AS NEEDED)
+----------------------------------------------------------- */
+
+#myTable thead th:nth-child(1),
+#myTable tbody td:nth-child(1) { width: 140px !important; }
+
+#myTable thead th:nth-child(2),
+#myTable tbody td:nth-child(2) { width: 160px !important; }
+
+#myTable thead th:nth-child(3),
+#myTable tbody td:nth-child(3) { width: 180px !important; }
+
+#myTable thead th:nth-child(4),
+#myTable tbody td:nth-child(4) { width: 180px !important; }
+
+#myTable thead th:nth-child(5),
+#myTable tbody td:nth-child(5) { width: 160px !important; }
+
+#myTable thead th:nth-child(6),
+#myTable tbody td:nth-child(6) { width: 160px !important; }
+
+#myTable thead th:nth-child(7),
+#myTable tbody td:nth-child(7) { width: 180px !important; }
+
+#myTable thead th:nth-child(8),
+#myTable tbody td:nth-child(8) { width: 120px !important; }
+
+#myTable thead th:nth-child(9),
+#myTable tbody td:nth-child(9) { width: 200px !important; }
+
+/* Your big column */
+#myTable thead th:nth-child(10),
+#myTable tbody td:nth-child(10) {
+    width: 700px !important;
+}
+
+/* Remaining columns */
+#myTable thead th:nth-child(11),
+#myTable tbody td:nth-child(11) { width: 250px !important; }
+
+#myTable thead th:nth-child(12),
+#myTable tbody td:nth-child(12) { width: 120px !important; }
+
+#myTable thead th:nth-child(13),
+#myTable tbody td:nth-child(13) { width: 120px !important; }
+
+#myTable thead th:nth-child(14),
+#myTable tbody td:nth-child(14) { width: 140px !important; }
+
+#myTable thead th:nth-child(15),
+#myTable tbody td:nth-child(15) { width: 160px !important; }
+
+#myTable thead th:nth-child(16),
+#myTable tbody td:nth-child(16) { width: 160px !important; }
+
+#myTable thead th:nth-child(17),
+#myTable tbody td:nth-child(17) { width: 160px !important; }
+
+#myTable thead th:nth-child(18),
+#myTable tbody td:nth-child(18) { width: 200px !important; }
+
+#myTable thead th:nth-child(19),
+#myTable tbody td:nth-child(19) { width: 200px !important; }
 
 /* -----------------------------------------------------------
    CATEGORY TREE — MATCH ORIGINAL HTML
