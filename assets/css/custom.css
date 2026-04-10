@@ -32,6 +32,24 @@
 }
 
 /* -----------------------------------------------------------
+   FIX: table-wrapper must not constrain width
+----------------------------------------------------------- */
+
+.table-wrapper {
+  width: 100% !important;
+  display: block !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* FIX: remove nowrap from table */
+#myTable {
+  white-space: normal !important;
+}
+
+/* -----------------------------------------------------------
    NAVIGATION COLORS + INDENTATION
 ----------------------------------------------------------- */
 
@@ -82,25 +100,22 @@
    DATATABLES — MINIMAL, NON-CONFLICTING
 ----------------------------------------------------------- */
 
-/* Let the wrapper just fill the content area */
 .dataTables_wrapper {
   width: 100% !important;
 }
 
-/* Let DataTables manage scroll; don't override widths aggressively */
 .dataTables_scroll,
 .dataTables_scrollHead,
 .dataTables_scrollBody {
   width: 100% !important;
 }
 
-/* Compensate for vertical scrollbar so header = body width */
+/* Compensate for vertical scrollbar */
 .dataTables_scrollHeadInner {
   padding-right: calc(100vw - 100%) !important;
   box-sizing: content-box !important;
 }
 
-/* Do not force inner table widths beyond 100% */
 .dataTables_scrollHeadInner table,
 .dataTables_scrollBody table {
   width: 100% !important;
@@ -108,20 +123,17 @@
   border-collapse: collapse !important;
 }
 
-/* Table itself */
 #myTable,
 table.dataTable {
   width: 100% !important;
   table-layout: auto !important;
 }
 
-/* Cells */
 table.dataTable th,
 table.dataTable td {
   white-space: normal !important;
 }
 
-/* Visuals you want to keep */
 #myTable tbody tr:nth-child(odd) {
   background-color: #EEEEEE;
 }
@@ -159,10 +171,9 @@ td.field-id-center,
 }
 
 /* -----------------------------------------------------------
-   CATEGORY TREE — MATCH ORIGINAL HTML (NO HTML CHANGES)
+   CATEGORY TREE — MATCH ORIGINAL HTML
 ----------------------------------------------------------- */
 
-/* First H1 (Category Title) */
 .main-content h1:first-of-type,
 .page-content h1:first-of-type,
 .main-content > h1:first-of-type,
@@ -174,7 +185,6 @@ td.field-id-center,
     margin-top: 10px !important;
 }
 
-/* Second H1 (Category Tree Title) */
 .main-content h1:nth-of-type(2),
 .page-content h1:nth-of-type(2),
 .main-content > h1:nth-of-type(2),
@@ -186,7 +196,6 @@ td.field-id-center,
     margin-top: 8px !important;
 }
 
-/* Category description (H2) */
 .main-content h2,
 .page-content h2,
 .main-content > h2,
@@ -198,7 +207,6 @@ td.field-id-center,
     margin-bottom: 6px !important;
 }
 
-/* Back to Home Page button */
 .main-content p > a[href*="data_dict"],
 .page-content p > a[href*="data_dict"] {
     display: inline-block !important;
