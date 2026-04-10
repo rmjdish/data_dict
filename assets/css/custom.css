@@ -93,7 +93,7 @@ table.dataTable {
     word-break: break-word !important;
 }
 
-/* Keep header readable */
+/* Wrap header text too */
 #myTable thead th {
     white-space: normal !important;
 }
