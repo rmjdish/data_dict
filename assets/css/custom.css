@@ -122,16 +122,7 @@ table.dataTable {
     border-collapse: collapse !important;
 }
 
-/* 7. FIX your 10th column width (header + body) */
-#myTable thead th:nth-child(10),
-#myTable tbody td:nth-child(10),
-.dataTables_scrollHeadInner table thead th:nth-child(10) {
-    width: 600px !important;
-    max-width: 600px !important;
-    min-width: 600px !important;
-    white-space: normal !important;
-    word-break: break-word !important;
-}
+
 
 /* -----------------------------------------------------------
    CATEGORY TREE — MATCH ORIGINAL HTML
@@ -182,8 +173,3 @@ table.dataTable {
     font-size: 14px !important;
 }
 
-/* FINAL FIX — allow header columns to shrink like body columns */
-#myTable thead th,
-.dataTables_scrollHeadInner table thead th {
-    white-space: normal !important;
-}
