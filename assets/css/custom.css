@@ -89,9 +89,15 @@
     white-space: normal !important;
 }
 
+/* ⭐ FIX INSERTED HERE — allow header to wrap like body */
+#myTable thead th,
+.dataTables_scrollHeadInner table thead th {
+    white-space: normal !important;
+}
+
 /* 2. REMOVE table-layout: fixed */
 table.dataTable {
-    table-layout: auto !important;
+    table-layout: auto !important;   /* ⭐ FIX INSERTED HERE */
 }
 
 /* 3. REMOVE max-content width */
@@ -123,7 +129,6 @@ table.dataTable {
 }
 
 /* 7. FIX your 10th column width (header + body) */
-/* Make column 10 width identical in header + body + clone */
 #myTable thead th:nth-child(10),
 .dataTables_scrollHeadInner table thead th:nth-child(10),
 #myTable tbody td:nth-child(10),
@@ -181,6 +186,4 @@ table.dataTable {
     border-radius: 4px !important;
     text-decoration: none !important;
     font-weight: 300 !important;
-    font-size: 14px !important;
-}
-
+    font-size:
