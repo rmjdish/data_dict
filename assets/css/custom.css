@@ -43,3 +43,27 @@
 .nav-list .nav-list .nav-list .nav-list-item > .nav-list-link {
   color: #6b5b8e !important;
 }
+
+/* Level 4 pages */
+.nav-list .nav-list .nav-list .nav-list .nav-list-item {
+  padding-left: 1rem !important;
+}
+.nav-list .nav-list .nav-list .nav-list .nav-list-item > .nav-list-link {
+  color: #b07d4f !important;
+}
+
+/* Level 5 pages */
+.nav-list .nav-list .nav-list .nav-list .nav-list .nav-list-item {
+  padding-left: 1rem !important;
+}
+.nav-list .nav-list .nav-list .nav-list .nav-list .nav-list-item > .nav-list-link {
+  color: #c0525a !important;
+}
+
+.side-bar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  height: 100vh !important;
+  overflow-y: auto !important;
+}
