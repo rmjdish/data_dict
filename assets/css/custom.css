@@ -146,23 +146,12 @@ td.field-id-center {
 }
 
 
-/* Match original HTML category tree styling */
-.category-title {
-    font-size: 16px !important;
-    font-weight: bold !important;
-    color: #333 !important;
-    text-decoration: underline !important;
-    margin-top: 10px !important;
-}
+/* -----------------------------------------------------------
+   CATEGORY TREE — MATCH ORIGINAL HTML (NO HTML CHANGES NEEDED)
+----------------------------------------------------------- */
 
-.category-description {
-    font-size: 16px !important;
-    color: #333 !important;
-    margin-top: 10px !important;
-}
-
-/* Match original Back to Home Page button */
-.back-button {
+/* Back to Home Page button */
+.page-content p > a[href*="data_dict"] {
     display: inline-block !important;
     padding: 6px 12px !important;
     background: #0078d4 !important;
@@ -170,4 +159,25 @@ td.field-id-center {
     border-radius: 4px !important;
     text-decoration: none !important;
     font-weight: 300 !important;
+    font-size: 14px !important;
 }
+
+/* Category title (your <h1>) */
+.page-content h1 {
+    font-size: 16px !important;
+    font-weight: bold !important;
+    color: #333 !important;
+    text-decoration: underline !important;
+    margin-top: 10px !important;
+    margin-bottom: 6px !important;
+}
+
+/* Category description (your <h2>) */
+.page-content h2 {
+    font-size: 16px !important;
+    color: #333 !important;
+    margin-top: 10px !important;
+    margin-bottom: 6px !important;
+    font-weight: normal !important;
+}
+
