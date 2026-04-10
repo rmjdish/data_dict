@@ -12,3 +12,7 @@
 .page {
     max-width: 1400px !important;
 }
+
+body {
+    background: yellow !important;
+}
