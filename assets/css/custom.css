@@ -181,3 +181,9 @@ table.dataTable {
     font-weight: 300 !important;
     font-size: 14px !important;
 }
+
+/* FINAL FIX — allow header columns to shrink like body columns */
+#myTable thead th,
+.dataTables_scrollHeadInner table thead th {
+    white-space: normal !important;
+}
