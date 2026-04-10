@@ -25,18 +25,18 @@
 
 /* Parent page links */
 .nav-list .nav-list-item > .nav-list-link {
-  color: #5a5a5a !important;
+  color: #0f766e !important;
 }
 
 /* Indent and color child pages */
 .nav-list .nav-list .nav-list-item {
   padding-left: 1rem !important;
-  color: #7a7a7a !important;
+  color: #3b4f7c !important;
 }
 
 /* Indent and color grandchild pages */
 .nav-list .nav-list .nav-list .nav-list-item {
   padding-left: 2rem !important;
-  color: #9a9a9a !important;
+  color: #6b5b8e !important;
 
 }
