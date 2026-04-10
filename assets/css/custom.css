@@ -151,7 +151,10 @@ td.field-id-center {
 ----------------------------------------------------------- */
 
 /* Force category title (your <h1>) to match original HTML */
-.page-content h1:first-of-type {
+.main-content h1:first-of-type,
+.page-content h1:first-of-type,
+.main-content > h1:first-of-type,
+.page-content > h1:first-of-type {
     font-size: 16px !important;
     font-weight: bold !important;
     color: #333 !important;
@@ -159,14 +162,19 @@ td.field-id-center {
     margin-top: 10px !important;
 }
 
+
 /* Second H1 on the page */
-.page-content h1:nth-of-type(2) {
+.main-content h1:nth-of-type(2),
+.page-content h1:nth-of-type(2),
+.main-content > h1:nth-of-type(2),
+.page-content > h1:nth-of-type(2) {
     font-size: 14px !important;
     font-weight: normal !important;
     color: #444 !important;
     text-decoration: none !important;
     margin-top: 8px !important;
 }
+
 
 /* Force category description (your <h2>) to match original HTML */
 .main-content h2,
