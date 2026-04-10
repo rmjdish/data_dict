@@ -121,71 +121,69 @@ table.dataTable {
 }
 
 /* -----------------------------------------------------------
-   MANUAL COLUMN WIDTHS — HEADER + BODY + CLONE
+   MANUAL COLUMN WIDTHS (ADJUST AS NEEDED)
 ----------------------------------------------------------- */
 
-:root {
-    --w1: 140px;
-    --w2: 160px;
-    --w3: 180px;
-    --w4: 180px;
-    --w5: 160px;
-    --w6: 160px;
-    --w7: 180px;
-    --w8: 120px;
-    --w9: 200px;
-    --w10: 700px;
-    --w11: 250px;
-    --w12: 120px;
-    --w13: 120px;
-    --w14: 140px;
-    --w15: 160px;
-    --w16: 160px;
-    --w17: 160px;
-    --w18: 200px;
-    --w19: 200px;
+#myTable thead th:nth-child(1),
+#myTable tbody td:nth-child(1) { width: 140px !important; }
+
+#myTable thead th:nth-child(2),
+#myTable tbody td:nth-child(2) { width: 160px !important; }
+
+#myTable thead th:nth-child(3),
+#myTable tbody td:nth-child(3) { width: 180px !important; }
+
+#myTable thead th:nth-child(4),
+#myTable tbody td:nth-child(4) { width: 180px !important; }
+
+#myTable thead th:nth-child(5),
+#myTable tbody td:nth-child(5) { width: 160px !important; }
+
+#myTable thead th:nth-child(6),
+#myTable tbody td:nth-child(6) { width: 160px !important; }
+
+#myTable thead th:nth-child(7),
+#myTable tbody td:nth-child(7) { width: 180px !important; }
+
+#myTable thead th:nth-child(8),
+#myTable tbody td:nth-child(8) { width: 120px !important; }
+
+#myTable thead th:nth-child(9),
+#myTable tbody td:nth-child(9) { width: 200px !important; }
+
+/* Your big column */
+#myTable thead th:nth-child(10),
+#myTable tbody td:nth-child(10) {
+    width: 700px !important;
 }
 
-/* Helper macro */
-.colw:nth-child(1)  { width: var(--w1)  !important; }
-.colw:nth-child(2)  { width: var(--w2)  !important; }
-.colw:nth-child(3)  { width: var(--w3)  !important; }
-.colw:nth-child(4)  { width: var(--w4)  !important; }
-.colw:nth-child(5)  { width: var(--w5)  !important; }
-.colw:nth-child(6)  { width: var(--w6)  !important; }
-.colw:nth-child(7)  { width: var(--w7)  !important; }
-.colw:nth-child(8)  { width: var(--w8)  !important; }
-.colw:nth-child(9)  { width: var(--w9)  !important; }
-.colw:nth-child(10) { width: var(--w10) !important; }
-.colw:nth-child(11) { width: var(--w11) !important; }
-.colw:nth-child(12) { width: var(--w12) !important; }
-.colw:nth-child(13) { width: var(--w13) !important; }
-.colw:nth-child(14) { width: var(--w14) !important; }
-.colw:nth-child(15) { width: var(--w15) !important; }
-.colw:nth-child(16) { width: var(--w16) !important; }
-.colw:nth-child(17) { width: var(--w17) !important; }
-.colw:nth-child(18) { width: var(--w18) !important; }
-.colw:nth-child(19) { width: var(--w19) !important; }
+/* Remaining columns */
+#myTable thead th:nth-child(11),
+#myTable tbody td:nth-child(11) { width: 250px !important; }
 
-/* Apply to ALL header layers */
-#myTable thead th,
-.dataTables_scrollHeadInner table thead th,
-.fixedHeader-floating thead th {
-    white-space: normal !important;
-}
+#myTable thead th:nth-child(12),
+#myTable tbody td:nth-child(12) { width: 120px !important; }
 
-#myTable thead th.colw,
-.dataTables_scrollHeadInner table thead th.colw,
-.fixedHeader-floating thead th.colw {
-    box-sizing: border-box !important;
-}
+#myTable thead th:nth-child(13),
+#myTable tbody td:nth-child(13) { width: 120px !important; }
 
-/* Apply to body cells */
-#myTable tbody td.colw {
-    white-space: normal !important;
-    word-break: break-word !important;
-    box-sizing: border-box !important;
-}
+#myTable thead th:nth-child(14),
+#myTable tbody td:nth-child(14) { width: 140px !important; }
+
+#myTable thead th:nth-child(15),
+#myTable tbody td:nth-child(15) { width: 160px !important; }
+
+#myTable thead th:nth-child(16),
+#myTable tbody td:nth-child(16) { width: 160px !important; }
+
+#myTable thead th:nth-child(17),
+#myTable tbody td:nth-child(17) { width: 160px !important; }
+
+#myTable thead th:nth-child(18),
+#myTable tbody td:nth-child(18) { width: 200px !important; }
+
+#myTable thead th:nth-child(19),
+#myTable tbody td:nth-child(19) { width: 200px !important; }
 
 /* -----------------------------------------------------------
    CATEGORY TREE — MATCH ORIGINAL HTML
