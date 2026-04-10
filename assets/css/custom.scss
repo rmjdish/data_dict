@@ -1,11 +1,8 @@
-@import "just-the-docs";
-
-/* Widen the left sidebar */
 .side-bar {
-  width: 360px !important;   /* try 360–420px */
+  width: 420px !important;
+  background: #ffeeee !important;
 }
 
-/* Shift the main content to match */
 .main {
-  margin-left: 360px !important;
+  margin-left: 420px !important;
 }
