@@ -82,15 +82,32 @@
    DATATABLES — RESPONSIVE + PERFECT HEADER ALIGNMENT
 ----------------------------------------------------------- */
 
-/* Wrapper expands fully */
+/* Wrapper fills content area */
 .dataTables_wrapper {
   width: 100% !important;
-  overflow-x: auto !important;
+  overflow-x: hidden !important;
 }
 
-/* Scroll containers resize with browser */
+/* Scroll containers */
 .dataTables_scroll {
   width: 100% !important;
+  overflow: hidden !important;
+}
+
+.dataTables_scrollHead {
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+.dataTables_scrollHeadInner {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.dataTables_scrollHeadInner table {
+  width: 100% !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
 }
 
 .dataTables_scrollBody {
@@ -98,39 +115,57 @@
   overflow-x: auto !important;
 }
 
-/* Table behaves like normal text — fluid width */
+.dataTables_scrollBody table {
+  width: 100% !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Table layout */
 #myTable,
 table.dataTable {
   width: 100% !important;
   table-layout: auto !important;
+  border-collapse: collapse !important;
 }
 
-/* Allow wrapping so columns can shrink */
+/* Header + body cells behave the same */
 table.dataTable th,
 table.dataTable td {
   white-space: normal !important;
+  box-sizing: border-box !important;
 }
 
-/* Force scrollHead clone to match body width */
-.dataTables_scrollHeadInner,
-.dataTables_scrollHeadInner table {
-  width: 100% !important;
+/* YADCF filter row cells align with header */
+.dataTables_scrollHeadInner table thead th,
+.dataTables_scrollHeadInner table thead td {
+  box-sizing: border-box !important;
 }
 
-/* Prevent header clone from using nowrap */
-.dataTables_scrollHeadInner th {
-  white-space: normal !important;
+/* Alternating row shading */
+#myTable tbody tr:nth-child(odd) {
+  background-color: #EEEEEE;
+}
+#myTable tbody tr:nth-child(even) {
+  background-color: #FFFFFF;
 }
 
-/* Ensure DataTables UI elements are visible */
-.dataTables_wrapper .dataTables_filter,
-.dataTables_wrapper .dataTables_paginate,
-.dataTables_wrapper .dataTables_info,
-.dataTables_wrapper .dataTables_length {
-  display: block !important;
+/* Header styling */
+#myTable thead th,
+.dataTables_scrollHeadInner table thead th,
+.fixedHeader-floating th,
+.fixedHeader-locked th {
+  background-color: #A9A9A9 !important;
+  color: black !important;
+  border: 1px solid #d0d0d0 !important;
 }
 
-/* Optional: widen variable label column */
+.fixedHeader-floating,
+.fixedHeader-locked {
+  background-color: #A9A9A9 !important;
+}
+
+/* Special column width */
 .col-variable-label {
   width: 600px !important;
   max-width: 600px !important;
@@ -141,7 +176,9 @@ table.dataTable td {
 
 /* Center Field ID column */
 th.field-id-center,
-td.field-id-center {
+td.field-id-center,
+.dataTables_scrollHeadInner th.field-id-center,
+.yadcf-filter-wrapper.field-id-center {
   text-align: center !important;
 }
 
@@ -197,4 +234,3 @@ td.field-id-center {
     font-weight: 300 !important;
     font-size: 14px !important;
 }
-
