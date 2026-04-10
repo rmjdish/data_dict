@@ -121,69 +121,169 @@ table.dataTable {
 }
 
 /* -----------------------------------------------------------
-   MANUAL COLUMN WIDTHS (ADJUST AS NEEDED)
+   MANUAL COLUMN WIDTHS — PURE CSS, NO HTML CHANGES
 ----------------------------------------------------------- */
 
+/* Wrap text everywhere */
+#myTable thead th,
+#myTable tbody td,
+.dataTables_scrollHeadInner table thead th,
+.fixedHeader-floating thead th {
+    white-space: normal !important;
+    word-break: break-word !important;
+}
+
+/* Column 1 */
 #myTable thead th:nth-child(1),
-#myTable tbody td:nth-child(1) { width: 140px !important; }
+.dataTables_scrollHeadInner table thead th:nth-child(1),
+.fixedHeader-floating thead th:nth-child(1),
+#myTable tbody td:nth-child(1) {
+    width: 140px !important;
+}
 
+/* Column 2 */
 #myTable thead th:nth-child(2),
-#myTable tbody td:nth-child(2) { width: 160px !important; }
+.dataTables_scrollHeadInner table thead th:nth-child(2),
+.fixedHeader-floating thead th:nth-child(2),
+#myTable tbody td:nth-child(2) {
+    width: 160px !important;
+}
 
+/* Column 3 */
 #myTable thead th:nth-child(3),
-#myTable tbody td:nth-child(3) { width: 180px !important; }
+.dataTables_scrollHeadInner table thead th:nth-child(3),
+.fixedHeader-floating thead th:nth-child(3),
+#myTable tbody td:nth-child(3) {
+    width: 180px !important;
+}
 
+/* Column 4 */
 #myTable thead th:nth-child(4),
-#myTable tbody td:nth-child(4) { width: 180px !important; }
+.dataTables_scrollHeadInner table thead th:nth-child(4),
+.fixedHeader-floating thead th:nth-child(4),
+#myTable tbody td:nth-child(4) {
+    width: 180px !important;
+}
 
+/* Column 5 */
 #myTable thead th:nth-child(5),
-#myTable tbody td:nth-child(5) { width: 160px !important; }
+.dataTables_scrollHeadInner table thead th:nth-child(5),
+.fixedHeader-floating thead th:nth-child(5),
+#myTable tbody td:nth-child(5) {
+    width: 160px !important;
+}
 
+/* Column 6 */
 #myTable thead th:nth-child(6),
-#myTable tbody td:nth-child(6) { width: 160px !important; }
+.dataTables_scrollHeadInner table thead th:nth-child(6),
+.fixedHeader-floating thead th:nth-child(6),
+#myTable tbody td:nth-child(6) {
+    width: 160px !important;
+}
 
+/* Column 7 */
 #myTable thead th:nth-child(7),
-#myTable tbody td:nth-child(7) { width: 180px !important; }
+.dataTables_scrollHeadInner table thead th:nth-child(7),
+.fixedHeader-floating thead th:nth-child(7),
+#myTable tbody td:nth-child(7) {
+    width: 180px !important;
+}
 
+/* Column 8 */
 #myTable thead th:nth-child(8),
-#myTable tbody td:nth-child(8) { width: 120px !important; }
+.dataTables_scrollHeadInner table thead th:nth-child(8),
+.fixedHeader-floating thead th:nth-child(8),
+#myTable tbody td:nth-child(8) {
+    width: 120px !important;
+}
 
+/* Column 9 */
 #myTable thead th:nth-child(9),
-#myTable tbody td:nth-child(9) { width: 200px !important; }
+.dataTables_scrollHeadInner table thead th:nth-child(9),
+.fixedHeader-floating thead th:nth-child(9),
+#myTable tbody td:nth-child(9) {
+    width: 200px !important;
+}
 
-/* Your big column */
+/* Column 10 — big text column */
 #myTable thead th:nth-child(10),
+.dataTables_scrollHeadInner table thead th:nth-child(10),
+.fixedHeader-floating thead th:nth-child(10),
 #myTable tbody td:nth-child(10) {
     width: 700px !important;
 }
 
-/* Remaining columns */
+/* Column 11 */
 #myTable thead th:nth-child(11),
-#myTable tbody td:nth-child(11) { width: 250px !important; }
+.dataTables_scrollHeadInner table thead th:nth-child(11),
+.fixedHeader-floating thead th:nth-child(11),
+#myTable tbody td:nth-child(11) {
+    width: 250px !important;
+}
 
+/* Column 12 */
 #myTable thead th:nth-child(12),
-#myTable tbody td:nth-child(12) { width: 120px !important; }
+.dataTables_scrollHeadInner table thead th:nth-child(12),
+.fixedHeader-floating thead th:nth-child(12),
+#myTable tbody td:nth-child(12) {
+    width: 120px !important;
+}
 
+/* Column 13 */
 #myTable thead th:nth-child(13),
-#myTable tbody td:nth-child(13) { width: 120px !important; }
+.dataTables_scrollHeadInner table thead th:nth-child(13),
+.fixedHeader-floating thead th:nth-child(13),
+#myTable tbody td:nth-child(13) {
+    width: 120px !important;
+}
 
+/* Column 14 */
 #myTable thead th:nth-child(14),
-#myTable tbody td:nth-child(14) { width: 140px !important; }
+.dataTables_scrollHeadInner table thead th:nth-child(14),
+.fixedHeader-floating thead th:nth-child(14),
+#myTable tbody td:nth-child(14) {
+    width: 140px !important;
+}
 
+/* Column 15 */
 #myTable thead th:nth-child(15),
-#myTable tbody td:nth-child(15) { width: 160px !important; }
+.dataTables_scrollHeadInner table thead th:nth-child(15),
+.fixedHeader-floating thead th:nth-child(15),
+#myTable tbody td:nth-child(15) {
+    width: 160px !important;
+}
 
+/* Column 16 */
 #myTable thead th:nth-child(16),
-#myTable tbody td:nth-child(16) { width: 160px !important; }
+.dataTables_scrollHeadInner table thead th:nth-child(16),
+.fixedHeader-floating thead th:nth-child(16),
+#myTable tbody td:nth-child(16) {
+    width: 160px !important;
+}
 
+/* Column 17 */
 #myTable thead th:nth-child(17),
-#myTable tbody td:nth-child(17) { width: 160px !important; }
+.dataTables_scrollHeadInner table thead th:nth-child(17),
+.fixedHeader-floating thead th:nth-child(17),
+#myTable tbody td:nth-child(17) {
+    width: 160px !important;
+}
 
+/* Column 18 */
 #myTable thead th:nth-child(18),
-#myTable tbody td:nth-child(18) { width: 200px !important; }
+.dataTables_scrollHeadInner table thead th:nth-child(18),
+.fixedHeader-floating thead th:nth-child(18),
+#myTable tbody td:nth-child(18) {
+    width: 200px !important;
+}
 
+/* Column 19 */
 #myTable thead th:nth-child(19),
-#myTable tbody td:nth-child(19) { width: 200px !important; }
+.dataTables_scrollHeadInner table thead th:nth-child(19),
+.fixedHeader-floating thead th:nth-child(19),
+#myTable tbody td:nth-child(19) {
+    width: 200px !important;
+}
 
 /* -----------------------------------------------------------
    CATEGORY TREE — MATCH ORIGINAL HTML
