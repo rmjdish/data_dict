@@ -117,7 +117,7 @@ table.dataTable td {
   width: 100% !important;
 }
 
-/* Prevent header clone from using max-content */
+/* Prevent header clone from using nowrap */
 .dataTables_scrollHeadInner th {
   white-space: normal !important;
 }
@@ -145,12 +145,11 @@ td.field-id-center {
   text-align: center !important;
 }
 
-
 /* -----------------------------------------------------------
-   CATEGORY TREE — MATCH ORIGINAL HTML (NO HTML CHANGES NEEDED)
+   CATEGORY TREE — MATCH ORIGINAL HTML (NO HTML CHANGES)
 ----------------------------------------------------------- */
 
-/* Force category title (your <h1>) to match original HTML */
+/* First H1 (Category Title) */
 .main-content h1:first-of-type,
 .page-content h1:first-of-type,
 .main-content > h1:first-of-type,
@@ -162,8 +161,7 @@ td.field-id-center {
     margin-top: 10px !important;
 }
 
-
-/* Second H1 on the page */
+/* Second H1 (Category Tree Title) */
 .main-content h1:nth-of-type(2),
 .page-content h1:nth-of-type(2),
 .main-content > h1:nth-of-type(2),
@@ -175,8 +173,7 @@ td.field-id-center {
     margin-top: 8px !important;
 }
 
-
-/* Force category description (your <h2>) to match original HTML */
+/* Category description (H2) */
 .main-content h2,
 .page-content h2,
 .main-content > h2,
@@ -188,7 +185,7 @@ td.field-id-center {
     margin-bottom: 6px !important;
 }
 
-/* Force Back to Home Page button styling */
+/* Back to Home Page button */
 .main-content p > a[href*="data_dict"],
 .page-content p > a[href*="data_dict"] {
     display: inline-block !important;
