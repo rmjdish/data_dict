@@ -67,3 +67,23 @@
   height: 100vh !important;
   overflow-y: auto !important;
 }
+
+/* Allow table pages to use full available width */
+.main-content {
+  max-width: 100% !important;
+}
+
+/* Ensure DataTables wrapper fills the content area */
+.dataTables_wrapper {
+  width: 100% !important;
+  overflow-x: auto !important;
+}
+
+/* Fix scrollX container */
+.dataTables_scroll {
+  width: 100% !important;
+}
+
+.dataTables_scrollBody {
+  overflow-x: auto !important;
+}
