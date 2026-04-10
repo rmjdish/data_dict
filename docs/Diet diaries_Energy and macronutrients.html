@@ -11681,7 +11681,7 @@ $(document).ready(function() {
 
     var table = $('#myTable').DataTable({
         pageLength: 100,
-        dom: "<'top'fB>iprt",
+        dom: "<'top'fB>irtp",
 		scrollX: true,
 		autoWidth: false,
 		fixedHeader: {
@@ -11700,14 +11700,14 @@ $(document).ready(function() {
         },
 		{
 			targets: 9,   // 10th column (Variable Label)
-			className: "col-variable-labelcol-variable-label",   // set your desired width
+			className: "col-variable-label",   // set your desired width
 		}		
 		],
 			});
-
+    
 	// 🔥 CRITICAL: Fix column widths AFTER everything loads
     table.columns.adjust().draw();
-
+    
 	// YADCF dropdown filters (cascading)
     yadcf.init(table, [
     { column_number: 1, filter_type: "select", cumulative_filtering: true },
@@ -11724,7 +11724,6 @@ $(document).ready(function() {
 	}, 900);
 });
 </script>
-
 
 
 
