@@ -303,26 +303,17 @@ document.addEventListener("DOMContentLoaded", function () {
            WINDOW RESIZE HANDLER
            (Do NOT refresh YADCF here — it breaks sorting)
         ----------------------------- */
-$(window).on('resize', $.fn.dataTable.util.throttle(function () {
-    if ($.fn.dataTable.isDataTable('#myTable')) {
-        table.columns.adjust();
+        $(window).on('resize', function () {
+            if ($.fn.dataTable.isDataTable('#myTable')) {
+                table.columns.adjust();
 
-        if (table.fixedHeader) {
-            table.fixedHeader.adjust();
-        }
+                if (table.fixedHeader) {
+                    table.fixedHeader.adjust();
+                }
+            }
+        });
 
-        // Give FixedHeader time to redraw its clone before measuring
-        setTimeout(function () {
-            var yadcfColumns = [2];
-            yadcfColumns.forEach(function (colIndex) {
-                var headerCell = $(table.column(colIndex).header());
-                var newWidth = headerCell.outerWidth();
-                $(headerCell).find('.yadcf-filter-wrapper').css('width', newWidth + 'px');
-                $(headerCell).find('.yadcf-filter-wrapper select, .yadcf-filter-wrapper input').css('width', '100%');
-            });
-        }, 100);
-    }
-}, 200));
+    }, 200);
 });
 
 /* -----------------------------
