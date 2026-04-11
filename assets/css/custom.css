@@ -103,19 +103,20 @@ table.dataTable {
     overflow: hidden !important;
 }
 
+/* ⭐ Correct fix: header & body scroll EXACTLY the same distance */
 .dataTables_scrollBody {
-    overflow-y: scroll !important;
+    overflow-y: auto !important;
     overflow-x: auto !important;
 
-    /* Critical fix: align header & body scroll distance */
-    margin-right: -17px !important;
-    padding-right: 17px !important;
+    /* REMOVE broken hacks */
+    margin-right: 0 !important;
+    padding-right: 0 !important;
 }
 
-/* Sync header/body table widths */
+/* ⭐ Critical fix: remove forced 100% width that caused overscroll */
 .dataTables_scrollHeadInner table,
 .dataTables_scrollBody table {
-    width: 100% !important;
+    width: auto !important;   /* was 100% — this caused header overshoot */
     margin: 0 !important;
     border-collapse: collapse !important;
 }
@@ -307,39 +308,3 @@ table.dataTable {
     font-weight: bold !important;
     color: #800020 !important;
     text-decoration: none !important;
-    margin-top: 10px !important;
-}
-
-.main-content h1:nth-of-type(2),
-.page-content h1:nth-of-type(2),
-.main-content > h1:nth-of-type(2),
-.page-content > h1:nth-of-type(2) {
-    font-size: 14px !important;
-    font-weight: normal !important;
-    color: #444 !important;
-    text-decoration: underline !important;
-    margin-top: 8px !important;
-}
-
-.main-content h2,
-.page-content h2,
-.main-content > h2,
-.page-content > h2 {
-    font-size: 14px !important;
-    font-weight: normal !important;
-    color: #333 !important;
-    margin-top: 15px !important;
-    margin-bottom: 6px !important;
-}
-
-.main-content p > a[href*="data_dict"],
-.page-content p > a[href*="data_dict"] {
-    display: inline-block !important;
-    padding: 6px 12px !important;
-    background: #0078d4 !important;
-    color: white !important;
-    border-radius: 4px !important;
-    text-decoration: none !important;
-    font-weight: 300 !important;
-    font-size: 14px !important;
-}
