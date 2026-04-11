@@ -38,7 +38,7 @@
     left: 0 !important;
     right: auto !important;
     padding-left: 1rem !important;
-    transform: translateX(-15) !important;
+    transform: translateX(-0) !important;
 }
 
 /* Remove any centering from the header */
