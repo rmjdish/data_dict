@@ -34,11 +34,9 @@
 
 /* Move site title into sidebar alignment */
 .site-header {
-    display: block;
-    text-align: left !important;
-    padding-left: 1rem !important;
     width: var(--sidebar-width) !important;
-    box-sizing: border-box;
+    min-width: 0 !important;
+    right: auto !important;
 }
 
 /* Remove any centering from the header */
