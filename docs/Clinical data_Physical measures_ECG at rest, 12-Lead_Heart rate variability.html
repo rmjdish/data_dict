@@ -283,9 +283,7 @@ document.addEventListener("DOMContentLoaded", function () {
            YADCF INIT (only once)
         ----------------------------- */
         yadcf.init(table, [
-            { column_number: 2, 
-			  filter_type: "select", 
-			  cumulative_filtering: true}
+            { column_number: 2, filter_type: "select", cumulative_filtering: true }
         ]);
 
         /* -----------------------------
@@ -322,17 +320,12 @@ document.addEventListener("DOMContentLoaded", function () {
    ⭐ Helper: Resize only the filter wrapper
 ----------------------------- */
 function resizeYadcfFilter(table, colIndex) {
-    // Get the visible header cell for that column
     var headerCell = $(table.column(colIndex).header());
-    var newWidth   = headerCell.outerWidth();
+    var newWidth = headerCell.outerWidth();
 
-    // Find the YADCF wrapper inside that header cell
-    var wrapper = headerCell.find('.yadcf-filter-wrapper');
-
-    // If it exists, set its width
-    if (wrapper.length) {
-        wrapper.css('width', newWidth + 'px');
-    }
+    $('.yadcf-filter-wrapper-' + colIndex).css({
+        width: newWidth + 'px'
+    });
 }
 
 </script>
