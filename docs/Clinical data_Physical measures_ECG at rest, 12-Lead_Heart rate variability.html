@@ -279,17 +279,35 @@ document.addEventListener("DOMContentLoaded", function () {
             ]
         });
 
-	
+        /* -----------------------------
+           YADCF INIT
+        ----------------------------- */
         yadcf.init(table, [
             { column_number: 2, filter_type: "select", cumulative_filtering: true },
         ]);
 
-		setTimeout(function () {
-			table.columns.adjust().draw(false);
-			if (table.fixedHeader) {
-				table.fixedHeader.adjust();
-			}
-		}, 300);
+        /* -----------------------------
+           POST-INIT ADJUST (critical)
+        ----------------------------- */
+        setTimeout(function () {
+            table.columns.adjust().draw(false);
+            if (table.fixedHeader) {
+                table.fixedHeader.adjust();
+            }
+        }, 300);
+
+        /* -----------------------------
+           WINDOW RESIZE HANDLER (critical)
+           Ensures header resizes with table
+        ----------------------------- */
+        $(window).on('resize', function () {
+            if ($.fn.dataTable.isDataTable('#myTable')) {
+                table.columns.adjust();
+                if (table.fixedHeader) {
+                    table.fixedHeader.adjust();
+                }
+            }
+        });
 
     }, 200);
 });
