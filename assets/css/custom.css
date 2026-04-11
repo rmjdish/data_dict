@@ -77,14 +77,14 @@
 .nav-list .nav-list .nav-list .nav-list .nav-list .nav-list-item > .nav-list-link {
   color: #c0525a !important;
 }
-* -----------------------------------------------------------
-   DATATABLES — CLEAN, STABLE, RESIZABLE, SCROLLX-SAFE
+
+/* -----------------------------------------------------------
+   DATATABLES — MANUAL COLUMN WIDTHS + WRAPPING
 ----------------------------------------------------------- */
 
 /* Let DataTables calculate widths properly */
 table.dataTable {
     table-layout: auto !important;
-    width: auto !important;
 }
 
 /* Wrap text in body cells */
@@ -93,40 +93,50 @@ table.dataTable {
     word-break: break-word !important;
 }
 
-/* Wrap text in header cells */
+/* Keep header readable */
 #myTable thead th {
     white-space: normal !important;
 }
 
 /* Scroll containers */
 .dataTables_scroll {
-    overflow: visible !important;
+    overflow: hidden !important;
 }
 
-/* Scroll body — NO SHIFTING, NO NEGATIVE MARGINS */
 .dataTables_scrollBody {
-    overflow-x: auto !important;
     overflow-y: auto !important;
-    margin-right: 0 !important;
-    padding-right: 0 !important;
 }
 
-/* ⭐ CRITICAL: Header + body tables MUST share width */
+/* ⭐ MINIMAL FIX: remove broken 100% width override */
 .dataTables_scrollHeadInner table,
 .dataTables_scrollBody table {
     width: auto !important;
-    table-layout: auto !important;
     margin: 0 !important;
     border-collapse: collapse !important;
 }
 
-/* Header container must be allowed to resize */
+/* ⭐ MINIMAL FIX: remove broken scrollbar padding */
+.dataTables_scrollHeadInner {
+    padding-right: 0 !important;
+    box-sizing: content-box !important;
+}
+
+/* Make header track body exactly */
 .dataTables_scrollHead {
     overflow: visible !important;
 }
 
+/* ⭐ Keep only ONE scrollBody override */
+.dataTables_scrollBody {
+    overflow-y: scroll !important;
+    overflow-x: auto !important;
+    margin-right: -17px !important;
+    padding-right: 17px !important;
+}
+
 /* -----------------------------------------------------------
-   MANUAL COLUMN WIDTHS — PURE CSS
+   MANUAL COLUMN WIDTHS — PURE CSS (NO HTML CHANGES)
+   With forced wrapping so long text NEVER widens columns
 ----------------------------------------------------------- */
 
 /* Wrap text everywhere */
@@ -160,7 +170,7 @@ table.dataTable {
     max-width: 60px !important;
 }
 
-/* Column 3 */
+/* Column 3 — FIXED TYPO (px not x) */
 #myTable thead th:nth-child(3),
 .dataTables_scrollHeadInner table thead th:nth-child(3),
 .fixedHeader-floating thead th:nth-child(3),
@@ -168,7 +178,6 @@ table.dataTable {
     width: 210px !important;
     min-width: 210px !important;
     max-width: 210px !important;
-}
 }
 
 /* -----------------------------------------------------------

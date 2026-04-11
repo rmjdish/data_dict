@@ -284,9 +284,12 @@ document.addEventListener("DOMContentLoaded", function () {
             { column_number: 2, filter_type: "select", cumulative_filtering: true },
         ]);
 
-        setTimeout(function () {
-            table.columns.adjust().draw(false);
-        }, 300);
+		setTimeout(function () {
+			table.columns.adjust().draw(false);
+			if (table.fixedHeader) {
+				table.fixedHeader.adjust();
+			}
+		}, 300);
 
     }, 200);
 });
