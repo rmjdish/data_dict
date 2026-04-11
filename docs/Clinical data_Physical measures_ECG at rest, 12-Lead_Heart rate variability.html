@@ -316,17 +316,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 200);
 });
 
-		/* -----------------------------
-		   ⭐ Helper: Resize only the filter wrapper
-		----------------------------- */
-		function resizeYadcfFilter(table, colIndex) {
-			var headerCell = $(table.column(colIndex).header());
-			var newWidth = headerCell.outerWidth();
+/* -----------------------------
+   ⭐ Helper: Resize only the filter wrapper
+----------------------------- */
+function resizeYadcfFilter(table, colIndex) {
+    var headerCell = $(table.column(colIndex).header());
+    var newWidth = headerCell.outerWidth();
 
-			$('.yadcf-filter-wrapper-' + colIndex).css({
-				width: newWidth + 'px'
-			});
-		}
+    $('.yadcf-filter-wrapper-' + colIndex).css({
+        width: newWidth + 'px'
+    });
+}
 
 </script>
 
