@@ -149,200 +149,125 @@ nav_order: 9
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
 <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
 
-<style>     
+<style>
 
+/* Alternating row shading */
+#myTable tbody tr:nth-child(odd) {
+    background-color: #EEEEEE;
+}
+#myTable tbody tr:nth-child(even) {
+    background-color: #FFFFFF;
+}
 
-	/* Force DataTables to calculate correct widths 
-	table.dataTable {
-		width: 100% !important;
-	} */
+/* Header row shading */
+#myTable thead th {
+    background-color: #A9A9A9 !important;
+    color: black !important;
+}
 
-	/* Ensure scrollHead and scrollBody use same table width 
-	.dataTables_scrollHeadInner,
-	.dataTables_scrollBody table {
-		width: 100% !important;
-	}  */
+/* FixedHeader floating + locked */
+.fixedHeader-floating th,
+.fixedHeader-locked th,
+.fixedHeader-floating thead th,
+.fixedHeader-locked thead th {
+    background-color: #A9A9A9 !important;
+    color: black !important;
+    border: 1px solid #d0d0d0 !important;
+}
 
-	/* Prevent header wrapping that breaks alignment 
-	#myTable thead th {
-		white-space: nowrap !important;
-	}	*/
+/* FixedHeader wrapper */
+.fixedHeader-floating,
+.fixedHeader-locked {
+    background-color: #A9A9A9 !important;
+}
 
+/* ScrollX header clone */
+.dataTables_scrollHeadInner table thead th {
+    background-color: #A9A9A9 !important;
+    color: black !important;
+    border: 1px solid #d0d0d0 !important;
+}
 
-	/* Alternating row shading */
+/* YADCF filter header background */
+.fixedHeader-floating .yadcf-filter-wrapper,
+.fixedHeader-locked .yadcf-filter-wrapper,
+#myTable thead .yadcf-filter-wrapper {
+    background-color: #A9A9A9 !important;
+}
 
-	#myTable tbody tr:nth-child(odd) {
-		background-color: #EEEEEE;
-	}
-	#myTable tbody tr:nth-child(even) {
-		background-color: #FFFFFF;
-	}
+/* Scroll body height */
+.dataTables_scrollBody {
+    overflow-y: auto !important;
+    max-height: 600px !important;
+}
 
-    /* Header row shading */
-	#myTable thead th {
-		background-color: #A9A9A9 !important;
-		color: black !important;
-	}
+/* Typography */
+table.dataTable {
+    font-family: system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
 
-	/* FIXEDHEADER FLOATING + LOCKED */
-	.fixedHeader-floating th,
-	.fixedHeader-locked th,
-	.fixedHeader-floating thead th,
-	.fixedHeader-locked thead th {
-		background-color: #A9A9A9 !important;
-		color: black !important;
-		border: 1px solid #d0d0d0 !important;
-	}
+/* Search bar left aligned */
+.dataTables_filter {
+    float: left !important;
+    text-align: left !important;
+}
 
-	/* FIXEDHEADER WRAPPER */
-	.fixedHeader-floating,
-	.fixedHeader-locked {
-		background-color: #A9A9A9 !important;
-	}
+/* Info text */
+.dataTables_wrapper .dataTables_info {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
 
-	/* THE MOST IMPORTANT ONE — scrollX header clone */
-	.dataTables_scrollHeadInner table thead th {
-		background-color: #A9A9A9 !important;
-		color: black !important;
-		border: 1px solid #d0d0d0 !important;
-	}
+/* Search bar styling */
+.dataTables_wrapper .dataTables_filter label {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: red !important;
+}
 
-		/* Ensure the YADCF filter header also freezes correctly */
-		.fixedHeader-floating .yadcf-filter-wrapper,
-		.fixedHeader-locked .yadcf-filter-wrapper,
-		#myTable thead .yadcf-filter-wrapper {
-			background-color: #A9A9A9 !important;
-		}
+.dataTables_wrapper .dataTables_filter input {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 10px;
+    border: 1px solid #999;
+    border-radius: 4px;
+    color: purple !important;
+}
 
-	.dataTables_scrollBody {
-		overflow-y: auto !important;
-		max-height: 600px !important;
-	}
+/* Buttons right aligned */
+.dataTables_wrapper .dt-buttons {
+    float: right !important;
+    text-align: right !important;
+}
 
-	/* Match Just the Docs typography */
-    table.dataTable {
-        font-family: system-ui, sans-serif;
-        font-size: 16px;
-        line-height: 1.5;
-    }	
+/* Prevent layout overlap */
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dt-buttons {
+    margin-top: 10px;
+}
 
+/* Clear floats */
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_info {
+    clear: both;
+}
 
-	.dataTables_filter {
-		float: left !important;
-		text-align: left !important;
-	}
+/* YADCF filter width for variable label column */
+.yadcf-filter-wrapper.col-variable-label select,
+.yadcf-filter-wrapper.col-variable-label input {
+    width: 600px !important;
+}
 
-    .dataTables_wrapper .dataTables_info {
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
-
-	/* SEARCH BAR — LEFT SIDE */
-	.dataTables_wrapper .dataTables_filter {
-		float: left !important;
-		text-align: left !important;
-		margin-left: 0 !important;
-	}
-
-	/* BUTTONS — RIGHT SIDE */
-	.dataTables_wrapper .dt-buttons {
-		float: right !important;
-		text-align: right !important;
-		margin-right: 0 !important;
-	}
-
-	/* Prevent layout overlap */
-	.dataTables_wrapper .dataTables_filter,
-	.dataTables_wrapper .dt-buttons {
-		margin-top: 10px;
-	}
-
-	/* Clear floats so table sits below */
-	.dataTables_wrapper .dataTables_length,
-	.dataTables_wrapper .dataTables_info {
-		clear: both;
-	}
-
-	/* Search label text */
-	.dataTables_wrapper .dataTables_filter label {
-		font-family: Arial, sans-serif;
-		font-size: 14px;
-		color: red !important;
-	}
-
-	/* Search input box */
-	.dataTables_wrapper .dataTables_filter input {
-		font-family: Arial, sans-serif;
-		font-size: 15px;
-		font-weight: bold;
-		padding: 6px 10px;
-		border: 1px solid #999;
-		border-radius: 4px;
-		color: purple !important;
-
-	}	
-
-	/* Force scroll container to allow full table width */
-	.dataTables_scroll {
-	width: 100% !important;
-	overflow: visible !important;
-	}
-
-	/* Force DataTables to control width, not Jekyll */
-	.dataTables_wrapper {
-		width: 100% !important;
-		overflow: visible !important;
-	}
-
-	/* Force scrollHead + scrollBody to use identical width 
-	.dataTables_scrollHeadInner,
-	.dataTables_scrollBody table {
-		width: max-content !important;
-	} */
-
-	/* Prevent header wrapping (causes misalignment) */
-	#myTable thead th {
-		white-space: nowrap !important;
-	} */
-
-	/* Prevent parent containers from shrinking the table 
-	#myTable {
-		width: max-content !important;
-		table-layout: auto !important; 
-	} */	
-
-	/*
-	table.dataTable {
-		table-layout: fixed !important;
-	} */
-
-	/* Prevent header wrapping */
-	#myTable thead th {
-		white-space: nowrap !important;
-	}
-
-	/* Force width of 10th column 
-	.col-variable-label {
-		width: 600px !important;
-		max-width: 600px !important;
-		min-width: 600px !important;
-		white-space: normal !important;
-		word-break: break-word !important;
-	} */
-
-	/* Match YADCF filter width */
-	.yadcf-filter-wrapper.col-variable-label select,
-	.yadcf-filter-wrapper.col-variable-label input {
-		width: 600px !important;
-	}
-
-	/* Center the Field ID column (header + body + filter row) */
-	th.field-id-center,
-	td.field-id-center,
-	.dataTables_scrollHeadInner th.field-id-center,
-	.yadcf-filter-wrapper.field-id-center {
-		text-align: center !important;
-	}
+/* Center Field ID column */
+th.field-id-center,
+td.field-id-center,
+.dataTables_scrollHeadInner th.field-id-center,
+.yadcf-filter-wrapper.field-id-center {
+    text-align: center !important;
+}
 
 </style>
 
