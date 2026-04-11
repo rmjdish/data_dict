@@ -32,11 +32,12 @@
 }
 
 
-/* Move site title into sidebar alignment */
 .site-header {
     width: var(--sidebar-width) !important;
     min-width: 0 !important;
+    left: 0 !important;
     right: auto !important;
+    padding-left: 1rem !important;
 }
 
 /* Remove any centering from the header */
