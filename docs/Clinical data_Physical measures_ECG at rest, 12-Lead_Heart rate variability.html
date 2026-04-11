@@ -295,12 +295,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (table.fixedHeader) {
                 table.fixedHeader.adjust();
-            }
-
-            // ⭐ Refresh YADCF ONLY after FixedHeader is stable
-            yadcf.exRefreshColumnFilter(table, 2);
-
-        }, 300);
+            }}, 300);
 
         /* -----------------------------
            WINDOW RESIZE HANDLER
