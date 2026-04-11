@@ -230,24 +230,3 @@ table.dataTable {
 }
 
 
-/* FINAL FIX — restore proper scrollX behavior */
-
-/* 1. Remove scroll shifting */
-.dataTables_scrollBody {
-    margin-right: 0 !important;
-    padding-right: 0 !important;
-    overflow-x: auto !important;
-    overflow-y: auto !important;
-}
-
-/* 2. Allow header to scroll normally */
-.dataTables_scrollHead {
-    overflow: visible !important;
-}
-
-/* 3. Header + body tables must share identical width */
-.dataTables_scrollHeadInner table,
-.dataTables_scrollBody table {
-    width: 100% !important;
-    table-layout: auto !important;
-}
