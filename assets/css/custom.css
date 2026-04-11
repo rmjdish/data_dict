@@ -79,51 +79,13 @@
 }
 
 /* -----------------------------------------------------------
-   DATATABLES — MANUAL COLUMN WIDTHS + WRAPPING
+   DATATABLES — CORE FIXES
 ----------------------------------------------------------- */
 
 /* Let DataTables calculate widths properly */
 table.dataTable {
     table-layout: auto !important;
 }
-
-/* Wrap text in body cells */
-#myTable tbody td {
-    white-space: normal !important;
-    word-break: break-word !important;
-}
-
-/* Keep header readable */
-#myTable thead th {
-    white-space: normal !important;
-}
-
-/* Scroll containers */
-.dataTables_scroll {
-    overflow: hidden !important;
-}
-.dataTables_scrollBody {
-    overflow-y: auto !important;
-}
-
-/* Header/body width sync */
-.dataTables_scrollHeadInner table,
-.dataTables_scrollBody table {
-    width: 100% !important;
-    margin: 0 !important;
-    border-collapse: collapse !important;
-}
-
-/* Compensate for scrollbar */
-.dataTables_scrollHeadInner {
-    padding-right: calc(100vw - 100%) !important;
-    box-sizing: content-box !important;
-}
-
-/* -----------------------------------------------------------
-   MANUAL COLUMN WIDTHS — PURE CSS (NO HTML CHANGES)
-   With forced wrapping so long text NEVER widens columns
------------------------------------------------------------ */
 
 /* Wrap text everywhere */
 #myTable thead th,
@@ -136,7 +98,32 @@ table.dataTable {
     hyphens: auto !important;
 }
 
-/* Helper macro: apply widths to all header layers + body */
+/* Scroll containers */
+.dataTables_scroll {
+    overflow: hidden !important;
+}
+
+.dataTables_scrollBody {
+    overflow-y: scroll !important;
+    overflow-x: auto !important;
+
+    /* Critical fix: align header & body scroll distance */
+    margin-right: -17px !important;
+    padding-right: 17px !important;
+}
+
+/* Sync header/body table widths */
+.dataTables_scrollHeadInner table,
+.dataTables_scrollBody table {
+    width: 100% !important;
+    margin: 0 !important;
+    border-collapse: collapse !important;
+}
+
+/* -----------------------------------------------------------
+   MANUAL COLUMN WIDTHS — PURE CSS (NO HTML CHANGES)
+----------------------------------------------------------- */
+
 #myTable thead th:nth-child(1),
 .dataTables_scrollHeadInner table thead th:nth-child(1),
 .fixedHeader-floating thead th:nth-child(1),
@@ -218,7 +205,6 @@ table.dataTable {
     max-width: 200px !important;
 }
 
-/* Column 10 — big text column */
 #myTable thead th:nth-child(10),
 .dataTables_scrollHeadInner table thead th:nth-child(10),
 .fixedHeader-floating thead th:nth-child(10),
@@ -309,7 +295,6 @@ table.dataTable {
     max-width: 200px !important;
 }
 
-
 /* -----------------------------------------------------------
    CATEGORY TREE — MATCH ORIGINAL HTML
 ----------------------------------------------------------- */
@@ -357,24 +342,4 @@ table.dataTable {
     text-decoration: none !important;
     font-weight: 300 !important;
     font-size: 14px !important;
-}
-
-/* Make header track body exactly */
-.dataTables_scrollHead {
-    overflow: hidden !important;
-}
-
-/* Fix body scroll so header and body travel the same distance */
-.dataTables_scrollBody {
-    overflow-y: scroll !important;   /* ensure scrollbar exists */
-    overflow-x: auto !important;
-    margin-right: -17px !important;  /* pull table under scrollbar */
-    padding-right: 17px !important;  /* keep content visible */
-}
-
-.dataTables_scrollBody {
-    overflow-y: scroll !important;   /* force scrollbar */
-    overflow-x: auto !important;
-    margin-right: -17px !important;  /* pull body under scrollbar */
-    padding-right: 17px !important;  /* keep content visible */
 }
