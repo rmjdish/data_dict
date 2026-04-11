@@ -359,9 +359,22 @@ table.dataTable {
     font-size: 14px !important;
 }
 
-/* Auto-detect scrollbar width and compensate header */
-.dataTables_scrollHeadInner {
-    padding-right: calc(100vw - 100%) !important;
-    box-sizing: content-box !important;
+/* Make header track body exactly */
+.dataTables_scrollHead {
     overflow: hidden !important;
+}
+
+/* Fix body scroll so header and body travel the same distance */
+.dataTables_scrollBody {
+    overflow-y: scroll !important;   /* ensure scrollbar exists */
+    overflow-x: auto !important;
+    margin-right: -17px !important;  /* pull table under scrollbar */
+    padding-right: 17px !important;  /* keep content visible */
+}
+
+.dataTables_scrollBody {
+    overflow-y: scroll !important;   /* force scrollbar */
+    overflow-x: auto !important;
+    margin-right: -17px !important;  /* pull body under scrollbar */
+    padding-right: 17px !important;  /* keep content visible */
 }
