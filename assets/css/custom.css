@@ -79,13 +79,51 @@
 }
 
 /* -----------------------------------------------------------
-   DATATABLES — CORE FIXES
+   DATATABLES — MANUAL COLUMN WIDTHS + WRAPPING
 ----------------------------------------------------------- */
 
 /* Let DataTables calculate widths properly */
 table.dataTable {
     table-layout: auto !important;
 }
+
+/* Wrap text in body cells */
+#myTable tbody td {
+    white-space: normal !important;
+    word-break: break-word !important;
+}
+
+/* Keep header readable */
+#myTable thead th {
+    white-space: normal !important;
+}
+
+/* Scroll containers */
+.dataTables_scroll {
+    overflow: hidden !important;
+}
+.dataTables_scrollBody {
+    overflow-y: auto !important;
+}
+
+/* Header/body width sync */
+.dataTables_scrollHeadInner table,
+.dataTables_scrollBody table {
+    width: 100% !important;
+    margin: 0 !important;
+    border-collapse: collapse !important;
+}
+
+/* Compensate for scrollbar */
+.dataTables_scrollHeadInner {
+    padding-right: calc(100vw - 100%) !important;
+    box-sizing: content-box !important;
+}
+
+/* -----------------------------------------------------------
+   MANUAL COLUMN WIDTHS — PURE CSS (NO HTML CHANGES)
+   With forced wrapping so long text NEVER widens columns
+----------------------------------------------------------- */
 
 /* Wrap text everywhere */
 #myTable thead th,
@@ -98,33 +136,7 @@ table.dataTable {
     hyphens: auto !important;
 }
 
-/* Scroll containers */
-.dataTables_scroll {
-    overflow: hidden !important;
-}
-
-/* ⭐ Correct fix: header & body scroll EXACTLY the same distance */
-.dataTables_scrollBody {
-    overflow-y: auto !important;
-    overflow-x: auto !important;
-
-    /* REMOVE broken hacks */
-    margin-right: 0 !important;
-    padding-right: 0 !important;
-}
-
-/* ⭐ Critical fix: remove forced 100% width that caused overscroll */
-.dataTables_scrollHeadInner table,
-.dataTables_scrollBody table {
-    width: auto !important;   /* was 100% — this caused header overshoot */
-    margin: 0 !important;
-    border-collapse: collapse !important;
-}
-
-/* -----------------------------------------------------------
-   MANUAL COLUMN WIDTHS — PURE CSS (NO HTML CHANGES)
------------------------------------------------------------ */
-
+/* Helper macro: apply widths to all header layers + body */
 #myTable thead th:nth-child(1),
 .dataTables_scrollHeadInner table thead th:nth-child(1),
 .fixedHeader-floating thead th:nth-child(1),
@@ -206,6 +218,7 @@ table.dataTable {
     max-width: 200px !important;
 }
 
+/* Column 10 — big text column */
 #myTable thead th:nth-child(10),
 .dataTables_scrollHeadInner table thead th:nth-child(10),
 .fixedHeader-floating thead th:nth-child(10),
@@ -296,6 +309,7 @@ table.dataTable {
     max-width: 200px !important;
 }
 
+
 /* -----------------------------------------------------------
    CATEGORY TREE — MATCH ORIGINAL HTML
 ----------------------------------------------------------- */
@@ -308,3 +322,59 @@ table.dataTable {
     font-weight: bold !important;
     color: #800020 !important;
     text-decoration: none !important;
+    margin-top: 10px !important;
+}
+
+.main-content h1:nth-of-type(2),
+.page-content h1:nth-of-type(2),
+.main-content > h1:nth-of-type(2),
+.page-content > h1:nth-of-type(2) {
+    font-size: 14px !important;
+    font-weight: normal !important;
+    color: #444 !important;
+    text-decoration: underline !important;
+    margin-top: 8px !important;
+}
+
+.main-content h2,
+.page-content h2,
+.main-content > h2,
+.page-content > h2 {
+    font-size: 14px !important;
+    font-weight: normal !important;
+    color: #333 !important;
+    margin-top: 15px !important;
+    margin-bottom: 6px !important;
+}
+
+.main-content p > a[href*="data_dict"],
+.page-content p > a[href*="data_dict"] {
+    display: inline-block !important;
+    padding: 6px 12px !important;
+    background: #0078d4 !important;
+    color: white !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+    font-weight: 300 !important;
+    font-size: 14px !important;
+}
+
+/* Make header track body exactly */
+.dataTables_scrollHead {
+    overflow: hidden !important;
+}
+
+/* Fix body scroll so header and body travel the same distance */
+.dataTables_scrollBody {
+    overflow-y: scroll !important;   /* ensure scrollbar exists */
+    overflow-x: auto !important;
+    margin-right: -17px !important;  /* pull table under scrollbar */
+    padding-right: 17px !important;  /* keep content visible */
+}
+
+.dataTables_scrollBody {
+    overflow-y: scroll !important;   /* force scrollbar */
+    overflow-x: auto !important;
+    margin-right: -17px !important;  /* pull body under scrollbar */
+    padding-right: 17px !important;  /* keep content visible */
+}
