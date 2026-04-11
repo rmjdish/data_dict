@@ -33,7 +33,7 @@
 
 
 /* Move site title into sidebar alignment */
-.site-title {
+.site-header {
     display: block;
     text-align: left !important;
     padding-left: 1rem !important;
