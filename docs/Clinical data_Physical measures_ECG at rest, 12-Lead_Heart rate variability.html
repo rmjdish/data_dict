@@ -19,7 +19,8 @@ nav_order: 9
 <thead><tr>
 <th style='border:1px solid #ccc; padding:6px;'>NSHD Variable Name</th>
 <th style='border:1px solid #ccc; padding:6px;'>Showcase Field ID</th>
-<th style='border:1px solid #ccc; padding:6px;'>Variable Label</th>
+<th style='border:1px solid #ccc; padding:6px;'>Variable Label
+	<div id="yadcf-col2"></div></th>
 </tr></thead>
 <tbody>
 <tr>
@@ -283,7 +284,10 @@ document.addEventListener("DOMContentLoaded", function () {
            YADCF INIT (only once)
         ----------------------------- */
         yadcf.init(table, [
-            { column_number: 2, filter_type: "select", cumulative_filtering: true }
+            { column_number: 2, 
+			  filter_type: "select", 
+			  cumulative_filtering: true,
+			  filter_container_id: "yadcf-col2"}
         ]);
 
         /* -----------------------------
