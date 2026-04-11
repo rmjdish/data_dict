@@ -261,9 +261,22 @@ table.dataTable {
 }
 
 /* Remove or replace the fixed 600px rule */
-.yadcf-filter-wrapper.col-variable-label select,
-.yadcf-filter-wrapper.col-variable-label input {
-    width: 100% !important;  /* Let JS control the wrapper width instead */
-    max-width: 600px;        /* Optional: cap it on very wide screens */
+*/
+
+/* Replace with these */
+.yadcf-filter-wrapper {
+    width: 100% !important;
     box-sizing: border-box;
+}
+
+.yadcf-filter-wrapper select,
+.yadcf-filter-wrapper input {
+    width: 100% !important;
+    box-sizing: border-box;
+}
+
+/* Make the header cell itself contain the filter properly */
+#myTable thead th {
+    overflow: visible;
+    white-space: nowrap;
 }
