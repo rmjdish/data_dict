@@ -210,28 +210,37 @@ table.dataTable {
 /* Helper macro: apply widths to all header layers + body */
 #myTable thead th:nth-child(1),
 .dataTables_scrollHeadInner table thead th:nth-child(1),
-.fixedHeader-floating thead th:nth-child(1),
+.fixedHeader-floating thead th:nth-child(1)
+{
+    width: 85px !important;
+    min-width: 85px !important;
+    max-width: 85px !important;
+}
 #myTable tbody td:nth-child(1) {
-    width: 75px !important;
-    min-width: 75px !important;
-    max-width: 75px !important;
+    width: 85px !important;
+    min-width: 85px !important;
+    max-width: 85px !important;
 }
 
 #myTable thead th:nth-child(2),
 .dataTables_scrollHeadInner table thead th:nth-child(2),
-.fixedHeader-floating thead th:nth-child(2),
+.fixedHeader-floating thead th:nth-child(2){
+    width: 85px !important;
+    min-width: 85px !important;
+    max-width: 85px !important;
+}
 #myTable tbody td:nth-child(2) {
-    width: 75px !important;
-    min-width: 75px !important;
-    max-width: 75px !important;
+    width: 85px !important;
+    min-width: 85px !important;
+    max-width: 85px !important;
 }
 
 #myTable thead th:nth-child(3),
 .dataTables_scrollHeadInner table thead th:nth-child(3),
 .fixedHeader-floating thead th:nth-child(3),
 #myTable tbody td:nth-child(3) {
-    width: 210px !important;
-    min-width: 210px !important;
-    max-width: 210x !important;
+    width: 180px !important;
+    min-width: 180px !important;
+    max-width: 180x !important;
 }
 
