@@ -259,3 +259,11 @@ table.dataTable {
     float: left !important;
     text-align: left !important;
 }
+
+/* Remove or replace the fixed 600px rule */
+.yadcf-filter-wrapper.col-variable-label select,
+.yadcf-filter-wrapper.col-variable-label input {
+    width: 100% !important;  /* Let JS control the wrapper width instead */
+    max-width: 600px;        /* Optional: cap it on very wide screens */
+    box-sizing: border-box;
+}
