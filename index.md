@@ -1,5 +1,5 @@
 ---
-title: Home
+title: NSHD Data Dictionary Website
 layout: home
 nav_order: 1
 ---
