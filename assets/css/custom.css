@@ -250,13 +250,3 @@ table.dataTable {
     overflow-y: auto !important;
 }
 
-
-/* FINAL OVERRIDE — allow header to resize with body */
-.dataTables_scrollHeadInner table {
-    width: auto !important;
-    table-layout: auto !important;
-}
-
-.dataTables_scrollHeadInner {
-    width: auto !important;
-}
