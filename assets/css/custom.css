@@ -155,9 +155,9 @@ table.dataTable {
 .dataTables_scrollHeadInner table thead th:nth-child(1),
 .fixedHeader-floating thead th:nth-child(1),
 #myTable tbody td:nth-child(1) {
-    width: 55px !important;
-    min-width: 55px !important;
-    max-width: 55px !important;
+    width: 15px !important;
+    min-width: 15px !important;
+    max-width: 15px !important;
 }
 
 /* Column 2 */
