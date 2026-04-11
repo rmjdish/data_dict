@@ -363,4 +363,5 @@ table.dataTable {
 .dataTables_scrollHeadInner {
     padding-right: calc(100vw - 100%) !important;
     box-sizing: content-box !important;
+    overflow: hidden !important;
 }
