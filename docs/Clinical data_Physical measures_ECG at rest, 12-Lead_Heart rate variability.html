@@ -367,8 +367,6 @@ document.addEventListener("DOMContentLoaded", function () {
             ]
         });
 
-		// 🔥 CRITICAL: Fix column widths AFTER everything loads
-		table.columns.adjust().draw();
 	
         yadcf.init(table, [
             { column_number: 2, filter_type: "select", cumulative_filtering: true },
