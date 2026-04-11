@@ -294,11 +294,12 @@ document.addEventListener("DOMContentLoaded", function () {
             if (table.fixedHeader) {
                 table.fixedHeader.adjust();
             }
+            yadcf.exRefreshColumnFilter(table, 2);   // ⭐ refresh filter width
         }, 300);
 
         /* -----------------------------
            WINDOW RESIZE HANDLER (critical)
-           Ensures header resizes with table
+           Ensures header + filter resize with table
         ----------------------------- */
         $(window).on('resize', function () {
             if ($.fn.dataTable.isDataTable('#myTable')) {
@@ -306,6 +307,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (table.fixedHeader) {
                     table.fixedHeader.adjust();
                 }
+                yadcf.exRefreshColumnFilter(table, 2);   // ⭐ refresh filter width
             }
         });
 
