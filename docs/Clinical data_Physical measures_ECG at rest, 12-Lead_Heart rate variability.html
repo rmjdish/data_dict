@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         /* -----------------------------
-           YADCF INIT
+           YADCF INIT (only once)
         ----------------------------- */
         yadcf.init(table, [
             { column_number: 2, filter_type: "select", cumulative_filtering: true }
@@ -288,43 +288,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
         /* -----------------------------
            POST-INIT ADJUST
+           (FixedHeader must adjust BEFORE YADCF refresh)
         ----------------------------- */
         setTimeout(function () {
             table.columns.adjust().draw(false);
-            if (table.fixedHeader) table.fixedHeader.adjust();
 
-            // ⭐ Resize filter wrapper
-            resizeYadcfFilter(table, 2);
+            if (table.fixedHeader) {
+                table.fixedHeader.adjust();
+            }
 
         }, 300);
 
         /* -----------------------------
            WINDOW RESIZE HANDLER
+           (Do NOT refresh YADCF here — it breaks sorting)
         ----------------------------- */
         $(window).on('resize', function () {
             if ($.fn.dataTable.isDataTable('#myTable')) {
                 table.columns.adjust();
-                if (table.fixedHeader) table.fixedHeader.adjust();
 
-                // ⭐ Resize filter wrapper on window resize
-                resizeYadcfFilter(table, 2);
+                if (table.fixedHeader) {
+                    table.fixedHeader.adjust();
+                }
             }
         });
 
     }, 200);
 });
-
-/* -----------------------------
-   ⭐ Helper: Resize only the filter wrapper
------------------------------ */
-function resizeYadcfFilter(table, colIndex) {
-    var headerCell = $(table.column(colIndex).header());
-    var newWidth = headerCell.outerWidth();
-
-    $('.yadcf-filter-wrapper-' + colIndex).css({
-        width: newWidth + 'px'
-    });
-}
 
 </script>
 
