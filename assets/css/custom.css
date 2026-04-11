@@ -250,3 +250,12 @@ table.dataTable {
     overflow-y: auto !important;
 }
 
+.dataTables_wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.dataTables_wrapper .dataTables_filter {
+    float: left !important;
+    text-align: left !important;
+}
