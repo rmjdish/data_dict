@@ -141,18 +141,18 @@ table.dataTable {
 .dataTables_scrollHeadInner table thead th:nth-child(1),
 .fixedHeader-floating thead th:nth-child(1),
 #myTable tbody td:nth-child(1) {
-    width: 80px !important;
-    min-width: 80px !important;
-    max-width: 80px !important;
+    width: 140px !important;
+    min-width: 140px !important;
+    max-width: 140px !important;
 }
 
 #myTable thead th:nth-child(2),
 .dataTables_scrollHeadInner table thead th:nth-child(2),
 .fixedHeader-floating thead th:nth-child(2),
 #myTable tbody td:nth-child(2) {
-    width: 80px !important;
-    min-width: 80px !important;
-    max-width: 80px !important;
+    width: 160px !important;
+    min-width: 160px !important;
+    max-width: 160px !important;
 }
 
 #myTable thead th:nth-child(3),
