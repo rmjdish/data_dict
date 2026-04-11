@@ -102,25 +102,83 @@ table.dataTable {
 .dataTables_scroll {
     overflow: hidden !important;
 }
+
 .dataTables_scrollBody {
     overflow-y: auto !important;
 }
 
-/* Header/body width sync */
+/* ⭐ MINIMAL FIX: remove broken 100% width override */
 .dataTables_scrollHeadInner table,
 .dataTables_scrollBody table {
-    width: 100% !important;
+    width: auto !important;
     margin: 0 !important;
     border-collapse: collapse !important;
 }
 
-/* Compensate for scrollbar */
+/* ⭐ MINIMAL FIX: remove broken scrollbar padding */
 .dataTables_scrollHeadInner {
-    padding-right: calc(100vw - 100%) !important;
+    padding-right: 0 !important;
     box-sizing: content-box !important;
 }
 
+/* Make header track body exactly */
+.dataTables_scrollHead {
+    overflow: hidden !important;
+}
 
+/* ⭐ Keep only ONE scrollBody override */
+.dataTables_scrollBody {
+    overflow-y: scroll !important;
+    overflow-x: auto !important;
+    margin-right: -17px !important;
+    padding-right: 17px !important;
+}
+
+/* -----------------------------------------------------------
+   MANUAL COLUMN WIDTHS — PURE CSS (NO HTML CHANGES)
+   With forced wrapping so long text NEVER widens columns
+----------------------------------------------------------- */
+
+/* Wrap text everywhere */
+#myTable thead th,
+#myTable tbody td,
+.dataTables_scrollHeadInner table thead th,
+.fixedHeader-floating thead th {
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+    hyphens: auto !important;
+}
+
+/* Column 1 */
+#myTable thead th:nth-child(1),
+.dataTables_scrollHeadInner table thead th:nth-child(1),
+.fixedHeader-floating thead th:nth-child(1),
+#myTable tbody td:nth-child(1) {
+    width: 75px !important;
+    min-width: 75px !important;
+    max-width: 75px !important;
+}
+
+/* Column 2 */
+#myTable thead th:nth-child(2),
+.dataTables_scrollHeadInner table thead th:nth-child(2),
+.fixedHeader-floating thead th:nth-child(2),
+#myTable tbody td:nth-child(2) {
+    width: 75px !important;
+    min-width: 75px !important;
+    max-width: 75px !important;
+}
+
+/* Column 3 — FIXED TYPO (px not x) */
+#myTable thead th:nth-child(3),
+.dataTables_scrollHeadInner table thead th:nth-child(3),
+.fixedHeader-floating thead th:nth-child(3),
+#myTable tbody td:nth-child(3) {
+    width: 210px !important;
+    min-width: 210px !important;
+    max-width: 210px !important;
+}
 
 /* -----------------------------------------------------------
    CATEGORY TREE — MATCH ORIGINAL HTML
@@ -170,68 +228,3 @@ table.dataTable {
     font-weight: 300 !important;
     font-size: 14px !important;
 }
-
-/* Make header track body exactly */
-.dataTables_scrollHead {
-    overflow: hidden !important;
-}
-
-/* Fix body scroll so header and body travel the same distance */
-.dataTables_scrollBody {
-    overflow-y: scroll !important;   /* ensure scrollbar exists */
-    overflow-x: auto !important;
-    margin-right: -17px !important;  /* pull table under scrollbar */
-    padding-right: 17px !important;  /* keep content visible */
-}
-
-.dataTables_scrollBody {
-    overflow-y: scroll !important;   /* force scrollbar */
-    overflow-x: auto !important;
-    margin-right: -17px !important;  /* pull body under scrollbar */
-    padding-right: 17px !important;  /* keep content visible */
-}
-
-/* -----------------------------------------------------------
-   MANUAL COLUMN WIDTHS — PURE CSS (NO HTML CHANGES)
-   With forced wrapping so long text NEVER widens columns
------------------------------------------------------------ */
-
-/* Wrap text everywhere */
-#myTable thead th,
-#myTable tbody td,
-.dataTables_scrollHeadInner table thead th,
-.fixedHeader-floating thead th {
-    white-space: normal !important;
-    overflow-wrap: anywhere !important;
-    word-break: break-word !important;
-    hyphens: auto !important;
-}
-
-/* Helper macro: apply widths to all header layers + body */
-#myTable thead th:nth-child(1),
-.dataTables_scrollHeadInner table thead th:nth-child(1),
-.fixedHeader-floating thead th:nth-child(1),
-#myTable tbody td:nth-child(1) {
-    width: 75px !important;
-    min-width: 75px !important;
-    max-width: 75px !important;
-}
-
-#myTable thead th:nth-child(2),
-.dataTables_scrollHeadInner table thead th:nth-child(2),
-.fixedHeader-floating thead th:nth-child(2),
-#myTable tbody td:nth-child(2) {
-    width: 75px !important;
-    min-width: 75px !important;
-    max-width: 75px !important;
-}
-
-#myTable thead th:nth-child(3),
-.dataTables_scrollHeadInner table thead th:nth-child(3),
-.fixedHeader-floating thead th:nth-child(3),
-#myTable tbody td:nth-child(3) {
-    width: 210px !important;
-    min-width: 210px !important;
-    max-width: 210x !important;
-}
-
