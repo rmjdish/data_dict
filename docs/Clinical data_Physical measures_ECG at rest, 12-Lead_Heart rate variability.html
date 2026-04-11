@@ -310,6 +310,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (table.fixedHeader) {
                     table.fixedHeader.adjust();
                 }
+		// Resize YADCF filter to match column width
+        var headerCell = $(table.column(2).header());
+        var newWidth = headerCell.outerWidth();
+        $('#myTable thead .yadcf-filter-wrapper').css('width', newWidth + 'px');
+        $('#myTable thead .yadcf-filter-wrapper select, #myTable thead .yadcf-filter-wrapper input').css('width', '100%');
+    }	
             }
         });
 
