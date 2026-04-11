@@ -233,7 +233,7 @@ table.dataTable {
 /* FINAL FIX — keep header and body same width */
 .dataTables_scrollHeadInner table,
 .dataTables_scrollBody table {
-    width: 100% !important;
+    width: auto% !important;
     table-layout: auto !important;
 }
 
