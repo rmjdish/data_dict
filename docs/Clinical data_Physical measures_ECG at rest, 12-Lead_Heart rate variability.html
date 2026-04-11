@@ -360,16 +360,22 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             columnDefs: [
                 {
+					targets: 0,
+					width: "120px"
+					}
+				{
                     targets: 1,
+					width: "120px",
                     className: "dt-center field-id-center",
                     render: function (data) {
                         if (!data || data.trim() === "") return "";
                         var base = "https://datashare.ndph.ox.ac.uk/nshd46/field.cgi?id=";
                         return '<a href="' + base + data + '" target="_blank">' + data + '</a>';
-                    }
+                    }					
                 },
                 {
                     targets: 2,
+					width: "210px",
                     className: "col-variable-label"
                 }
             ]
