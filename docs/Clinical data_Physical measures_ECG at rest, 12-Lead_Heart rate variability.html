@@ -320,12 +320,17 @@ document.addEventListener("DOMContentLoaded", function () {
    ⭐ Helper: Resize only the filter wrapper
 ----------------------------- */
 function resizeYadcfFilter(table, colIndex) {
+    // Get the visible header cell for that column
     var headerCell = $(table.column(colIndex).header());
-    var newWidth = headerCell.outerWidth();
+    var newWidth   = headerCell.outerWidth();
 
-    $('.yadcf-filter-wrapper-' + colIndex).css({
-        width: newWidth + 'px'
-    });
+    // Find the YADCF wrapper inside that header cell
+    var wrapper = headerCell.find('.yadcf-filter-wrapper');
+
+    // If it exists, set its width
+    if (wrapper.length) {
+        wrapper.css('width', newWidth + 'px');
+    }
 }
 
 </script>
