@@ -212,26 +212,26 @@ table.dataTable {
 .dataTables_scrollHeadInner table thead th:nth-child(1),
 .fixedHeader-floating thead th:nth-child(1),
 #myTable tbody td:nth-child(1) {
-    width: 25px !important;
-    min-width: 25px !important;
-    max-width: 25px !important;
+    width: 75px !important;
+    min-width: 75px !important;
+    max-width: 75px !important;
 }
 
 #myTable thead th:nth-child(2),
 .dataTables_scrollHeadInner table thead th:nth-child(2),
 .fixedHeader-floating thead th:nth-child(2),
 #myTable tbody td:nth-child(2) {
-    width: 25px !important;
-    min-width: 25px !important;
-    max-width: 25px !important;
+    width: 75px !important;
+    min-width: 75px !important;
+    max-width: 75px !important;
 }
 
 #myTable thead th:nth-child(3),
 .dataTables_scrollHeadInner table thead th:nth-child(3),
 .fixedHeader-floating thead th:nth-child(3),
 #myTable tbody td:nth-child(3) {
-    width: 250px !important;
-    min-width: 250px !important;
-    max-width: 250x !important;
+    width: 210px !important;
+    min-width: 210px !important;
+    max-width: 210x !important;
 }
 
