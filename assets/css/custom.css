@@ -230,5 +230,22 @@ table.dataTable {
 }
 
 
+/* FINAL FIX — keep header and body same width */
+.dataTables_scrollHeadInner table,
+.dataTables_scrollBody table {
+    width: 100% !important;
+    table-layout: auto !important;
+}
 
+/* Allow header to resize with body */
+.dataTables_scrollHead {
+    overflow: visible !important;
+}
+
+/* Remove scroll shifting */
+.dataTables_scrollBody {
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: auto !important;
 }
