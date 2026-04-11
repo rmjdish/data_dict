@@ -47,6 +47,12 @@
     margin: 0 !important;
 }
 
+.site-title {
+    font-family: Arial, sans-serif !important;
+    font-weight: 700 !important;
+    color: #000000 !important;
+    font-size: 1.5rem !important;
+}
 
 
 /* -----------------------------------------------------------
