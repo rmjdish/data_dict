@@ -358,3 +358,9 @@ table.dataTable {
     font-weight: 300 !important;
     font-size: 14px !important;
 }
+
+/* Fix header overscroll caused by vertical scrollbar */
+.dataTables_scrollHeadInner {
+    padding-right: 17px !important; /* typical scrollbar width */
+    box-sizing: content-box !important;
+}
