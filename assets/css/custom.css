@@ -230,3 +230,19 @@ table.dataTable {
 }
 
 
+/* FIX: allow header + body to resize together */
+.dataTables_scrollHeadInner table,
+.dataTables_scrollBody table {
+    width: auto !important;
+    table-layout: auto !important;
+}
+
+/* FIX: allow header to shrink on window resize */
+#myTable thead th {
+    white-space: normal !important;
+}
+
+/* FIX: allow DataTables to recalc widths on resize */
+table.dataTable {
+    table-layout: auto !important;
+}
