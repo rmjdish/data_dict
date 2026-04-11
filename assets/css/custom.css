@@ -38,7 +38,7 @@
     left: 0 !important;
     right: auto !important;
     padding-left: 1rem !important;
-    transform: translateX(-65px) !important;
+    transform: translateX(-15) !important;
 }
 
 /* Remove any centering from the header */
@@ -50,8 +50,9 @@
 div.site-header > a.site-title {
     font-family: Arial, sans-serif !important;
     font-weight: 700 !important;
-    color: #6a0dad !important;
-    font-size: 1.5rem !important;
+    color: #ffffff !important;
+    font-size: 18px !important;
+	background-color: #6a0dad;
 }
 
 
