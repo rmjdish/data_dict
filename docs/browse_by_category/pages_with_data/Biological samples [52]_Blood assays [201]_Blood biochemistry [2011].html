@@ -13,7 +13,6 @@ nav_order: 9
 
 <h2 style="font-size:16px; color:#333; margin-top:10px;">
           A range of key biochemistry markers were measured in the blood samples collected at 1999 (at age 53 years) and repeated at 2006-2010 (at age 60-64 years).        
-<div id="loading">Loading...</div>
 <table id="myTable" class="display nowrap" style="width:100%; border-collapse: collapse;">
 <thead><tr>
 <th style='border:1px solid #ccc; padding:6px;'>NSHD Variable Name</th>
@@ -1101,9 +1100,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 header: true,
                 headerOffset: 0
             },
-			initComplete: function(){
-				$('loading').hide();
-				$('myTable').css('visibility', 'visible'):
             columnDefs: [
                 {
                     targets: 1,
