@@ -210,7 +210,7 @@ table.dataTable {
 }
 
 
-/* Column 3 — FIXED TYPO (px not x) */
+/* Column 4 — FIXED TYPO (px not x) */
 #myTable thead th:nth-child(4),
 .dataTables_scrollHeadInner table thead th:nth-child(4),
 .fixedHeader-floating thead th:nth-child(4),
@@ -219,6 +219,13 @@ table.dataTable {
     min-width: 255px !important;
     max-width: 255px !important;
 }
+
+/* Centre column 3 */
+#myTable td:nth-child(3),
+#myTable th:nth-child(3) {
+    text-align: center !important;
+}
+
 
 /* -----------------------------------------------------------
    CATEGORY TREE — MATCH ORIGINAL HTML
