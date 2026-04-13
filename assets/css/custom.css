@@ -199,11 +199,11 @@ table.dataTable {
     max-width: 20px !important;
 }
 
-/* Column 2 */
-#myTable thead th:nth-child(2),
-.dataTables_scrollHeadInner table thead th:nth-child(2),
-.fixedHeader-floating thead th:nth-child(2),
-#myTable tbody td:nth-child(2) {
+/* Column 3 */
+#myTable thead th:nth-child(3),
+.dataTables_scrollHeadInner table thead th:nth-child(3),
+.fixedHeader-floating thead th:nth-child(3),
+#myTable tbody td:nth-child(3) {
     width: 15px !important;
     min-width: 15px !important;
     max-width: 15px !important;
@@ -211,10 +211,10 @@ table.dataTable {
 
 
 /* Column 3 — FIXED TYPO (px not x) */
-#myTable thead th:nth-child(3),
-.dataTables_scrollHeadInner table thead th:nth-child(3),
-.fixedHeader-floating thead th:nth-child(3),
-#myTable tbody td:nth-child(3) {
+#myTable thead th:nth-child(4),
+.dataTables_scrollHeadInner table thead th:nth-child(4),
+.fixedHeader-floating thead th:nth-child(4),
+#myTable tbody td:nth-child(4) {
     width: 250px !important;
     min-width: 250px !important;
     max-width: 250px !important;
