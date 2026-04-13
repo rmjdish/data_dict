@@ -194,10 +194,21 @@ table.dataTable {
 .dataTables_scrollHeadInner table thead th:nth-child(2),
 .fixedHeader-floating thead th:nth-child(2),
 #myTable tbody td:nth-child(2) {
-    width: 30px !important;
-    min-width: 30px !important;
-    max-width: 30px !important;
+    width: 20px !important;
+    min-width: 20px !important;
+    max-width: 20px !important;
 }
+
+/* Column 2 */
+#myTable thead th:nth-child(2),
+.dataTables_scrollHeadInner table thead th:nth-child(2),
+.fixedHeader-floating thead th:nth-child(2),
+#myTable tbody td:nth-child(2) {
+    width: 15px !important;
+    min-width: 15px !important;
+    max-width: 15px !important;
+}
+
 
 /* Column 3 — FIXED TYPO (px not x) */
 #myTable thead th:nth-child(3),
