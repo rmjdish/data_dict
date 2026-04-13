@@ -1,0 +1,278 @@
+---
+layout: default
+title: Reaction time [1019]
+parent: Cognitive function [101] 
+nav_order: 9
+---
+
+<h1 style="font-size:20px; font-weight:bold; color:#7f1d1d; margin-top:10px;">
+    Category Tree:
+    <span style="font-weight:normal;">
+        Clinical data [51] ➡ Cognitive function [101] ➡ Reaction time [1019]
+    </span>
+
+<h2 style="font-size:16px; color:#333; margin-top:10px;">
+          This is a standard manual reaction time (RT) task with visual signal, involving two conditions: 1. Simple, requiring survey members to press one button as quickly as possible following a signal.  Eight practice trials were given, followed by 20 real trials.  To avoid anticipation there was a variable delay (1-3 sec) between each response and the next signal. 2. Choice, requiring survey members to press one of four buttons as quickly as possible corresponding to which of the numbers 1 to 4 appeared in the signal screen.  Eight practice trials were given, followed by 40 real trials.  Note that this condition requires both hands to be functioning.        
+<table id="myTable" class="display nowrap" style="width:100%; border-collapse: collapse;">
+<thead><tr>
+<th style='border:1px solid #ccc; padding:6px;'>NSHD Variable Name</th>
+<th style='border:1px solid #ccc; padding:6px;'>Showcase Field ID</th>
+<th style='border:1px solid #ccc; padding:6px;'>Variable Label</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style='border:1px solid #ccc; padding:6px;'>k1mn09</td>
+<td style='border:1px solid #ccc; padding:6px;'>1219</td>
+<td style='border:1px solid #ccc; padding:6px;'>Choice reaction time task: Mean record time for correct response - at age 60-64 years</td>
+</tr>
+<tr>
+<td style='border:1px solid #ccc; padding:6px;'>k2sd09</td>
+<td style='border:1px solid #ccc; padding:6px;'>1220</td>
+<td style='border:1px solid #ccc; padding:6px;'>Choice reaction time task: Standard deviation for correct response - at age 60-64 years</td>
+</tr>
+<tr>
+<td style='border:1px solid #ccc; padding:6px;'>k0er09</td>
+<td style='border:1px solid #ccc; padding:6px;'>1218</td>
+<td style='border:1px solid #ccc; padding:6px;'>Choice reaction time task: Number of errors - at age 60-64 years</td>
+</tr>
+<tr>
+<td style='border:1px solid #ccc; padding:6px;'>k3mn09</td>
+<td style='border:1px solid #ccc; padding:6px;'>10432</td>
+<td style='border:1px solid #ccc; padding:6px;'>Choice reaction time task: Mean time of errors - at age 60-64 years</td>
+</tr>
+<tr>
+<td style='border:1px solid #ccc; padding:6px;'>k4sd09</td>
+<td style='border:1px solid #ccc; padding:6px;'>10433</td>
+<td style='border:1px solid #ccc; padding:6px;'>Choice reaction time task: Standard deviation - at age 60-64 years</td>
+</tr>
+<tr>
+<td style='border:1px solid #ccc; padding:6px;'>rtmn09</td>
+<td style='border:1px solid #ccc; padding:6px;'>1221</td>
+<td style='border:1px solid #ccc; padding:6px;'>Simple reaction time task: Mean record time for correct response - at age 60-64 years</td>
+</tr>
+<tr>
+<td style='border:1px solid #ccc; padding:6px;'>rtsd09</td>
+<td style='border:1px solid #ccc; padding:6px;'>1222</td>
+<td style='border:1px solid #ccc; padding:6px;'>Simple reaction time task: Standard deviation for correct response - at age 60-64 years</td>
+</tr>
+<tr>
+<td style='border:1px solid #ccc; padding:6px;'>rtag09</td>
+<td style='border:1px solid #ccc; padding:6px;'>10434</td>
+<td style='border:1px solid #ccc; padding:6px;'>Are you willing to do reaction time test (dervied) - at age 60-64 years</td>
+</tr>
+<tr>
+<td style='border:1px solid #ccc; padding:6px;'>nfhd09</td>
+<td style='border:1px solid #ccc; padding:6px;'>10437</td>
+<td style='border:1px solid #ccc; padding:6px;'>If participant has a non-functional hand, tick here [box] and go to next test [test requires use of both hands] - at age 60-64 years</td>
+</tr>
+<tr>
+<td style='border:1px solid #ccc; padding:6px;'>rtmno09</td>
+<td style='border:1px solid #ccc; padding:6px;'>10438</td>
+<td style='border:1px solid #ccc; padding:6px;'>Reaction time machine number - at age 60-64 years</td>
+</tr>
+</tbody></table>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<!-- DataTables JS -->
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+<!-- Extensions -->
+<script src="https://cdn.datatables.net/fixedheader/3.4.0/js/dataTables.fixedHeader.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+
+<!-- DataTables CSS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.4.0/css/fixedHeader.dataTables.min.css">
+
+
+<!-- YADCF for dropdown filters -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/yadcf/0.9.4/jquery.dataTables.yadcf.min.css">
+
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+
+<style>
+
+    /* Alternating row shading */
+    #myTable tbody tr:nth-child(odd) { background-color: #EEEEEE; }
+    #myTable tbody tr:nth-child(even) { background-color: #FFFFFF; }
+
+    /* Header row shading */
+    #myTable thead th {
+        background-color: #A9A9A9 !important;
+        color: black !important;
+    }
+
+    /* FixedHeader floating + locked */
+    .fixedHeader-floating th,
+    .fixedHeader-locked th,
+    .fixedHeader-floating thead th,
+    .fixedHeader-locked thead th {
+        background-color: #A9A9A9 !important;
+        color: black !important;
+        border: 1px solid #d0d0d0 !important;
+    }
+
+    /* ScrollX header clone */
+    .dataTables_scrollHeadInner table thead th {
+        background-color: #A9A9A9 !important;
+        color: black !important;
+        border: 1px solid #d0d0d0 !important;
+    }
+
+    /* YADCF filter header background */
+    .fixedHeader-floating .yadcf-filter-wrapper,
+    .fixedHeader-locked .yadcf-filter-wrapper,
+    #myTable thead .yadcf-filter-wrapper {
+        background-color: #A9A9A9 !important;
+    }
+
+    /* Scroll body height */
+    .dataTables_scrollBody {
+        overflow-y: auto !important;
+        max-height: 600px !important;
+    }
+
+    /* Typography */
+    table.dataTable {
+        font-family: system-ui, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    /* Search bar styling */
+    .dataTables_wrapper .dataTables_filter label {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        color: red !important;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 6px 10px;
+        border: 1px solid #999;
+        border-radius: 4px;
+        color: purple !important;
+    }
+
+    /* Buttons right aligned */
+    .dataTables_wrapper .dt-buttons {
+        float: right !important;
+        text-align: right !important;
+    }
+
+    /* Prevent layout overlap */
+    .dataTables_wrapper .dataTables_filter,
+    .dataTables_wrapper .dt-buttons {
+        margin-top: 10px;
+    }
+
+    /* Clear floats */
+    .dataTables_wrapper .dataTables_length,
+    .dataTables_wrapper .dataTables_info {
+        clear: both;
+    }
+
+    /* YADCF filter width for variable label column */
+    .yadcf-filter-wrapper.col-variable-label select,
+    .yadcf-filter-wrapper.col-variable-label input {
+        width: 600px !important;
+    }
+
+    /* Center Field ID column */
+    th.field-id-center,
+    td.field-id-center,
+    .dataTables_scrollHeadInner th.field-id-center,
+    .yadcf-filter-wrapper.field-id-center {
+        text-align: center !important;
+    }
+
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
+
+        var table = $('#myTable').DataTable({
+            pageLength: 50,
+            dom: "<'top'fB>iprt",
+            scrollX: true,
+            autoWidth: false,
+            fixedHeader: {
+                header: true,
+                headerOffset: 0
+            },
+            columnDefs: [
+                {
+                    targets: 1,
+                    className: "dt-center field-id-center",
+                    render: function (data) {
+                        if (!data || data.trim() === "") return "";
+                        var base = "https://datashare.ndph.ox.ac.uk/nshd46/field.cgi?id=";
+                        return '<a href="' + base + data + '" target="_blank">' + data + '</a>';
+                    }
+                },
+                {
+                    targets: 2,
+                    className: "col-variable-label"
+                }
+            ]
+        });
+
+        /* -----------------------------
+           YADCF INIT (only once)
+        ----------------------------- */
+        yadcf.init(table, [
+            { column_number: 2, filter_type: "select", cumulative_filtering: true }
+        ]);
+
+        /* -----------------------------
+           POST-INIT ADJUST
+           (FixedHeader must adjust BEFORE YADCF refresh)
+        ----------------------------- */
+        setTimeout(function () {
+            table.columns.adjust().draw(false);
+
+            if (table.fixedHeader) {
+                table.fixedHeader.adjust();
+            }
+
+        }, 300);
+
+        /* -----------------------------
+           WINDOW RESIZE HANDLER
+           (Do NOT refresh YADCF here — it breaks sorting)
+        ----------------------------- */
+        $(window).on('resize', function () {
+            if ($.fn.dataTable.isDataTable('#myTable')) {
+                table.columns.adjust();
+
+                if (table.fixedHeader) {
+                    table.fixedHeader.adjust();
+                }
+            }
+        });
+
+    }, 200);
+});
+
+        /* -----------------------------
+           ⭐ Helper: Resize only the filter wrapper
+        ----------------------------- */
+        function resizeYadcfFilter(table, colIndex) {
+            var headerCell = $(table.column(colIndex).header());
+            var newWidth = headerCell.outerWidth();
+
+            $('.yadcf-filter-wrapper-' + colIndex).css({
+                width: newWidth + 'px'
+            });
+        }
+
+</script>
+
+
+
+
