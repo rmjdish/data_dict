@@ -215,9 +215,9 @@ table.dataTable {
 .dataTables_scrollHeadInner table thead th:nth-child(4),
 .fixedHeader-floating thead th:nth-child(4),
 #myTable tbody td:nth-child(4) {
-    width: 255px !important;
-    min-width: 255px !important;
-    max-width: 255px !important;
+    width: 270px !important;
+    min-width: 270px !important;
+    max-width: 270px !important;
 }
 
 /* Centre column 3 */
