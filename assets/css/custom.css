@@ -179,36 +179,37 @@ table.dataTable {
     hyphens: auto !important;
 }
 
+
 /* Column 1 */
 #myTable thead th:nth-child(1),
 .dataTables_scrollHeadInner table thead th:nth-child(1),
 .fixedHeader-floating thead th:nth-child(1),
 #myTable tbody td:nth-child(1) {
-    width: 40px !important;
-    min-width: 40px !important;
-    max-width: 40px !important;
+    width: 10px !important;
+    min-width: 10px !important;
+    max-width: 10px !important;
 }
+
 
 /* Column 2 */
 #myTable thead th:nth-child(2),
 .dataTables_scrollHeadInner table thead th:nth-child(2),
 .fixedHeader-floating thead th:nth-child(2),
 #myTable tbody td:nth-child(2) {
-    width: 20px !important;
-    min-width: 20px !important;
-    max-width: 20px !important;
+    width: 40px !important;
+    min-width: 40px !important;
+    max-width: 40px !important;
 }
 
-/* Column 3 */
+/* Column 2 */
 #myTable thead th:nth-child(3),
 .dataTables_scrollHeadInner table thead th:nth-child(3),
 .fixedHeader-floating thead th:nth-child(3),
 #myTable tbody td:nth-child(3) {
-    width: 10px !important;
-    min-width: 10px !important;
-    max-width: 10px !important;
+    width: 20px !important;
+    min-width: 20px !important;
+    max-width: 20px !important;
 }
-
 
 /* Column 4 — FIXED TYPO (px not x) */
 #myTable thead th:nth-child(4),
@@ -220,9 +221,9 @@ table.dataTable {
     max-width: 270px !important;
 }
 
-/* Centre column 3 */
-#myTable td:nth-child(3),
-#myTable th:nth-child(3) {
+/* Centre column 1 */
+#myTable td:nth-child(1),
+#myTable th:nth-child(1) {
     text-align: center !important;
 }
 
