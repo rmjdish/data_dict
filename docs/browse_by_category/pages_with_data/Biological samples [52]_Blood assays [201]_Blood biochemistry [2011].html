@@ -1311,10 +1311,9 @@ nav_order: 9
 
 </style>
 
-<script>
+html<script>
 document.addEventListener("DOMContentLoaded", function () {
     setTimeout(function () {
-
         var table = $('#myTable').DataTable({
             pageLength: 50,
             dom: "<'top'fB>iprt",
@@ -1346,7 +1345,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     targets: 3,
                     className: "col-variable-label"
                 }
-            ]
+            ],
+            initComplete: function () {
+                // Hide overlay as soon as DataTable is fully initialised
+                var overlay = document.getElementById('loading-overlay');
+                if (overlay) overlay.style.display = 'none';
+            }
         });
 
         /* -----------------------------
@@ -1362,13 +1366,10 @@ document.addEventListener("DOMContentLoaded", function () {
         ----------------------------- */
         setTimeout(function () {
             table.columns.adjust().draw(false);
-
             if (table.fixedHeader) {
                 table.fixedHeader.adjust();
             }
-    // Hide the loading overlay once table is ready
-		document.getElementById('loading-overlay').style.display = 'none'; 
-	}, 300);
+        }, 300);
 
         /* -----------------------------
            WINDOW RESIZE HANDLER
@@ -1377,7 +1378,6 @@ document.addEventListener("DOMContentLoaded", function () {
         $(window).on('resize', function () {
             if ($.fn.dataTable.isDataTable('#myTable')) {
                 table.columns.adjust();
-
                 if (table.fixedHeader) {
                     table.fixedHeader.adjust();
                 }
@@ -1385,20 +1385,24 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     }, 200);
+
+    // Fallback: force hide after 5 seconds no matter what
+    setTimeout(function () {
+        var overlay = document.getElementById('loading-overlay');
+        if (overlay) overlay.style.display = 'none';
+    }, 5000);
 });
 
-        /* -----------------------------
-           ⭐ Helper: Resize only the filter wrapper
-        ----------------------------- */
-        function resizeYadcfFilter(table, colIndex) {
-            var headerCell = $(table.column(colIndex).header());
-            var newWidth = headerCell.outerWidth();
-
-            $('.yadcf-filter-wrapper-' + colIndex).css({
-                width: newWidth + 'px'
-            });
-        }
-
+/* -----------------------------
+   ⭐ Helper: Resize only the filter wrapper
+----------------------------- */
+function resizeYadcfFilter(table, colIndex) {
+    var headerCell = $(table.column(colIndex).header());
+    var newWidth = headerCell.outerWidth();
+    $('.yadcf-filter-wrapper-' + colIndex).css({
+        width: newWidth + 'px'
+    });
+}
 </script>
 
 
