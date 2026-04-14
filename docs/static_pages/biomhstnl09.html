@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<!-- This is SKYLARK.html a Pebble Template which is extensively used by other subtemplates -->
+<html lang="en" template="true">
+<head>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+<title>Condor</title>
+<meta charset="utf-8" content="text/html;" http-equiv="Content-Type"/>
+<meta content="no-cache" http-equiv="Cache-Control"/>
+<meta content="no-cache" name="Pragma"/>
+<meta content="0" http-equiv="Expires"/>
+<!-- This is the top level Pebble template that will be 'inherited' by other templates -->
+<link href="css/SWIFT15.css" rel="stylesheet" type="text/css"/>
+<script src="js/treeview-navigation.js" type="text/javascript"></script>
+<script src="js/treeitem.js" type="text/javascript"></script>
+<script src="js/treeitemClick.js" type="text/javascript"></script>
+<script src="js/FormValidation.js"></script>
+<script src="js/Help.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/ddtf.js"></script>
+<!-- 
+	 This is Google's version 3 tags.  Never made it work properly
+	 <script src='https://www.google.com/recaptcha/api.js?render=6LeLAnkUAAAAAOL6qoCApkjOxKdbw4cy-xrg1lRV'></script>
+	 -->
+<!--  Make sure to use the right Site key here
+
+	       kiwidev = 6LeLAnkUAAAAAOL6qoCApkjOxKdbw4cy-xrg1lRV
+	       skylark = 6LdF3XgUAAAAAACAPmW7swE2bLNfxQlPvcu4JM2H
+
+	       reCAPTCHA version 2 keys
+
+	       kiwidev = 6LeBf3kUAAAAADU7T5AROQx9hj8LLJYke6i58Fqd
+	       kiwi	= 6LcohasUAAAAAPVpqmaGF6Mkag3vmJKhHutoPKEa
+	       version 2 script reference is below this
+	   -->
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<!--  this is version 3 which doesn't work
+	       <script src='https://www.google.com/recaptcha/api.js?render=6LeLAnkUAAAAAOL6qoCApkjOxKdbw4cy-xrg1lRV'></script>
+	       -->
+</head>
+<body>
+<header>
+<table>
+<tbody>
+<tr>
+<td>
+<div class="banner">
+<img alt="National Survey of Health &amp; Development" src="images/NSHDLogo.png"/>
+<h1>  MRC National Survey of Health and Development  </h1>
+<img alt="UKRI" src="images/ukrimrc.png"/>
+</div>
+</td>
+</tr>
+<tr>
+<form action="search" method="post" onsubmit="return validateSearchForm(this)">
+<td>
+<!-- Trying CSS3 - <nav> out but wait for the moment. -->
+<ul id="menu-bar">
+<li><a href="logout?go=home">Home</a></li>
+<li><a href="#">Search</a>
+<ul>
+<li><a href="search?type=c&amp;id=CB5F409B294D6CFA57D23D7171FF1959">By Category</a></li>
+<li><a href="search?type=n&amp;id=CB5F409B294D6CFA57D23D7171FF1959">By Variable Name</a></li>
+<li><a href="search?type=k&amp;id=CB5F409B294D6CFA57D23D7171FF1959">By Keyword</a></li>
+<!-- <li><a href="search?type=y&id=CB5F409B294D6CFA57D23D7171FF1959">By Year</a></li> -->
+<li><a href="search?type=l&amp;id=CB5F409B294D6CFA57D23D7171FF1959">By Library</a></li>
+<!--<li><a href="search?type=t&id=CB5F409B294D6CFA57D23D7171FF1959">By Topic</a></li>-->
+</ul></li>
+<li><a href="#">Baskets</a>
+<ul>
+<li><a href="basket?command=saveNew&amp;id=CB5F409B294D6CFA57D23D7171FF1959">Save
+			    Basket</a></li>
+<li><a href="basket?id=CB5F409B294D6CFA57D23D7171FF1959">View Current
+			    Basket</a></li>
+<li><a href="previousBasket?id=CB5F409B294D6CFA57D23D7171FF1959">Load/Share
+			    My Basket</a></li>
+<li><a href="sharedBasket?id=CB5F409B294D6CFA57D23D7171FF1959">Load
+			    Shared Basket</a></li>
+<!-- <li><a href="basket?command=saveExisting&id=CB5F409B294D6CFA57D23D7171FF1959">Overwrite Basket</a></li> -->
+<li><a href="retrieve?id=CB5F409B294D6CFA57D23D7171FF1959">Download
+			    Basket</a></li>
+</ul></li>
+<li><a href="#">More...</a>
+<ul>
+<li><a href="logout?id=CB5F409B294D6CFA57D23D7171FF1959">Logout</a></li>
+<!--  Help is now on the Wiki <li><a href="javascript:help();">Help</a></li>  -->
+<li><a href=" https://skylark.ucl.ac.uk/NSHD/access/help-guides/">Help</a></li>
+<li><a href="changeRegistration">Update Contact
+			    Details</a></li>
+<li><a href="changePassword">Change Password</a></li>
+</ul></li>
+<li><input name="term" placeholder="Search..." type="text"/>
+<input name="type" type="hidden" value="k"/></li>
+<li>
+<div>
+<!-- <input name="search_submit" type="submit" value=""/>  -->
+</div>
+</li> </ul> <!-- </nav> Paired with nav above -->
+</td>
+</form>
+</tr>
+</tbody>
+</table>
+</header>
+<div class="results">
+<div class="results">
+<!-- <p style="color:maroon;font-size:110%;text-align:center;line-height: 70%;">User Name: i.shah Type: Internal</p> -->
+<h2>Variable Metadata</h2>
+<table>
+<tr>
+<td style="width: 10%;"><strong>Variable</strong></td>
+<td>biomhstnl09</td>
+</tr>
+<tr>
+<td style="width: 10%;"><strong>Field ID</strong></td>
+<td>31180</td>
+</tr>
+<tr>
+<td style="width: 10%;"><strong>Label</strong></td>
+<td>High sensitivity Troponin-I (pg/ml) - at age 60-64 years</td>
+</tr>
+<tr>
+<td style="width: 10%;"><strong>Card	Number</strong></td>
+<td>Biomarkers09_2</td>
+</tr>
+<tr>
+<td style="width: 10%;"><strong>Form</strong></td>
+<td>Blood assays</td>
+</tr>
+<tr>
+<td style="width: 10%;"><strong>Question</strong></td>
+<td>Not applicable</td>
+</tr>
+<tr>
+<td style="width: 10%;"><strong>Year</strong></td>
+<td>2006-10</td>
+</tr>
+<tr>
+<td style="width: 10%;"><strong>Derived Status</strong></td>
+<td>1</td>
+</tr>
+<tr>
+<td style="width: 10%;"><strong>Later Version</strong></td>
+<td>NA</td>
+</tr>
+<tr>
+<td style="width: 10%;"><strong>Units</strong></td>
+<td>pg/ml</td>
+</tr>
+<tr>
+<td style="width: 10%;"><strong>Sensitive</strong></td>
+<td>0</td>
+</tr>
+<tr>
+<td style="width: 10%;"><strong>Reason Public</strong></td>
+<td>NA</td>
+</tr>
+<tr>
+<td style="width: 10%;"><strong>Reason Sensitive</strong></td>
+<td>NA</td>
+</tr>
+<tr>
+<td style="width: 10%;"><strong>Notes</strong></td>
+<td>Variable from blood assays. Troponin-I was analysed at the BHF Cardiovascular Research Centre, University of Bristol. </td>
+</tr>
+</table>
+<h2>Linked and Longitudinal Variables</h2>
+<table>
+<tr>
+<th class="skip-filter" style="width: 5%; ">Variable</th>
+<th class="skip-filter" style="width: 30%;">Description</th>
+<th class="skip-filter" style="width: 10%;">Year</th>
+<th class="skip-filter" style="width: 15%;">Form</th>
+<th class="skip-filter" style="width: 10%;">Question</th>
+<th class="skip-filter" style="width: 10%;">Library File</th>
+</tr>
+<tr>
+<td><a href="variable?command=displayCard&amp;name=biomhstnl_myofit">biomhstnl_myofit</a></td>
+<td style="width: 10%;word-wrap: break-word">High sensitivity troponin-I - Myofit</td>
+<td style="width: 10%;word-wrap: break-word">2020-2025</td>
+<td style="width: 10%;word-wrap: break-word">Blood assays</td>
+<td style="width: 10%;word-wrap: break-word">Not applicable</td>
+<td>MYFT_Biomarkers</td>
+</tr>
+</table>
+<h2>Associated Documents</h2>
+<table class="skip-filter" style="width:55%">
+<tr>
+<td style="width: 17%;">Questionnaires</td>
+<td><a href="https://skylark.ucl.ac.uk/NSHD/exploring/nshd-questionnaires/" target="_blank">View</a></td>
+</tr>
+<tr>
+<td style="width: 12%;">Document</td>
+<td><a href="./PDF/filepath/Biomarkers09_2/NSHD_biomarkers09_2_topsheet_doc.docx" target="_blank">View ./PDF/filepath/Biomarkers09_2/NSHD_biomarkers09_2_topsheet_doc.docx</a></td>
+</tr>
+</table>
+<h2>Category Memberships</h2>
+<table class="skip-filter" style="width:55%">
+<tr>
+<td style="width: 20%;">
+<!-- Insert Form Here!! -->
+<form action="search" method="post" name="input" onsubmit="return validateSearchForm(this)" target="_self">
+<input name="type" type="hidden" value="c"/>
+<input name="category" type="hidden" value="Blood biochemistry [2011]"/>
+<a href="#" onclick="this.parentNode.submit()">Blood biochemistry [2011]</a>
+</form>
+</td>
+<td>
+			A range of key biochemistry markers were measured in the blood samples collected at 1999 (at age 53 years) and repeated at 2006-2010 (at age 60-64 years).			</td>
+</tr>
+</table>
+<h2>Value Labels</h2>
+<table class="skip-filter" style="width:35%;">
+<tr>
+<th class="skip-filter" style="width: 10%;">Value</th>
+<th class="skip-filter">Label</th>
+</tr>
+<tr>
+<td>-9.0</td>
+<td>Unknown</td>
+</tr>
+</table>
+<h2>Frequency Distribution For biomhstnl09</h2>
+<div class="skip-filter">
+<table style="width=70%">
+<tr>
+<td style="width:75%"><img alt="Histogram/Bar Chart Plot" src="data:image/png;base64,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"/></td>
+<td><table>
+<tr>
+<th class="skip-filter">Item</th>
+<th class="skip-filter">Value</th>
+</tr>
+<tr>
+<td colspan="2" style="text-align: center">Summary Statistics
+<tr>
+<tr>
+<td>Minimum</td>
+<td>2.6</td>
+</tr>
+<tr>
+<td>Decile 1</td> <!-- Decile Number -->
+<td>3.0</td> <!-- Decile Value -->
+</tr>
+<tr>
+<td>Decile 2</td> <!-- Decile Number -->
+<td>3.3</td> <!-- Decile Value -->
+</tr>
+<tr>
+<td>Decile 3</td> <!-- Decile Number -->
+<td>3.5</td> <!-- Decile Value -->
+</tr>
+<tr>
+<td>Decile 4</td> <!-- Decile Number -->
+<td>3.8</td> <!-- Decile Value -->
+</tr>
+<tr>
+<td>Decile 5</td> <!-- Decile Number -->
+<td>4.1</td> <!-- Decile Value -->
+</tr>
+<tr>
+<td>Decile 6</td> <!-- Decile Number -->
+<td>4.5</td> <!-- Decile Value -->
+</tr>
+<tr>
+<td>Decile 7</td> <!-- Decile Number -->
+<td>5.0</td> <!-- Decile Value -->
+</tr>
+<tr>
+<td>Decile 8</td> <!-- Decile Number -->
+<td>5.7</td> <!-- Decile Value -->
+</tr>
+<tr>
+<td>Decile 9</td> <!-- Decile Number -->
+<td>6.9</td> <!-- Decile Value -->
+</tr>
+<tr>
+<td>Maximum</td>
+<td>11.2</td>
+</tr>
+<tr>
+<td>Mean</td>
+<td>4.588286</td>
+</tr>
+<tr>
+<td>Std Dev.</td>
+<td>1.666306</td>
+</tr>
+<tr>
+<td>Variance</td>
+<td>2.776576</td>
+</tr>
+<tr>
+<td>Series Size</td>
+<td>1844</td>
+</tr>
+</tr></td></tr></table>
+<p>Statistics relate to plotted values only.</p>
+</td>
+</tr>
+<tr>
+<td style="text-align: left">Missing values and distribution outside 5 and 95 percentiles removed</td>
+<td></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="cookie-banner" id="cookieBanner">
+<div class="cookie-content">
+<div class="cookie-text">
+<h3>Condor uses cookies</h3>
+<p>We use strictly necessary cookies to solely to
+                support core functionality and customise content for
+                you.  We do not use cookies for marketing, analytics,
+                or traffic analysis.  By clicking "Accept", you
+                consent to our use of cookies. If you reject cookies
+                you cannot use the Condor website.  See the NSHD
+                website <a class="link" href="https://skylark.ucl.ac.uk/NSHD/cookies/">Cookie Policy</a></p>
+</div>
+<div class="cookie-actions">
+<button class="cookie-btn reject" id="rejectCookies">Reject</button>
+<button class="cookie-btn accept" id="acceptCookies">Accept</button>
+</div>
+</div>
+</div>
+<footer>
+<table>
+<tr>
+<td>
+<center>
+<a href="https://skylark.ucl.ac.uk/NSHD/access/help-guides/">Help</a>
+</center>
+<center>
+<b>Problems?</b>
+<a href="mailto:MRCLHA.Swiftinfo@ucl.ac.uk">Contact LHA</a>
+<br/>Version: Condor 3.0	    </center>
+</td>
+</tr>
+</table>
+</footer>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieBanner = document.getElementById('cookieBanner');
+            const acceptCookiesBtn = document.getElementById('acceptCookies');
+            const rejectCookiesBtn = document.getElementById('rejectCookies');
+            
+            // Check if user has already made a choice
+            if (!getCookie('CondorCookieConsent')) {
+                // Show the banner automatically after a short delay
+                setTimeout(() => {
+                    cookieBanner.classList.add('active');
+                }, 1500);
+            }
+            
+            // Accept cookies button
+            acceptCookiesBtn.addEventListener('click', () => {
+                setCookie('CondorCookieConsent', 'accepted', 1);
+                cookieBanner.classList.remove('active');
+            });
+            
+            // Reject cookies button
+            rejectCookiesBtn.addEventListener('click', () => {
+                // Go to Cookie Policy
+                cookieBanner.classList.remove('active');
+		window.location.href = 'https://www.ucl.ac.uk/home/cookies-settings';
+            });
+            
+            // Cookie functions
+            function setCookie(name, value, days) {
+                const d = new Date();
+                d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+                const expires = "expires=" + d.toUTCString();
+                document.cookie = name + "=" + value + ";" + expires + ";path=/";
+            }
+            
+            function getCookie(name) {
+                const cookieName = name + "=";
+                const decodedCookie = decodeURIComponent(document.cookie);
+                const cookieArray = decodedCookie.split(';');
+                
+                for (let i = 0; i < cookieArray.length; i++) {
+                    let cookie = cookieArray[i];
+                    while (cookie.charAt(0) === ' ') {
+                        cookie = cookie.substring(1);
+                    }
+                    if (cookie.indexOf(cookieName) === 0) {
+                        return cookie.substring(cookieName.length, cookie.length);
+                    }
+                }
+                return "";
+            }
+        });
+    </script>
+</body>
+</html>
