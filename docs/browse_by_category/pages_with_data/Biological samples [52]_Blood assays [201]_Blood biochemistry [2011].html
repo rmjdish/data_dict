@@ -1318,13 +1318,12 @@ nav_order: 9
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-    // No setTimeout delay — init immediately
     var table = $('#myTable').DataTable({
         pageLength: 50,
         dom: "<'top'fB>iprt",
         scrollX: true,
         autoWidth: false,
-        deferRender: true,   // ⚡ only render rows as needed
+        deferRender: true,
         fixedHeader: {
             header: true,
             headerOffset: 0
@@ -1351,27 +1350,23 @@ document.addEventListener("DOMContentLoaded", function () {
                 targets: 3,
                 className: "col-variable-label"
             }
-        ],
-        initComplete: function () {
-            // YADCF init inside initComplete — runs at exactly the right time
-            yadcf.init(table, [
-                { column_number: 3, filter_type: "select", cumulative_filtering: true }
-            ]);
-
-            // Single adjust pass
-            table.columns.adjust().draw(false);
-            if (table.fixedHeader) {
-                table.fixedHeader.adjust();
-            }
-
-            // Show table and hide overlay together
-            document.getElementById('myTable').style.visibility = 'visible';
-            var overlay = document.getElementById('loading-overlay');
-            if (overlay) overlay.style.display = 'none';
-        }
+        ]
     });
 
-    /* WINDOW RESIZE HANDLER */
+    yadcf.init(table, [
+        { column_number: 3, filter_type: "select", cumulative_filtering: true }
+    ]);
+
+    table.columns.adjust().draw(false);
+    if (table.fixedHeader) {
+        table.fixedHeader.adjust();
+    }
+
+    // Hide overlay and show table
+    document.getElementById('myTable').style.visibility = 'visible';
+    var overlay = document.getElementById('loading-overlay');
+    if (overlay) overlay.style.display = 'none';
+
     $(window).on('resize', function () {
         if ($.fn.dataTable.isDataTable('#myTable')) {
             table.columns.adjust();
@@ -1380,13 +1375,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     });
-
-    // Fallback: force hide after 6 seconds
-    setTimeout(function () {
-        document.getElementById('myTable').style.visibility = 'visible';
-        var overlay = document.getElementById('loading-overlay');
-        if (overlay) overlay.style.display = 'none';
-    }, 6000);
 
 });
 
