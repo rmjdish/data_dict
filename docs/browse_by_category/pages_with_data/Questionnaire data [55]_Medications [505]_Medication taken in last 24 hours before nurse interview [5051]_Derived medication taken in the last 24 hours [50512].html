@@ -1131,6 +1131,14 @@ document.addEventListener("DOMContentLoaded", function () {
             columnDefs: [
                 {
                     targets: 1,
+                    render: function (data) {
+                        if (!data || data.trim() === "") return "";
+                        var base = "https://rmjdish.github.io/data_dict/docs/variable_metadata/";
+                        return '<a href="' + base + data + '.html" target="_blank">' + data + '</a>';
+                    }
+                },
+                {
+                    targets: 2,
                     className: "dt-center field-id-center",
                     render: function (data) {
                         if (!data || data.trim() === "") return "";
@@ -1139,7 +1147,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 },
                 {
-                    targets: 2,
+                    targets: 3,
                     className: "col-variable-label"
                 }
             ]
@@ -1162,8 +1170,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (table.fixedHeader) {
                 table.fixedHeader.adjust();
             }
-
-        }, 300);
+        }, 200);
 
         /* -----------------------------
            WINDOW RESIZE HANDLER
