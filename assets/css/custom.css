@@ -228,20 +228,20 @@ table.dataTable {
 }
 
 /* Centre column 2 */
-#myTable td:nth-child(1),
-#myTable th:nth-child(1) {
+#myTable td:nth-child(2),
+#myTable th:nth-child(2) {
     text-align: left !important;
 }
 
 /* Centre column 3 */
-#myTable td:nth-child(1),
-#myTable th:nth-child(1) {
+#myTable td:nth-child(3),
+#myTable th:nth-child(3) {
     text-align: center !important;
 }
 
 /* Centre column 4 */
-#myTable td:nth-child(1),
-#myTable th:nth-child(1) {
+#myTable td:nth-child(4),
+#myTable th:nth-child(4) {
     text-align: left !important;
 }
 
