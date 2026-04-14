@@ -328,3 +328,22 @@ table.dataTable {
     overflow: visible;
     white-space: nowrap;
 }
+
+/* -----------------------------------------------------------
+   LOADING STATE — HIDE TABLE UNTIL FULLY INITIALIZED
+----------------------------------------------------------- */
+
+/* Hide table + wrapper until JS finishes */
+#myTable,
+#myTable_wrapper {
+    display: none !important;
+}
+
+/* Loading message styling */
+#loadingMessage {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: #444;
+    padding: 20px;
+    text-align: left;
+}
