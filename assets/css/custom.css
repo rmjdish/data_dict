@@ -227,6 +227,26 @@ table.dataTable {
     text-align: center !important;
 }
 
+/* Centre column 2 */
+#myTable td:nth-child(1),
+#myTable th:nth-child(1) {
+    text-align: left !important;
+}
+
+/* Centre column 3 */
+#myTable td:nth-child(1),
+#myTable th:nth-child(1) {
+    text-align: center !important;
+}
+
+/* Centre column 4 */
+#myTable td:nth-child(1),
+#myTable th:nth-child(1) {
+    text-align: left !important;
+}
+
+
+
 
 /* -----------------------------------------------------------
    CATEGORY TREE — MATCH ORIGINAL HTML
