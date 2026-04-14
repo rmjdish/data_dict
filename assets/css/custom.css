@@ -329,19 +329,3 @@ table.dataTable {
     white-space: nowrap;
 }
 
-/* -----------------------------------------------------------
-   LOADING STATE — HIDE TABLE UNTIL FULLY INITIALIZED
------------------------------------------------------------ */
-
-/* Hide only the table initially */
-#myTable {
-    visibility: hidden;   /* better than display:none */
-}
-
-/* Loading message */
-#loadingMessage {
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-    color: #444;
-    padding: 20px;
-}
