@@ -1,6 +1,3 @@
-
-body:not(.page-data_dictionary2) {
-
 	/* -----------------------------------------------------------
 	   SIDEBAR LAYOUT
 	----------------------------------------------------------- */
@@ -110,6 +107,8 @@ body:not(.page-data_dictionary2) {
 	  color: #2d2424 !important;
 	}
 
+body:not(.page-data_dictionary2) {
+	
 	/* -----------------------------------------------------------
 	   DATATABLES — MANUAL COLUMN WIDTHS + WRAPPING
 	----------------------------------------------------------- */
