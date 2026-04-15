@@ -31,6 +31,31 @@
   width: 100% !important;
 }
 
+
+.site-header {
+    width: var(--sidebar-width) !important;
+    min-width: 0 !important;
+    left: 0 !important;
+    right: auto !important;
+    padding-left: 1rem !important;
+    transform: translateX(-0) !important;
+}
+
+/* Remove any centering from the header */
+.site-header .site-title {
+    float: none !important;
+    margin: 0 !important;
+}
+
+div.site-header > a.site-title {
+    font-family: Arial, sans-serif !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    font-size: 18px !important;
+	background-color: #6a0dad;
+}
+
+
 /* -----------------------------------------------------------
    NAVIGATION COLORS + INDENTATION
 ----------------------------------------------------------- */
@@ -61,7 +86,7 @@
   padding-left: 1rem !important;
 }
 .nav-list .nav-list .nav-list .nav-list-item > .nav-list-link {
-  color: #6b5b8e !important;
+  color: #c0525a !important;
 }
 
 .nav-list .nav-list .nav-list .nav-list .nav-list-item {
@@ -75,7 +100,11 @@
   padding-left: 1rem !important;
 }
 .nav-list .nav-list .nav-list .nav-list .nav-list .nav-list-item > .nav-list-link {
-  color: #c0525a !important;
+  color: #6b5b8e !important;
+}
+
+.nav-list .nav-list .nav-list .nav-list .nav-list .nav-list .nav-list-item > .nav-list-link {
+  color: #2d2424 !important;
 }
 
 /* -----------------------------------------------------------
@@ -102,22 +131,36 @@ table.dataTable {
 .dataTables_scroll {
     overflow: hidden !important;
 }
+
 .dataTables_scrollBody {
     overflow-y: auto !important;
 }
 
-/* Header/body width sync */
+/* ⭐ MINIMAL FIX: remove broken 100% width override */
 .dataTables_scrollHeadInner table,
 .dataTables_scrollBody table {
-    width: 100% !important;
+    width: auto !important;
     margin: 0 !important;
     border-collapse: collapse !important;
 }
 
-/* Compensate for scrollbar */
+/* ⭐ MINIMAL FIX: remove broken scrollbar padding */
 .dataTables_scrollHeadInner {
-    padding-right: calc(100vw - 100%) !important;
+    padding-right: 0 !important;
     box-sizing: content-box !important;
+}
+
+/* Make header track body exactly */
+.dataTables_scrollHead {
+    overflow: visible !important;
+}
+
+/* ⭐ Keep only ONE scrollBody override */
+.dataTables_scrollBody {
+    overflow-y: scroll !important;
+    overflow-x: auto !important;
+    margin-right: -17px !important;
+    padding-right: 17px !important;
 }
 
 /* -----------------------------------------------------------
@@ -136,178 +179,73 @@ table.dataTable {
     hyphens: auto !important;
 }
 
-/* Helper macro: apply widths to all header layers + body */
+
+/* Column 1 */
 #myTable thead th:nth-child(1),
 .dataTables_scrollHeadInner table thead th:nth-child(1),
 .fixedHeader-floating thead th:nth-child(1),
 #myTable tbody td:nth-child(1) {
-    width: 140px !important;
-    min-width: 140px !important;
-    max-width: 140px !important;
+    width: 10px !important;
+    min-width: 10px !important;
+    max-width: 10px !important;
 }
 
+
+/* Column 2 */
 #myTable thead th:nth-child(2),
 .dataTables_scrollHeadInner table thead th:nth-child(2),
 .fixedHeader-floating thead th:nth-child(2),
 #myTable tbody td:nth-child(2) {
-    width: 160px !important;
-    min-width: 160px !important;
-    max-width: 160px !important;
+    width: 40px !important;
+    min-width: 40px !important;
+    max-width: 40px !important;
 }
 
+/* Column 2 */
 #myTable thead th:nth-child(3),
 .dataTables_scrollHeadInner table thead th:nth-child(3),
 .fixedHeader-floating thead th:nth-child(3),
 #myTable tbody td:nth-child(3) {
-    width: 180px !important;
-    min-width: 180px !important;
-    max-width: 180px !important;
+    width: 20px !important;
+    min-width: 20px !important;
+    max-width: 20px !important;
 }
 
+/* Column 4 — FIXED TYPO (px not x) */
 #myTable thead th:nth-child(4),
 .dataTables_scrollHeadInner table thead th:nth-child(4),
 .fixedHeader-floating thead th:nth-child(4),
 #myTable tbody td:nth-child(4) {
-    width: 180px !important;
-    min-width: 180px !important;
-    max-width: 180px !important;
+    width: 270px !important;
+    min-width: 270px !important;
+    max-width: 270px !important;
 }
 
-#myTable thead th:nth-child(5),
-.dataTables_scrollHeadInner table thead th:nth-child(5),
-.fixedHeader-floating thead th:nth-child(5),
-#myTable tbody td:nth-child(5) {
-    width: 160px !important;
-    min-width: 160px !important;
-    max-width: 160px !important;
+/* Centre column 1 */
+#myTable td:nth-child(1),
+#myTable th:nth-child(1) {
+    text-align: center !important;
 }
 
-#myTable thead th:nth-child(6),
-.dataTables_scrollHeadInner table thead th:nth-child(6),
-.fixedHeader-floating thead th:nth-child(6),
-#myTable tbody td:nth-child(6) {
-    width: 160px !important;
-    min-width: 160px !important;
-    max-width: 160px !important;
+/* Centre column 2 */
+#myTable td:nth-child(2),
+#myTable th:nth-child(2) {
+    text-align: left !important;
 }
 
-#myTable thead th:nth-child(7),
-.dataTables_scrollHeadInner table thead th:nth-child(7),
-.fixedHeader-floating thead th:nth-child(7),
-#myTable tbody td:nth-child(7) {
-    width: 180px !important;
-    min-width: 180px !important;
-    max-width: 180px !important;
+/* Centre column 3 */
+#myTable td:nth-child(3),
+#myTable th:nth-child(3) {
+    text-align: center !important;
 }
 
-#myTable thead th:nth-child(8),
-.dataTables_scrollHeadInner table thead th:nth-child(8),
-.fixedHeader-floating thead th:nth-child(8),
-#myTable tbody td:nth-child(8) {
-    width: 120px !important;
-    min-width: 120px !important;
-    max-width: 120px !important;
+/* Centre column 4 */
+#myTable td:nth-child(4),
+#myTable th:nth-child(4) {
+    text-align: left !important;
 }
 
-#myTable thead th:nth-child(9),
-.dataTables_scrollHeadInner table thead th:nth-child(9),
-.fixedHeader-floating thead th:nth-child(9),
-#myTable tbody td:nth-child(9) {
-    width: 200px !important;
-    min-width: 200px !important;
-    max-width: 200px !important;
-}
 
-/* Column 10 — big text column */
-#myTable thead th:nth-child(10),
-.dataTables_scrollHeadInner table thead th:nth-child(10),
-.fixedHeader-floating thead th:nth-child(10),
-#myTable tbody td:nth-child(10) {
-    width: 700px !important;
-    min-width: 700px !important;
-    max-width: 700px !important;
-}
-
-#myTable thead th:nth-child(11),
-.dataTables_scrollHeadInner table thead th:nth-child(11),
-.fixedHeader-floating thead th:nth-child(11),
-#myTable tbody td:nth-child(11) {
-    width: 250px !important;
-    min-width: 250px !important;
-    max-width: 250px !important;
-}
-
-#myTable thead th:nth-child(12),
-.dataTables_scrollHeadInner table thead th:nth-child(12),
-.fixedHeader-floating thead th:nth-child(12),
-#myTable tbody td:nth-child(12) {
-    width: 120px !important;
-    min-width: 120px !important;
-    max-width: 120px !important;
-}
-
-#myTable thead th:nth-child(13),
-.dataTables_scrollHeadInner table thead th:nth-child(13),
-.fixedHeader-floating thead th:nth-child(13),
-#myTable tbody td:nth-child(13) {
-    width: 120px !important;
-    min-width: 120px !important;
-    max-width: 120px !important;
-}
-
-#myTable thead th:nth-child(14),
-.dataTables_scrollHeadInner table thead th:nth-child(14),
-.fixedHeader-floating thead th:nth-child(14),
-#myTable tbody td:nth-child(14) {
-    width: 140px !important;
-    min-width: 140px !important;
-    max-width: 140px !important;
-}
-
-#myTable thead th:nth-child(15),
-.dataTables_scrollHeadInner table thead th:nth-child(15),
-.fixedHeader-floating thead th:nth-child(15),
-#myTable tbody td:nth-child(15) {
-    width: 160px !important;
-    min-width: 160px !important;
-    max-width: 160px !important;
-}
-
-#myTable thead th:nth-child(16),
-.dataTables_scrollHeadInner table thead th:nth-child(16),
-.fixedHeader-floating thead th:nth-child(16),
-#myTable tbody td:nth-child(16) {
-    width: 160px !important;
-    min-width: 160px !important;
-    max-width: 160px !important;
-}
-
-#myTable thead th:nth-child(17),
-.dataTables_scrollHeadInner table thead th:nth-child(17),
-.fixedHeader-floating thead th:nth-child(17),
-#myTable tbody td:nth-child(17) {
-    width: 160px !important;
-    min-width: 160px !important;
-    max-width: 160px !important;
-}
-
-#myTable thead th:nth-child(18),
-.dataTables_scrollHeadInner table thead th:nth-child(18),
-.fixedHeader-floating thead th:nth-child(18),
-#myTable tbody td:nth-child(18) {
-    width: 200px !important;
-    min-width: 200px !important;
-    max-width: 200px !important;
-}
-
-#myTable thead th:nth-child(19),
-.dataTables_scrollHeadInner table thead th:nth-child(19),
-.fixedHeader-floating thead th:nth-child(19),
-#myTable tbody td:nth-child(19) {
-    width: 200px !important;
-    min-width: 200px !important;
-    max-width: 200px !important;
-}
 
 
 /* -----------------------------------------------------------
@@ -359,22 +297,58 @@ table.dataTable {
     font-size: 14px !important;
 }
 
-/* Make header track body exactly */
+
+/* FINAL FIX — keep header and body same width */
+.dataTables_scrollHeadInner table,
+.dataTables_scrollBody table {
+    width: auto% !important;
+    table-layout: auto !important;
+}
+
+/* Allow header to resize with body */
 .dataTables_scrollHead {
-    overflow: hidden !important;
+    overflow: visible !important;
 }
 
-/* Fix body scroll so header and body travel the same distance */
+/* Remove scroll shifting */
 .dataTables_scrollBody {
-    overflow-y: scroll !important;   /* ensure scrollbar exists */
+    margin-right: 0 !important;
+    padding-right: 0 !important;
     overflow-x: auto !important;
-    margin-right: -17px !important;  /* pull table under scrollbar */
-    padding-right: 17px !important;  /* keep content visible */
+    overflow-y: auto !important;
 }
 
-.dataTables_scrollBody {
-    overflow-y: scroll !important;   /* force scrollbar */
-    overflow-x: auto !important;
-    margin-right: -17px !important;  /* pull body under scrollbar */
-    padding-right: 17px !important;  /* keep content visible */
+.dataTables_wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.dataTables_wrapper .dataTables_filter {
+    float: left !important;
+    text-align: left !important;
+}
+
+/* Remove or replace the fixed 600px rule */
+*/
+
+/* Replace with these */
+.yadcf-filter-wrapper {
+    width: 100% !important;
+    box-sizing: border-box;
+}
+
+.yadcf-filter-wrapper select,
+.yadcf-filter-wrapper input {
+    width: 100% !important;
+    box-sizing: border-box;
+}
+
+/* Make the header cell itself contain the filter properly */
+#myTable thead th {
+    overflow: visible;
+    white-space: nowrap;
+}
+
+.page-data_dictionary2 #myTable thead th {
+    background-color: red;
 }
