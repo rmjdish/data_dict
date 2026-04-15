@@ -1333,9 +1333,31 @@ document.addEventListener("DOMContentLoaded", function () {
                 table.fixedHeader.adjust();
             };
 
+        /* -----------------------------
+           WINDOW RESIZE HANDLER
+           (Do NOT refresh YADCF here — it breaks sorting)
+        ----------------------------- */
+        $(window).on('resize', function () {
+            if ($.fn.dataTable.isDataTable('#myTable')) {
+                table.columns.adjust();
 
+                if (table.fixedHeader) {
+                    table.fixedHeader.adjust();
+                }
+            }
+        });
 
+        /* -----------------------------
+           ⭐ Helper: Resize only the filter wrapper
+        ----------------------------- */
+        function resizeYadcfFilter(table, colIndex) {
+            var headerCell = $(table.column(colIndex).header());
+            var newWidth = headerCell.outerWidth();
 
+            $('.yadcf-filter-wrapper-' + colIndex).css({
+                width: newWidth + 'px'
+            });
+        }
 
 });
 
