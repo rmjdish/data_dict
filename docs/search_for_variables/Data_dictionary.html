@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Data table</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;font-size:13px;color:#222;background:#fff;padding:16px}
+
+.toolbar{display:flex;align-items:center;gap:10px;padding:0 0 10px;flex-wrap:wrap}
+.search-wrap{position:relative;flex:1;min-width:200px}
+.search-wrap input{width:100%;padding:7px 10px 7px 32px;border:1px solid #ccc;border-radius:8px;font-size:13px}
+.search-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);opacity:.45;pointer-events:none;width:14px;height:14px}
+.stats{font-size:12px;color:#666;white-space:nowrap}
+.stats span{font-weight:600;color:#222}
+.page-size-wrap{display:flex;align-items:center;gap:6px;font-size:12px;color:#666}
+.page-size-wrap select{padding:5px 8px;border:1px solid #ccc;border-radius:6px;font-size:12px}
+
+.table-wrap{border:1px solid #e0e0e0;border-radius:10px;overflow:hidden}
+.scroll-body{overflow-y:auto;height:480px}
+table{width:100%;border-collapse:collapse;table-layout:fixed}
+
+thead{position:sticky;top:0;z-index:10}
+th{padding:9px 10px;
+   text-align:left;
+   font-weight:600;
+   font-size:12px;
+   border-bottom:1px solid #ddd;
+   border-right:1px solid #ddd;
+   white-space:normal;
+   cursor:pointer;user-select:none}
+th:last-child{border-right:none}
+th .sort-icon{margin-left:4px;opacity:.4;font-size:10px}
+th.asc .sort-icon::after{content:'▲'}
+th.desc .sort-icon::after{content:'▼'}
+th:not(.asc):not(.desc) .sort-icon::after{content:'⇅'}
+
+.filter-row th{padding:4px 6px;cursor:default}
+.filter-row input{width:100%;padding:4px 6px;border:1px solid #ccc;border-radius:5px;font-size:11px}
+.filter-row input:focus{outline:none;border-color:#378add}
+
+td{padding:8px 10px;
+	border-bottom:1px solid #ececec;
+	border-right:1px solid #ececec;
+    overflow:visible;
+	text-overflow:clip;
+	white-space:normal;
+	font-size:12px}
+td:last-child{border-right:none}
+tr:last-child td{border-bottom:none}
+
+.pagination{display:flex;align-items:center;gap:6px;padding:10px 0 0;
+            justify-content:flex-end;flex-wrap:wrap}
+.pagination button{padding:5px 10px;border:1px solid #ccc;border-radius:6px;
+                   background:#fff;color:#222;font-size:12px;cursor:pointer}
+.pagination button:hover:not(:disabled){background:#f5f5f5}
+.pagination button:disabled{opacity:.35;cursor:default}
+.pagination button.active{background:#E6F1FB;color:#0C447C;border-color:#85B7EB;font-weight:600}
+.pagination .page-info{font-size:12px;color:#666}
+.no-results{text-align:center;padding:40px;color:#888;font-size:13px}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 16 16" fill="none">
+      <circle cx="6.5" cy="6.5" r="5" stroke="#666" stroke-width="1.5"/>
+      <path d="M10.5 10.5L14 14" stroke="#666" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <input type="text" id="global-search" placeholder="Search all columns…" oninput="onGlobalSearch()">
+  </div>
+  <div class="stats">
+    Total: <span id="total-count">0</span> &nbsp;|&nbsp;
+    Filtered: <span id="filtered-count">0</span>
+  </div>
+  <div class="page-size-wrap">
+    Rows per page:
+    <select id="page-size" onchange="onPageSizeChange()">
+      <option value="25">25</option>
+      <option value="50" selected>50</option>
+      <option value="100">100</option>
+      <option value="200">200</option>
+    </select>
+  </div>
+</div>
+
+<div class="table-wrap">
+  <div class="scroll-body" id="scroll-body">
+    <table id="data-table">
+      <thead id="thead"></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="pagination" id="pagination"></div>
+
+<script>
+// ─── CONFIGURATION ──────────────────────────────────────────────────────────
+
+// Column names — replace with your actual column names
+const COLS = ['Topic','Subtopic 1','Subtopic 2','Subtopic 3','Subtopic 4','NSHD Variable Name','Showcase Field ID','UKLLC Dataset Name(s)','Variable Label','Value labels',
+			  'Units','Form','Question Number', 'Year of collection', 'Is variable derived?', 'Is variable sensitive?','Reason variable is sensitive','Notes'];
+
+// Which column indices (0-based) get a filter box (columns 1–5 = indices 0–4)
+const FILTERABLE = new Set([0, 1, 2, 3, 4, 5]);
+
+// Per-column colours: bg = even rows, bgOdd = odd rows, text = text colour
+const COL_COLORS = [
+  {bg:'#E6F1FB', bgOdd:'#d0e6f7', text:'#0C447C'},  // blue
+  {bg:'#E1F5EE', bgOdd:'#c8eddf', text:'#085041'},  // teal
+  {bg:'#EEEDFE', bgOdd:'#dddcfc', text:'#3C3489'},  // purple
+  {bg:'#FAECE7', bgOdd:'#f5d8cf', text:'#712B13'},  // coral
+  {bg:'#FAEEDA', bgOdd:'#f5deb8', text:'#633806'},  // amber
+  {bg:'#EAF3DE', bgOdd:'#d4e9bb', text:'#27500A'},  // green
+  {bg:'#FBEAF0', bgOdd:'#f5ccdb', text:'#72243E'},  // pink
+  {bg:'#F1EFE8', bgOdd:'#e0ddd2', text:'#444441'},  // gray
+  {bg:'#E6F1FB', bgOdd:'#d0e6f7', text:'#0C447C'},  // blue (repeat)
+  {bg:'#E1F5EE', bgOdd:'#c8eddf', text:'#085041'},  // teal (repeat)
+  {bg:'#E6F1FB', bgOdd:'#d0e6f7', text:'#0C447C'},  // blue
+  {bg:'#E1F5EE', bgOdd:'#c8eddf', text:'#085041'},  // teal
+  {bg:'#EEEDFE', bgOdd:'#dddcfc', text:'#3C3489'},  // purple
+  {bg:'#FAECE7', bgOdd:'#f5d8cf', text:'#712B13'},  // coral
+  {bg:'#FAEEDA', bgOdd:'#f5deb8', text:'#633806'},  // amber
+  {bg:'#EAF3DE', bgOdd:'#d4e9bb', text:'#27500A'},  // green
+  {bg:'#FBEAF0', bgOdd:'#f5ccdb', text:'#72243E'},  // pink
+  {bg:'#F1EFE8', bgOdd:'#e0ddd2', text:'#444441'},  // gray
+  {bg:'#E6F1FB', bgOdd:'#d0e6f7', text:'#0C447C'},  // blue (repeat)
+  {bg:'#E1F5EE', bgOdd:'#c8eddf', text:'#085041'},  // teal (repeat)
+  ];
+
+// ─── DATA ───────────────────────────────────────────────────────────────────
+
+// Replace this with your pandas export:
+//   import json
+//   ALL_DATA = json.loads(df.to_json(orient='records'))
+//
+// Or load from a file:
+// then decompress in the browser before assigning ALL_DATA
+const buf = await fetch('S:/LHA_DMG_Code/Website/data.json.gz').then(r => r.arrayBuffer());
+const stream = new DecompressionStream('gzip');
+const writer = stream.writable.getWriter();
+writer.write(new Uint8Array(buf)); writer.close();
+const ALL_DATA = await new Response(stream.readable).json();
+
+//const ALL_DATA = (() => {
+// const cats=['Alpha','Beta','Gamma','Delta','Epsilon'];
+//  const stats=['Active','Inactive','Pending','Closed','Review'];
+//  const regs=['North','South','East','West','Central'];
+//  const tags=['urgent','low','medium','high','critical'];
+//  return Array.from({length:30000},(_,i)=>({
+//    id: i+1,
+//    name: 'Record '+(i+1),
+//    category: cats[i%5],
+//    value: Math.round(Math.random()*9900+100),
+//    status: stats[i%5],
+//    region: regs[Math.floor(Math.random()*5)],
+//    score: (Math.random()*100).toFixed(1),
+//    date: new Date(2022,Math.floor(Math.random()*36),Math.floor(Math.random()*28)+1).toISOString().slice(0,10),
+//    tag: tags[Math.floor(Math.random()*5)],
+//    notes: 'Note for row '+(i+1),
+//  }));
+//})();
+
+// ─── STATE ──────────────────────────────────────────────────────────────────
+
+let filteredData = ALL_DATA.slice();
+let currentPage  = 1;
+let pageSize     = 50;
+let sortCol      = null;
+let sortDir      = 1;
+let globalQ      = '';
+let colFilters   = Array(COLS.length).fill('');
+
+// ─── BUILD HEADER ───────────────────────────────────────────────────────────
+
+function buildHeader() {
+  const thead = document.getElementById('thead');
+
+  // Sort header row
+  const hr = document.createElement('tr');
+  COLS.forEach((col, i) => {
+    const th = document.createElement('th');
+    th.id = 'th-' + i;
+    th.style.background = COL_COLORS[i].bg;
+    th.style.color = COL_COLORS[i].text;
+    th.innerHTML = col.charAt(0).toUpperCase() + col.slice(1) + ' <i class="sort-icon"></i>';
+    th.onclick = () => onSort(i);
+    hr.appendChild(th);
+  });
+
+  // Filter row
+  const fr = document.createElement('tr');
+  fr.className = 'filter-row';
+  COLS.forEach((col, i) => {
+    const th = document.createElement('th');
+    th.style.background = COL_COLORS[i].bgOdd;
+    if (FILTERABLE.has(i)) {
+      const inp = document.createElement('input');
+      inp.type = 'text';
+      inp.placeholder = 'Filter…';
+      inp.oninput = e => { colFilters[i] = e.target.value; applyFilters(); };
+      th.appendChild(inp);
+    }
+    fr.appendChild(th);
+  });
+
+  thead.appendChild(hr);
+  thead.appendChild(fr);
+}
+
+// ─── FILTER + SORT ──────────────────────────────────────────────────────────
+
+function applyFilters() {
+  const q = globalQ.toLowerCase();
+
+  filteredData = ALL_DATA.filter(row => {
+    // Global search across all columns
+    if (q && !COLS.some(c => String(row[c]).toLowerCase().includes(q))) return false;
+
+    // Per-column filters (columns 0–4)
+    for (let i = 0; i < 5; i++) {
+      const f = colFilters[i].toLowerCase();
+      if (f && !String(row[COLS[i]]).toLowerCase().includes(f)) return false;
+    }
+    return true;
+  });
+
+  // Sort
+  if (sortCol !== null) {
+    const key = COLS[sortCol];
+    filteredData.sort((a, b) => {
+      const av = isNaN(a[key]) ? String(a[key]) : +a[key];
+      const bv = isNaN(b[key]) ? String(b[key]) : +b[key];
+      return av < bv ? -sortDir : av > bv ? sortDir : 0;
+    });
+  }
+
+  currentPage = 1;
+  render();
+}
+
+function onSort(i) {
+  if (sortCol === i) { sortDir *= -1; } else { sortCol = i; sortDir = 1; }
+  document.querySelectorAll('thead tr:first-child th').forEach((th, idx) => {
+    th.classList.remove('asc', 'desc');
+    if (idx === i) th.classList.add(sortDir === 1 ? 'asc' : 'desc');
+  });
+  applyFilters();
+}
+
+function onGlobalSearch() {
+  globalQ = document.getElementById('global-search').value;
+  applyFilters();
+}
+
+function onPageSizeChange() {
+  pageSize = +document.getElementById('page-size').value;
+  currentPage = 1;
+  render();
+}
+
+// ─── RENDER ─────────────────────────────────────────────────────────────────
+
+function render() {
+  document.getElementById('total-count').textContent    = ALL_DATA.length.toLocaleString();
+  document.getElementById('filtered-count').textContent = filteredData.length.toLocaleString();
+
+  const start    = (currentPage - 1) * pageSize;
+  const pageRows = filteredData.slice(start, start + pageSize);
+  const tbody    = document.getElementById('tbody');
+  tbody.innerHTML = '';
+
+  if (pageRows.length === 0) {
+    const tr = document.createElement('tr');
+    const td = document.createElement('td');
+    td.colSpan = COLS.length;
+    td.className = 'no-results';
+    td.textContent = 'No results match your filters.';
+    tr.appendChild(td);
+    tbody.appendChild(tr);
+  } else {
+    pageRows.forEach((row, ri) => {
+      const tr    = document.createElement('tr');
+      const isOdd = (start + ri) % 2 === 1;
+      COLS.forEach((col, ci) => {
+        const td = document.createElement('td');
+        td.textContent  = row[col];
+        td.style.background = isOdd ? COL_COLORS[ci].bgOdd : COL_COLORS[ci].bg;
+        td.style.color      = COL_COLORS[ci].text;
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+  }
+
+  renderPagination(filteredData.length);
+}
+
+// ─── PAGINATION ─────────────────────────────────────────────────────────────
+
+function renderPagination(total) {
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  const pg = document.getElementById('pagination');
+  pg.innerHTML = '';
+
+  // Row range label
+  const info = document.createElement('span');
+  info.className = 'page-info';
+  const s = (currentPage - 1) * pageSize + 1;
+  const e = Math.min(currentPage * pageSize, total);
+  info.textContent = total === 0 ? 'No results' : `${s.toLocaleString()}–${e.toLocaleString()} of ${total.toLocaleString()}`;
+  pg.appendChild(info);
+
+  const btn = (label, page, disabled, active = false) => {
+    const b = document.createElement('button');
+    b.textContent = label;
+    b.disabled = disabled;
+    if (active) b.classList.add('active');
+    b.onclick = () => {
+      currentPage = page;
+      render();
+      document.getElementById('scroll-body').scrollTop = 0;
+    };
+    return b;
+  };
+
+  pg.appendChild(btn('«', 1, currentPage === 1));
+  pg.appendChild(btn('‹', currentPage - 1, currentPage === 1));
+
+  // Page number buttons with ellipsis
+  let pages = [];
+  if (totalPages <= 7) {
+    for (let i = 1; i <= totalPages; i++) pages.push(i);
+  } else {
+    pages = [1];
+    if (currentPage > 3) pages.push('…');
+    for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) pages.push(i);
+    if (currentPage < totalPages - 2) pages.push('…');
+    pages.push(totalPages);
+  }
+
+  pages.forEach(p => {
+    if (p === '…') {
+      const s = document.createElement('span');
+      s.textContent = '…';
+      s.style.cssText = 'font-size:12px;color:#888;padding:0 2px';
+      pg.appendChild(s);
+    } else {
+      pg.appendChild(btn(p, p, false, p === currentPage));
+    }
+  });
+
+  pg.appendChild(btn('›', currentPage + 1, currentPage === totalPages));
+  pg.appendChild(btn('»', totalPages,       currentPage === totalPages));
+}
+
+// ─── INIT ───────────────────────────────────────────────────────────────────
+
+buildHeader();
+applyFilters();
+</script>
+</body>
+</html>
