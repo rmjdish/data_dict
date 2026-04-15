@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Search for variables
-nav_order: 2
+nav_order: 100
 ---
 
 <!DOCTYPE html>
@@ -329,7 +329,7 @@ function renderPagination(total) {
 
 (async () => {
     try {
-        const response = await fetch('data.json');
+        const response = await fetch('data2.json');
         ALL_DATA = await response.json();   // FIXED
     } catch (err) {
         console.error("Failed to load data.json:", err);
