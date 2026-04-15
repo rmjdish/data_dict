@@ -94,36 +94,37 @@ tr:last-child td{border-bottom:none}
 </div>
 
 <table id="myTable">
-  <thead>
-    <tr>
-      <th>NSHD Library File</th>
-      <th>Topic</th>
-      <th>Subtopic 1</th>
-      <th>Subtopic 2</th>
-      <th>Subtopic 3</th>
-      <th>Subtopic 4</th>
-      <th>NSHD Variable Name</th>
-      <th>Showcase Field ID</th>
-      <th>UKLLC Dataset Name(s)</th>
-      <th>Variable Label</th>
-      <th>Value labels</th>
-      <th>Units</th>
-      <th>Form</th>
-      <th>Question Number</th>
-      <th>Year of collection</th>
-      <th>Is variable derived?</th>
-      <th>Is variable sensitive?</th>
-      <th>Reason variable is sensitive</th>
-      <th>Notes</th>
-    </tr>
-  </thead>
+<thead>
+  <tr>
+    <th>NSHD Library File</th>
+    <th>Topic</th>
+    <th>Subtopic 1</th>
+    <th>Subtopic 2</th>
+    <th>Subtopic 3</th>
+    <th>Subtopic 4</th>
+    <th>NSHD Variable Name</th>
+    <th>Showcase Field ID</th>
+    <th>UKLLC Dataset Name(s)</th>
+    <th>Order</th>
+    <th>Variable Label</th>
+    <th>Value labels</th>
+    <th>Units</th>
+    <th>Form</th>
+    <th>Question Number</th>
+    <th>Year of collection</th>
+    <th>Is variable derived?</th>
+    <th>Is variable sensitive?</th>
+    <th>Reason variable is sensitive</th>
+    <th>Notes</th>
+  </tr>
+</thead>
   <tbody></tbody>
 </table>
 
 <div class="pagination" id="pagination"></div>
 
 <script>
-fetch('data2.json')
+fetch('test.json')
   .then(response => response.json())
   .then(data => {
     const tbody = document.querySelector('#myTable tbody');
