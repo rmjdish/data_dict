@@ -1283,9 +1283,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         var table = $('#myTable').DataTable({
             pageLength: 10,
-            dom: "<'top'fB>iprt",
+			deferRender: true,
             scrollX: true,
             autoWidth: false,
+            dom: "<'top'fB>iprt",
             fixedHeader: {
                 header: true,
                 headerOffset: 0
