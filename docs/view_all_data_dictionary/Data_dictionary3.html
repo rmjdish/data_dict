@@ -1,0 +1,127 @@
+---
+layout: default
+title: Search for variables
+nav_order: 100
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Data table</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;font-size:13px;color:#222;background:#fff;padding:16px}
+
+.toolbar{display:flex;align-items:center;gap:10px;padding:0 0 10px;flex-wrap:wrap}
+.search-wrap{position:relative;flex:1;min-width:200px}
+.search-wrap input{width:100%;padding:7px 10px 7px 32px;border:1px solid #ccc;border-radius:8px;font-size:13px}
+.search-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);opacity:.45;pointer-events:none;width:14px;height:14px}
+.stats{font-size:12px;color:#666;white-space:nowrap}
+.stats span{font-weight:600;color:#222}
+.page-size-wrap{display:flex;align-items:center;gap:6px;font-size:12px;color:#666}
+.page-size-wrap select{padding:5px 8px;border:1px solid #ccc;border-radius:6px;font-size:12px}
+
+.table-wrap{border:1px solid #e0e0e0;border-radius:10px;overflow:hidden}
+.scroll-body{overflow-y:auto;height:480px}
+table{width:100%;border-collapse:collapse;table-layout:fixed}
+
+thead{position:sticky;top:0;z-index:10}
+th{padding:9px 10px;
+   text-align:left;
+   font-weight:600;
+   font-size:12px;
+   border-bottom:1px solid #ddd;
+   border-right:1px solid #ddd;
+   white-space:normal;
+   cursor:pointer;user-select:none}
+th:last-child{border-right:none}
+th .sort-icon{margin-left:4px;opacity:.4;font-size:10px}
+th.asc .sort-icon::after{content:'▲'}
+th.desc .sort-icon::after{content:'▼'}
+th:not(.asc):not(.desc) .sort-icon::after{content:'⇅'}
+
+.filter-row th{padding:4px 6px;cursor:default}
+.filter-row input{width:100%;padding:4px 6px;border:1px solid #ccc;border-radius:5px;font-size:11px}
+.filter-row input:focus{outline:none;border-color:#378add}
+
+td{padding:8px 10px;
+    border-bottom:1px solid #ececec;
+    border-right:1px solid #ececec;
+    overflow:visible;
+    text-overflow:clip;
+    white-space:normal;
+    font-size:12px}
+td:last-child{border-right:none}
+tr:last-child td{border-bottom:none}
+
+.pagination{display:flex;align-items:center;gap:6px;padding:10px 0 0;
+            justify-content:flex-end;flex-wrap:wrap}
+.pagination button{padding:5px 10px;border:1px solid #ccc;border-radius:6px;
+                   background:#fff;color:#222;font-size:12px;cursor:pointer}
+.pagination button:hover:not(:disabled){background:#f5f5f5}
+.pagination button:disabled{opacity:.35;cursor:default}
+.pagination button.active{background:#E6F1FB;color:#0C447C;border-color:#85B7EB;font-weight:600}
+.pagination .page-info{font-size:12px;color:#666}
+.no-results{text-align:center;padding:40px;color:#888;font-size:13px}
+</style>
+</head>
+<body class="page-data_dictionary2">
+
+<div class="toolbar">
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 16 16" fill="none">
+      <circle cx="6.5" cy="6.5" r="5" stroke="#666" stroke-width="1.5"/>
+      <path d="M10.5 10.5L14 14" stroke="#666" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <input type="text" id="global-search" placeholder="Search all columns…" oninput="onGlobalSearch()">
+  </div>
+  <div class="stats">
+    Total: <span id="total-count">0</span> &nbsp;|&nbsp;
+    Filtered: <span id="filtered-count">0</span>
+  </div>
+  <div class="page-size-wrap">
+    Rows per page:
+    <select id="page-size" onchange="onPageSizeChange()">
+      <option value="25">25</option>
+      <option value="50" selected>50</option>
+      <option value="100">100</option>
+      <option value="200">200</option>
+    </select>
+  </div>
+</div>
+
+<div class="table-wrap">
+  <div class="scroll-body" id="scroll-body">
+    <table id="data-table">
+      <thead id="thead"></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="pagination" id="pagination"></div>
+
+<script>
+fetch('data.json')
+  .then(response => response.json())
+  .then(data => {
+    const tbody = document.querySelector('#myTable tbody');
+
+    data.forEach(row => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${row.Field}</td>
+        <td>${row.Description}</td>
+        <td>${row.Type}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  })
+  .catch(err => console.error('Error loading JSON:', err));
+</script>
+
+</body>
+</html>
