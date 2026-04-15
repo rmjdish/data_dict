@@ -107,7 +107,9 @@
 	  color: #2d2424 !important;
 	}
 
-body:not(.page-data_dictionary2) {
+/* -----------Apply to browse by category pages only */
+
+body:not(.page-search_for_variables) {
 	
 	/* -----------------------------------------------------------
 	   DATATABLES — MANUAL COLUMN WIDTHS + WRAPPING
