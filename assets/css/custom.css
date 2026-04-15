@@ -349,3 +349,6 @@ table.dataTable {
     white-space: nowrap;
 }
 
+.page-data_dictionary2 #myTable thead th {
+    background-color: red;
+}
