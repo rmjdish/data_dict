@@ -93,14 +93,32 @@ tr:last-child td{border-bottom:none}
   </div>
 </div>
 
-<div class="table-wrap">
-  <div class="scroll-body" id="scroll-body">
-    <table id="data-table">
-      <thead id="thead"></thead>
-      <tbody id="tbody"></tbody>
-    </table>
-  </div>
-</div>
+<table id="myTable">
+  <thead>
+    <tr>
+      <th>NSHD Library File</th>
+      <th>Topic</th>
+      <th>Subtopic 1</th>
+      <th>Subtopic 2</th>
+      <th>Subtopic 3</th>
+      <th>Subtopic 4</th>
+      <th>NSHD Variable Name</th>
+      <th>Showcase Field ID</th>
+      <th>UKLLC Dataset Name(s)</th>
+      <th>Variable Label</th>
+      <th>Value labels</th>
+      <th>Units</th>
+      <th>Form</th>
+      <th>Question Number</th>
+      <th>Year of collection</th>
+      <th>Is variable derived?</th>
+      <th>Is variable sensitive?</th>
+      <th>Reason variable is sensitive</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
 
 <div class="pagination" id="pagination"></div>
 
@@ -113,9 +131,26 @@ fetch('data2.json')
     data.forEach(row => {
       const tr = document.createElement('tr');
       tr.innerHTML = `
-        <td>${row.Field}</td>
-        <td>${row.Description}</td>
-        <td>${row.Type}</td>
+        <td>${row.NSHD_Library_File || ''}</td>
+        <td>${row.Topic || ''}</td>
+        <td>${row.Subtopic1 || ''}</td>
+        <td>${row.Subtopic2 || ''}</td>
+        <td>${row.Subtopic3 || ''}</td>
+        <td>${row.Subtopic4 || ''}</td>
+        <td>${row.NSHD_Variable_Name || ''}</td>
+        <td>${row.Showcase_Field_ID || ''}</td>
+        <td>${row.UKLLC_Dataset_Names || ''}</td>
+        <td>${row.Order || ''}</td>
+        <td>${row.Variable_Label || ''}</td>
+        <td>${row.Value_Labels || ''}</td>
+        <td>${row.Units || ''}</td>
+        <td>${row.Form || ''}</td>
+        <td>${row.Question_Number || ''}</td>
+        <td>${row.Year_of_Collection || ''}</td>
+        <td>${row.Is_Variable_Derived || ''}</td>
+        <td>${row.Is_Variable_Sensitive || ''}</td>
+        <td>${row.Reason_Sensitive || ''}</td>
+        <td>${row.Notes || ''}</td>
       `;
       tbody.appendChild(tr);
     });
