@@ -157,6 +157,249 @@ fetch('NSHD_Data_Dictionary_Public.json')
     });
   })
   .catch(err => console.error('Error loading JSON:', err));
+
+// ─── CONFIGURATION ──────────────────────────────────────────────────────────
+
+// Column names — replace with your actual column names
+const COLS = ['Topic','Subtopic 1','Subtopic 2','Subtopic 3','Subtopic 4','NSHD Variable Name','Showcase Field ID','UKLLC Dataset Name(s)','Variable Label','Value labels',
+			  'Units','Form','Question Number', 'Year of collection', 'Is variable derived?', 'Is variable sensitive?','Reason variable is sensitive','Notes'];
+
+// Which column indices (0-based) get a filter box (columns 1–5 = indices 0–4)
+const FILTERABLE = new Set([0, 1, 2, 3, 4, 5]);
+
+// Per-column colours: bg = even rows, bgOdd = odd rows, text = text colour
+const COL_COLORS = [
+  {bg:'#E6F1FB', bgOdd:'#d0e6f7', text:'#0C447C'},  // blue
+  {bg:'#E1F5EE', bgOdd:'#c8eddf', text:'#085041'},  // teal
+  {bg:'#EEEDFE', bgOdd:'#dddcfc', text:'#3C3489'},  // purple
+  {bg:'#FAECE7', bgOdd:'#f5d8cf', text:'#712B13'},  // coral
+  {bg:'#FAEEDA', bgOdd:'#f5deb8', text:'#633806'},  // amber
+  {bg:'#EAF3DE', bgOdd:'#d4e9bb', text:'#27500A'},  // green
+  {bg:'#FBEAF0', bgOdd:'#f5ccdb', text:'#72243E'},  // pink
+  {bg:'#F1EFE8', bgOdd:'#e0ddd2', text:'#444441'},  // gray
+  {bg:'#E6F1FB', bgOdd:'#d0e6f7', text:'#0C447C'},  // blue (repeat)
+  {bg:'#E1F5EE', bgOdd:'#c8eddf', text:'#085041'},  // teal (repeat)
+  {bg:'#E6F1FB', bgOdd:'#d0e6f7', text:'#0C447C'},  // blue
+  {bg:'#E1F5EE', bgOdd:'#c8eddf', text:'#085041'},  // teal
+  {bg:'#EEEDFE', bgOdd:'#dddcfc', text:'#3C3489'},  // purple
+  {bg:'#FAECE7', bgOdd:'#f5d8cf', text:'#712B13'},  // coral
+  {bg:'#FAEEDA', bgOdd:'#f5deb8', text:'#633806'},  // amber
+  {bg:'#EAF3DE', bgOdd:'#d4e9bb', text:'#27500A'},  // green
+  {bg:'#FBEAF0', bgOdd:'#f5ccdb', text:'#72243E'},  // pink
+  {bg:'#F1EFE8', bgOdd:'#e0ddd2', text:'#444441'},  // gray
+  {bg:'#E6F1FB', bgOdd:'#d0e6f7', text:'#0C447C'},  // blue (repeat)
+  {bg:'#E1F5EE', bgOdd:'#c8eddf', text:'#085041'},  // teal (repeat)
+  ];
+  
+// ─── STATE ──────────────────────────────────────────────────────────────────
+
+let filteredData = ALL_DATA.slice();
+let currentPage  = 1;
+let pageSize     = 50;
+let sortCol      = null;
+let sortDir      = 1;
+let globalQ      = '';
+let colFilters   = Array(COLS.length).fill('');
+
+// ─── BUILD HEADER ───────────────────────────────────────────────────────────
+
+function buildHeader() {
+  const thead = document.getElementById('thead');
+
+  // Sort header row
+  const hr = document.createElement('tr');
+  COLS.forEach((col, i) => {
+    const th = document.createElement('th');
+    th.id = 'th-' + i;
+    th.style.background = COL_COLORS[i].bg;
+    th.style.color = COL_COLORS[i].text;
+    th.innerHTML = col.charAt(0).toUpperCase() + col.slice(1) + ' <i class="sort-icon"></i>';
+    th.onclick = () => onSort(i);
+    hr.appendChild(th);
+  });
+
+  // Filter row
+  const fr = document.createElement('tr');
+  fr.className = 'filter-row';
+  COLS.forEach((col, i) => {
+    const th = document.createElement('th');
+    th.style.background = COL_COLORS[i].bgOdd;
+    if (FILTERABLE.has(i)) {
+      const inp = document.createElement('input');
+      inp.type = 'text';
+      inp.placeholder = 'Filter…';
+      inp.oninput = e => { colFilters[i] = e.target.value; applyFilters(); };
+      th.appendChild(inp);
+    }
+    fr.appendChild(th);
+  });
+
+  thead.appendChild(hr);
+  thead.appendChild(fr);
+}
+
+// ─── FILTER + SORT ──────────────────────────────────────────────────────────
+
+function applyFilters() {
+  const q = globalQ.toLowerCase();
+
+  filteredData = ALL_DATA.filter(row => {
+    // Global search across all columns
+    if (q && !COLS.some(c => String(row[c]).toLowerCase().includes(q))) return false;
+
+    // Per-column filters (columns 0–4)
+    for (let i = 0; i < 5; i++) {
+      const f = colFilters[i].toLowerCase();
+      if (f && !String(row[COLS[i]]).toLowerCase().includes(f)) return false;
+    }
+    return true;
+  });
+
+  // Sort
+  if (sortCol !== null) {
+    const key = COLS[sortCol];
+    filteredData.sort((a, b) => {
+      const av = isNaN(a[key]) ? String(a[key]) : +a[key];
+      const bv = isNaN(b[key]) ? String(b[key]) : +b[key];
+      return av < bv ? -sortDir : av > bv ? sortDir : 0;
+    });
+  }
+
+  currentPage = 1;
+  render();
+}
+
+function onSort(i) {
+  if (sortCol === i) { sortDir *= -1; } else { sortCol = i; sortDir = 1; }
+  document.querySelectorAll('thead tr:first-child th').forEach((th, idx) => {
+    th.classList.remove('asc', 'desc');
+    if (idx === i) th.classList.add(sortDir === 1 ? 'asc' : 'desc');
+  });
+  applyFilters();
+}
+
+function onGlobalSearch() {
+  globalQ = document.getElementById('global-search').value;
+  applyFilters();
+}
+
+function onPageSizeChange() {
+  pageSize = +document.getElementById('page-size').value;
+  currentPage = 1;
+  render();
+}
+
+// ─── RENDER ─────────────────────────────────────────────────────────────────
+
+function render() {
+  document.getElementById('total-count').textContent    = ALL_DATA.length.toLocaleString();
+  document.getElementById('filtered-count').textContent = filteredData.length.toLocaleString();
+
+  const start    = (currentPage - 1) * pageSize;
+  const pageRows = filteredData.slice(start, start + pageSize);
+  const tbody    = document.getElementById('tbody');
+  tbody.innerHTML = '';
+
+  if (pageRows.length === 0) {
+    const tr = document.createElement('tr');
+    const td = document.createElement('td');
+    td.colSpan = COLS.length;
+    td.className = 'no-results';
+    td.textContent = 'No results match your filters.';
+    tr.appendChild(td);
+    tbody.appendChild(tr);
+  } else {
+    pageRows.forEach((row, ri) => {
+      const tr    = document.createElement('tr');
+      const isOdd = (start + ri) % 2 === 1;
+      COLS.forEach((col, ci) => {
+        const td = document.createElement('td');
+        td.textContent  = row[col];
+        td.style.background = isOdd ? COL_COLORS[ci].bgOdd : COL_COLORS[ci].bg;
+        td.style.color      = COL_COLORS[ci].text;
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+  }
+
+  renderPagination(filteredData.length);
+}
+
+// ─── PAGINATION ─────────────────────────────────────────────────────────────
+
+function renderPagination(total) {
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  const pg = document.getElementById('pagination');
+  pg.innerHTML = '';
+
+  // Row range label
+  const info = document.createElement('span');
+  info.className = 'page-info';
+  const s = (currentPage - 1) * pageSize + 1;
+  const e = Math.min(currentPage * pageSize, total);
+  info.textContent = total === 0 ? 'No results' : `${s.toLocaleString()}–${e.toLocaleString()} of ${total.toLocaleString()}`;
+  pg.appendChild(info);
+
+  const btn = (label, page, disabled, active = false) => {
+    const b = document.createElement('button');
+    b.textContent = label;
+    b.disabled = disabled;
+    if (active) b.classList.add('active');
+    b.onclick = () => {
+      currentPage = page;
+      render();
+      document.getElementById('scroll-body').scrollTop = 0;
+    };
+    return b;
+  };
+
+  pg.appendChild(btn('«', 1, currentPage === 1));
+  pg.appendChild(btn('‹', currentPage - 1, currentPage === 1));
+
+  // Page number buttons with ellipsis
+  let pages = [];
+  if (totalPages <= 7) {
+    for (let i = 1; i <= totalPages; i++) pages.push(i);
+  } else {
+    pages = [1];
+    if (currentPage > 3) pages.push('…');
+    for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) pages.push(i);
+    if (currentPage < totalPages - 2) pages.push('…');
+    pages.push(totalPages);
+  }
+
+  pages.forEach(p => {
+    if (p === '…') {
+      const s = document.createElement('span');
+      s.textContent = '…';
+      s.style.cssText = 'font-size:12px;color:#888;padding:0 2px';
+      pg.appendChild(s);
+    } else {
+      pg.appendChild(btn(p, p, false, p === currentPage));
+    }
+  });
+
+  pg.appendChild(btn('›', currentPage + 1, currentPage === totalPages));
+  pg.appendChild(btn('»', totalPages,       currentPage === totalPages));
+}
+
+// ─── INIT ───────────────────────────────────────────────────────────────────
+
+buildHeader();
+applyFilters();  
+  
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 </body>
