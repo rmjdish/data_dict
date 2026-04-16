@@ -136,14 +136,14 @@ table.data-table {
 /* ───────────────────────────────────────────────
    PAGINATION
    ─────────────────────────────────────────────── */
-.pagination {
+.page-NSHD_Data_Dictionary_Public .pagination {
   margin: 10px 0;
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-.btn-pg {
+.page-NSHD_Data_Dictionary_Public .btn-pg {
   padding: 4px 8px;
   border: 1px solid #7e57c2;
   background: white;
@@ -151,20 +151,20 @@ table.data-table {
   cursor: pointer;
 }
 
-.btn-pg.active {
+.page-NSHD_Data_Dictionary_Public .btn-pg.active {
   background: #7e57c2;
   color: white;
 }
 
-.btn-pg:disabled {
+.page-NSHD_Data_Dictionary_Public .btn-pg:disabled {
   opacity: 0.4;
   cursor: not-allowed;
 }
 
 
 /* Freeze filters + pagination */
-.filters,
-.pagination {
+.page-NSHD_Data_Dictionary_Public .filters,
+.page-NSHD_Data_Dictionary_Public .pagination {
   position: sticky;
   top: 0;
   z-index: 50;
@@ -178,20 +178,20 @@ table.data-table {
 }
 
 /* Scrollable table body */
-.table-wrapper {
+.page-NSHD_Data_Dictionary_Public .table-wrapper {
   border: 1px solid #ccc;
   max-height: 600px; /* adjust as needed */
   overflow: hidden;
 }
 
-.scroll-body {
+.page-NSHD_Data_Dictionary_Public .scroll-body {
   max-height: calc(100vh - 300px); /* auto-shrink/expand */
   overflow-y: auto;
   transition: max-height 0.2s ease;
 }
 
 /* Sticky header row */
-.data-table thead th {
+.page-NSHD_Data_Dictionary_Public .data-table thead th {
   position: sticky;
   top: 120px; /* filters + pagination height */
   z-index: 100;
