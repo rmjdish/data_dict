@@ -13,7 +13,7 @@ const COLS = ['Topic','Subtopic 1','Subtopic 2','Subtopic 3','Subtopic 4',
 const FILTER_COLS = ['Topic','Subtopic 1','Subtopic 2','Subtopic 3','Subtopic 4'];
 const FILTER_IDS  = ['f-topic','f-sub1','f-sub2','f-sub3','f-sub4'];
 
-fetch('/assets/data/data.json')
+fetch('/data_dict/assets/data/data.json')
   .then(r => r.json())
   .then(data => {
     RAW_DATA = data;
