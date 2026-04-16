@@ -49,13 +49,9 @@ nav_order: 3
         <th>Year of collection</th>
       </tr>
     </thead>
-  </table>
 
-  <div class="scroll-body">
-    <table class="data-table">
-      <tbody id="tbody"></tbody>
-    </table>
-  </div>
+    <tbody id="tbody"></tbody>
+  </table>
 </div>
 
 <div id="pagination-bottom" class="pagination"></div>
