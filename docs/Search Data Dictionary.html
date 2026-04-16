@@ -511,7 +511,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Load JSON (corrected) ─────────────────────────────
   console.log("FETCH STARTED");
 
-  fetch('/data_dict/assets/data/data.json')
+  fetch('/assets/data/data.json')
     .then(response => {
       if (!response.ok) {
         throw new Error("Network error: " + response.status);
