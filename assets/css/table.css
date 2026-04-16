@@ -126,3 +126,40 @@ table.data-table {
   cursor: not-allowed;
 }
 
+
+/* Freeze filters + pagination */
+.filters,
+.pagination {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: white;
+  padding: 10px 0;
+}
+
+/* Freeze top pagination below filters */
+#pagination-top {
+  top: 60px;
+}
+
+/* Scrollable table body */
+.table-wrapper {
+  border: 1px solid #ccc;
+  max-height: 600px; /* adjust as needed */
+  overflow: hidden;
+}
+
+.scroll-body {
+  max-height: 550px; /* table body scroll area */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Sticky header row */
+.data-table thead th {
+  position: sticky;
+  top: 120px; /* filters + pagination height */
+  z-index: 100;
+  background: #4b2e83;
+  color: white;
+}

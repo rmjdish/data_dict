@@ -21,25 +21,32 @@ nav_order: 3
 
 <div id="pagination-top" class="pagination"></div>
 
-<table class="data-table">
-  <thead>
-    <tr>
-      <th>Topic</th>
-      <th>Subtopic 1</th>
-      <th>Subtopic 2</th>
-      <th>Subtopic 3</th>
-      <th>Subtopic 4</th>
-      <th>NSHD Variable Name</th>
-      <th>Showcase Field ID</th>
-      <th>Order</th>
-      <th>UKLLC Dataset Name(s)</th>
-      <th>Variable Label</th>
-      <th>Form</th>
-      <th>Year of collection</th>
-    </tr>
-  </thead>
-  <tbody id="tbody"></tbody>
-</table>
+<div class="table-wrapper">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Topic</th>
+        <th>Subtopic 1</th>
+        <th>Subtopic 2</th>
+        <th>Subtopic 3</th>
+        <th>Subtopic 4</th>
+        <th>NSHD Variable Name</th>
+        <th>Showcase Field ID</th>
+        <th>Order</th>
+        <th>UKLLC Dataset Name(s)</th>
+        <th>Variable Label</th>
+        <th>Form</th>
+        <th>Year of collection</th>
+      </tr>
+    </thead>
+  </table>
+
+  <div class="scroll-body">
+    <table class="data-table">
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
 
 <div id="pagination-bottom" class="pagination"></div>
 
