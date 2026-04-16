@@ -500,24 +500,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const FILTER_IDS  = ['f-topic','f-sub1','f-sub2','f-sub3','f-sub4'];
 
   let RAW_DATA = [];
-  let filtered  = [...RAW_DATA];
-  let sortCol   = null;
-  let sortDir   = 1; // 1 = asc, -1 = desc
-  let page      = 1;
-  let pageSize  = 25;
+  let filtered = [];
+  let sortCol = null;
+  let sortDir = 1;
+  let page = 1;
+  let pageSize = 25;
 
-fetch('/data_dict/assets/data/data.json')
-  .then(r => r.json())
-  .then(data => {
-    RAW_DATA = data;
-    filtered = [...RAW_DATA];
-    initDropdowns();
-    render();
-  })
-  .catch(err => {
-    console.error("JSON load error:", err);
-    document.getElementById('record-count').textContent = "Failed to load data.json";
-  });
+  fetch('./assets/data/data.json')
+    .then(r => r.json())
+    .then(data => {
+      RAW_DATA = data;
+      filtered = [...RAW_DATA];
+      initDropdowns();
+      render();
+    })
+    .catch(err => {
+      console.error("JSON load error:", err);
+      document.getElementById('record-count').textContent = "Failed to load data.json";
+    });
 
 
   // ── Init dropdowns ─────────────────────────────────────────────────────────
