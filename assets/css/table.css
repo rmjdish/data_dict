@@ -90,7 +90,7 @@ table.data-table {
 }
 
 /* Search box */
-.page-NSHD_Data_Dictionary_Public .search-row input {
+.page-nshd_data_dictionary_public .search-row input {
   width: 260px;
   padding: 6px 10px;
   border: 1px solid #7e57c2;
@@ -98,7 +98,7 @@ table.data-table {
 }
 
 /* FINAL FIX — LOCK FILTER WIDTHS */
-.page-NSHD_Data_Dictionary_Public .filters select {
+.page-nshd_data_dictionary_public .filters select {
   width: 250px !important;
   max-width: 250px !important;
   min-width: 250px !important;
@@ -115,14 +115,14 @@ table.data-table {
 /* ───────────────────────────────────────────────
    PAGINATION
    ─────────────────────────────────────────────── */
-.page-NSHD_Data_Dictionary_Public .pagination {
+.page-nshd_data_dictionary_public .pagination {
   margin: 10px 0;
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-.page-NSHD_Data_Dictionary_Public .btn-pg {
+.page-nshd_data_dictionary_public .btn-pg {
   padding: 4px 8px;
   border: 1px solid #7e57c2;
   background: white;
@@ -130,20 +130,20 @@ table.data-table {
   cursor: pointer;
 }
 
-.page-NSHD_Data_Dictionary_Public .btn-pg.active {
+.page-nshd_data_dictionary_public .btn-pg.active {
   background: #7e57c2;
   color: white;
 }
 
-.page-NSHD_Data_Dictionary_Public .btn-pg:disabled {
+.page-nshd_data_dictionary_public .btn-pg:disabled {
   opacity: 0.4;
   cursor: not-allowed;
 }
 
 
 /* Freeze filters + pagination */
-.page-NSHD_Data_Dictionary_Public .filters,
-.page-NSHD_Data_Dictionary_Public .pagination {
+.page-nshd_data_dictionary_public .filters,
+.page-nshd_data_dictionary_public .pagination {
   position: sticky;
   top: 0;
   z-index: 50;
@@ -157,20 +157,20 @@ table.data-table {
 }
 
 /* Scrollable table body */
-.page-NSHD_Data_Dictionary_Public .table-wrapper {
+.page-nshd_data_dictionary_public .table-wrapper {
   border: 1px solid #ccc;
   max-height: 600px; /* adjust as needed */
   overflow: hidden;
 }
 
-.page-NSHD_Data_Dictionary_Public .scroll-body {
+.page-nshd_data_dictionary_public .scroll-body {
   max-height: calc(100vh - 300px); /* auto-shrink/expand */
   overflow-y: auto;
   transition: max-height 0.2s ease;
 }
 
 /* Sticky header row */
-.page-NSHD_Data_Dictionary_Public .data-table thead th {
+.page-nshd_data_dictionary_public .data-table thead th {
   position: sticky;
   top: 120px; /* filters + pagination height */
   z-index: 100;
