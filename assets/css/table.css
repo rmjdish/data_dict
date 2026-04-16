@@ -96,6 +96,33 @@ table.data-table {
   border-radius: 4px;
 }
 
+
+/* PAGE‑SCOPED FILTER WIDTHS */
+.page-NSHD_Data_Dictionary_Public #f-topic {
+  width: 180px;
+}
+
+.page-NSHD_Data_Dictionary_Public #f-sub1 {
+  width: 160px;
+}
+
+.page-NSHD_Data_Dictionary_Public #f-sub2 {
+  width: 160px;
+}
+
+.page-NSHD_Data_Dictionary_Public #f-sub3 {
+  width: 160px;
+}
+
+.page-NSHD_Data_Dictionary_Public #f-sub4 {
+  width: 160px;
+}
+
+
+
+
+
+
 /* ───────────────────────────────────────────────
    PAGINATION
    ─────────────────────────────────────────────── */
