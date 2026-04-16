@@ -508,29 +508,162 @@ document.addEventListener('DOMContentLoaded', () => {
   const FILTER_COLS = ['Topic','Subtopic 1','Subtopic 2','Subtopic 3','Subtopic 4'];
   const FILTER_IDS  = ['f-topic','f-sub1','f-sub2','f-sub3','f-sub4'];
 
-  // ── Load JSON (correct path for Just‑the‑Docs) ─────────
-console.log("FETCH STARTED");
+  // ── Load JSON ─────────────────────────────────────────
+  console.log("FETCH STARTED");
 
-fetch('/data_dict/assets/data/data.json')
-  .then(async r => {
-    const text = await r.text();
-    console.log("RAW FETCHED TEXT:", text.slice(0, 500));
-    return JSON.parse(text);
-  })
-  .then(data => {
-    console.log("FETCH SUCCESS", data.length);
+  fetch('/data_dict/assets/data/data.json')
+    .then(async r => {
+      const text = await r.text();
+      console.log("RAW FETCHED TEXT:", text.slice(0, 500));
+      return JSON.parse(text);
+    })
+    .then(data => {
+      console.log("FETCH SUCCESS", data.length);
+      console.log("PARSED JSON:", data);
+
+      // Correct order
+      RAW_DATA = data;
+      filtered = [...RAW_DATA];
+
+      initDropdowns();
+      render();
+    })
+    .catch(err => {
+      console.error("JSON load error:", err);
+      document.getElementById('record-count').textContent = "Failed to load data.json";
+    });
+
+  // ── Build filter dropdowns ─────────────────────────────
+  function initDropdowns() {
+    FILTER_COLS.forEach((col, i) => {
+      const id = FILTER_IDS[i];
+      const select = document.getElementById(id);
+      const values = [...new Set(RAW_DATA.map(r => r[col]).filter(Boolean))].sort();
+      values.forEach(v => {
+        const opt = document.createElement('option');
+        opt.value = v;
+        opt.textContent = v;
+        select.appendChild(opt);
+      });
+      select.addEventListener('change', applyFilters);
+    });
+
+    document.getElementById('search').addEventListener('input', applyFilters);
+  }
+
+  // ── Apply filters + search ─────────────────────────────
+  function applyFilters() {
+    const fvals = FILTER_IDS.map(id => document.getElementById(id).value.trim());
+    const search = document.getElementById('search').value.trim().toLowerCase();
+
+    filtered = RAW_DATA.filter(row => {
+      for (let i = 0; i < FILTER_COLS.length; i++) {
+        if (fvals[i] && row[FILTER_COLS[i]] !== fvals[i]) return false;
+      }
+      if (search) {
+        const hit = COLS.some(col =>
+          (row[col] || '').toString().toLowerCase().includes(search)
+        );
+        if (!hit) return false;
+      }
+      return true;
+    });
+
+    page = 1;
     render();
-    console.log("PARSED JSON:", data);
-    initDropdowns();
-    RAW_DATA = data;
-    filtered = [...RAW_DATA];
-  })
-  .catch(err => {
-    console.error("JSON load error:", err);
-    document.getElementById('record-count').textContent = "Failed to load data.json";
-  });
+  }
 
- 
+  // ── Reset filters ──────────────────────────────────────
+  window.resetFilters = function() {
+    FILTER_IDS.forEach(id => document.getElementById(id).value = '');
+    document.getElementById('search').value = '';
+    filtered = [...RAW_DATA];
+    page = 1;
+    render();
+  };
+
+  // ── Render table + pagination ──────────────────────────
+  function render() {
+    console.log("RENDER CALLED");
+
+    document.getElementById('record-count').textContent =
+      `${filtered.length} records`;
+
+    const tbody = document.getElementById('tbody');
+    tbody.innerHTML = '';
+
+    if (filtered.length === 0) {
+      tbody.innerHTML = `<tr class="empty-row"><td colspan="12">No matching records</td></tr>`;
+      return;
+    }
+
+    const start = (page - 1) * pageSize;
+    const rows = filtered.slice(start, start + pageSize);
+
+    rows.forEach(row => {
+      const tr = document.createElement('tr');
+      COLS.forEach(col => {
+        const td = document.createElement('td');
+        td.textContent = row[col] || '';
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+
+    renderPagination();
+  }
+
+  // ── Pagination UI ──────────────────────────────────────
+  function renderPagination() {
+    const totalPages = Math.ceil(filtered.length / pageSize);
+    const tops = document.getElementById('pagination-top');
+    const bots = document.getElementById('pagination-bottom');
+
+    function build(container) {
+      container.innerHTML = '';
+
+      const info = document.createElement('span');
+      info.className = 'pg-info';
+      info.textContent = `Page ${page} of ${totalPages}`;
+      container.appendChild(info);
+
+      const prev = document.createElement('button');
+      prev.className = 'btn-pg';
+      prev.textContent = '‹';
+      prev.disabled = page === 1;
+      prev.onclick = () => { page--; render(); };
+      container.appendChild(prev);
+
+      const next = document.createElement('button');
+      next.className = 'btn-pg';
+      next.textContent = '›';
+      next.disabled = page === totalPages;
+      next.onclick = () => { page++; render(); };
+      container.appendChild(next);
+
+      const label = document.createElement('span');
+      label.className = 'pg-size-label';
+      label.textContent = 'Rows per page:';
+      container.appendChild(label);
+
+      const sel = document.createElement('select');
+      sel.className = 'pg-size';
+      [10,25,50,100].forEach(n => {
+        const opt = document.createElement('option');
+        opt.value = n;
+        opt.textContent = n;
+        if (n === pageSize) opt.selected = true;
+        sel.appendChild(opt);
+      });
+      sel.onchange = () => { pageSize = +sel.value; page = 1; render(); };
+      container.appendChild(sel);
+    }
+
+    build(tops);
+    build(bots);
+  }
+
+});
 </script>
 
 </body>
