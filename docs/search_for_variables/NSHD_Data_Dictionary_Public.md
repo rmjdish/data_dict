@@ -6,7 +6,14 @@ nav_order: 3
 
 <link rel="stylesheet" href="/data_dict/assets/css/table.css">
 
-# NSHD Data Dictionary
+<header class="page-header">
+  <div>
+    <h1>NSHD <span>Data Dictionary</span></h1>
+    <p class="subtitle">National Survey of Health and Development — Public Variable Reference</p>
+  </div>
+  <span class="record-count" id="record-count">— records</span>
+</header>
+
 
 <div class="filters">
   <select id="f-topic"><option value="">Topic</option></select>
