@@ -79,7 +79,7 @@ table.data-table {
   flex-direction: row;
   justify-content: flex-start;
   gap: 12px;
-  flex-wrap: nowrap; /* keep all 5 filters on one line */
+  flex-wrap: nowrap;
   margin-bottom: 12px;
 }
 
@@ -89,6 +89,7 @@ table.data-table {
   margin-bottom: 16px;
 }
 
+/* Search box */
 .page-NSHD_Data_Dictionary_Public .search-row input {
   width: 260px;
   padding: 6px 10px;
@@ -96,40 +97,18 @@ table.data-table {
   border-radius: 4px;
 }
 
-
-/* PAGE‑SCOPED FILTER WIDTHS */
-.page-NSHD_Data_Dictionary_Public #f-topic {
+/* FINAL FIX — LOCK FILTER WIDTHS */
+.page-NSHD_Data_Dictionary_Public .filters select {
   width: 250px !important;
   max-width: 250px !important;
+  min-width: 250px !important;
   appearance: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 14px;
+  padding: 6px 10px;
 }
-
-.page-NSHD_Data_Dictionary_Public #f-sub1 {
-  width: 250px !important;
-  max-width: 250px !important;
-  appearance: none;
-}
-
-.page-NSHD_Data_Dictionary_Public #f-sub2 {
-  width: 250px !important;
-  max-width: 250px !important;
-  appearance: none;
-}
-
-.page-NSHD_Data_Dictionary_Public #f-sub3 {
-  width: 250px !important;
-  max-width: 250px !important;
-  appearance: none;
-}
-
-.page-NSHD_Data_Dictionary_Public #f-sub4 {
-  width: 250px !important;
-  max-width: 250px !important;
-  appearance: none;
-}
-
-
-
 
 
 
@@ -170,17 +149,6 @@ table.data-table {
   z-index: 50;
   background: white;
   padding: 10px 0;
-}
-
-
-.page-NSHD_Data_Dictionary_Public .filters select {
-  width: 250px !important;
-  max-width: 250px !important;
-  min-width: 250px !important;
-  appearance: none;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
 }
 
 /* Freeze top pagination below filters */
