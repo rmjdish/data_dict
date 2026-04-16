@@ -150,9 +150,9 @@ table.data-table {
 }
 
 .scroll-body {
-  max-height: 550px; /* table body scroll area */
+  max-height: calc(100vh - 300px); /* auto-shrink/expand */
   overflow-y: auto;
-  overflow-x: hidden;
+  transition: max-height 0.2s ease;
 }
 
 /* Sticky header row */
