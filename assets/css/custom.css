@@ -109,7 +109,7 @@
 
 /* -----------Apply to browse by category pages only */
 
-body:not(.page-search_for_variables) {
+body:not(.nshd_data_dictionary_public) {
 	
 	/* -----------------------------------------------------------
 	   DATATABLES — MANUAL COLUMN WIDTHS + WRAPPING
