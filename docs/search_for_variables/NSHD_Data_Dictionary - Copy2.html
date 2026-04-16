@@ -487,6 +487,8 @@ nav_order: 3
 
 
 <script>
+console.log("SCRIPT STARTED");
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // ── State ─────────────────────────────────────────────
@@ -507,18 +509,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const FILTER_IDS  = ['f-topic','f-sub1','f-sub2','f-sub3','f-sub4'];
 
   // ── Load JSON (correct path for Just‑the‑Docs) ─────────
-  fetch('./assets/data/data.json')
-    .then(r => r.json())
-    .then(data => {
-      RAW_DATA = data;
-      filtered = [...RAW_DATA];
-      initDropdowns();
-      render();
-    })
-    .catch(err => {
-      console.error("JSON load error:", err);
-      document.getElementById('record-count').textContent = "Failed to load data.json";
-    });
+console.log("FETCH STARTED");
+
+fetch('/data_dict/assets/data/data.json')
+  .then(async r => {
+    const text = await r.text();
+    console.log("RAW FETCHED TEXT:", text.slice(0, 500));
+    return JSON.parse(text);
+  })
+  .then(data => {
+    console.log("FETCH SUCCESS", data.length);
+    console.log("PARSED JSON:", data);
+    RAW_DATA = data;
+    filtered = [...RAW_DATA];
+    initDropdowns();
+    render();
+  })
+  .catch(err => {
+    console.error("JSON load error:", err);
+    document.getElementById('record-count').textContent = "Failed to load data.json";
+  });
 
   // ── Build filter dropdowns ─────────────────────────────
   function initDropdowns() {
@@ -571,7 +581,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Render table + pagination ──────────────────────────
   function render() {
-    document.getElementById('record-count').textContent =
+    console.log("RENDER CALLED");
+	document.getElementById('record-count').textContent =
       `${filtered.length} records`;
 
     const tbody = document.getElementById('tbody');
