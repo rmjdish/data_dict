@@ -28,7 +28,7 @@ table.data-table {
   position: sticky;
   top: 0;
   background: #4b2e83; /* NSHD purple */
-  color: white;
+  color: black;
   z-index: 2;
 }
 
