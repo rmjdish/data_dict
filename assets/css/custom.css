@@ -1,7 +1,8 @@
 
-/* -----------Apply to browse by category pages only */
+.page-nshd_data_dictionary_public .side-bar {
+  position: static !important;
+}
 
-body:not(.search_data_dictionary) {
 	
 	/* -----------------------------------------------------------
 	   SIDEBAR LAYOUT
