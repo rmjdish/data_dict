@@ -49,8 +49,7 @@ nav_order: 3
         <th>Year of collection</th>
       </tr>
     </thead>
-
-    <tbody id="tbody"></tbody>
+   <tbody id="tbody"></tbody>
   </table>
 </div>
 
