@@ -1,3 +1,8 @@
+
+/* -----------Apply to browse by category pages only */
+
+body:not(.nshd_data_dictionary_public) {
+	
 	/* -----------------------------------------------------------
 	   SIDEBAR LAYOUT
 	----------------------------------------------------------- */
@@ -107,9 +112,7 @@
 	  color: #2d2424 !important;
 	}
 
-/* -----------Apply to browse by category pages only */
 
-body:not(.nshd_data_dictionary_public) {
 	
 	/* -----------------------------------------------------------
 	   DATATABLES — MANUAL COLUMN WIDTHS + WRAPPING
