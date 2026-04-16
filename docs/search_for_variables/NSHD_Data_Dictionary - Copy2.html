@@ -507,7 +507,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const FILTER_IDS  = ['f-topic','f-sub1','f-sub2','f-sub3','f-sub4'];
 
   // ── Load JSON (correct path for Just‑the‑Docs) ─────────
-  fetch('/data_dict/assets/data/data.json')
+  fetch('./assets/data/data.json')
     .then(r => r.json())
     .then(data => {
       RAW_DATA = data;
