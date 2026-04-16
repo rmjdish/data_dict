@@ -7,7 +7,7 @@ nav_order: 3
 <header class="page-header">
   <div>
     <h1>NSHD <span>Data Dictionary</span></h1>
-    <p class="subtitle">National Survey of Health and Development — Public Variable Reference</p>
+    <p class="subtitle">National Survey of Health and Development — Metadata database</p>
   </div>
   <span class="record-count" id="record-count">— records</span>
 </header>
