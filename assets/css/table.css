@@ -28,7 +28,7 @@ table.data-table {
   position: sticky;
   top: 0;
   background: #4b2e83; /* NSHD purple */
-  color: black;
+  color: white;
   z-index: 2;
 }
 
@@ -161,5 +161,5 @@ table.data-table {
   top: 120px; /* filters + pagination height */
   z-index: 100;
   background: #4b2e83;
-  color: white;
+  color: black;
 }
