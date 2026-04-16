@@ -1,41 +1,106 @@
+/* ───────────────────────────────────────────────
+   TABLE LAYOUT + BASE STYLING
+   ─────────────────────────────────────────────── */
 table.data-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
 }
 
-.data-table th {
-  cursor: pointer;
-  background: #f2f2f2;
-  padding: 6px;
-  border-bottom: 2px solid #ccc;
-}
-
+.data-table th,
 .data-table td {
-  padding: 6px;
-  border-bottom: 1px solid #eee;
+  padding: 8px 10px;
+  border-bottom: 1px solid #e0e0e0;
 }
 
-.sort-asc::after {
-  content: " ▲";
+/* Alternating rows */
+.data-table tbody tr:nth-child(even) {
+  background: #fafafa;
 }
 
-.sort-desc::after {
-  content: " ▼";
+/* Hover highlight */
+.data-table tbody tr:hover {
+  background: #f1e7ff;
 }
 
-.empty-row td {
-  text-align: center;
-  padding: 20px;
-  color: #777;
+/* Sticky header */
+.data-table thead th {
+  position: sticky;
+  top: 0;
+  background: #4b2e83; /* NSHD purple */
+  color: white;
+  z-index: 2;
 }
 
+/* Sort arrows */
+.sort-asc::after { content: " ▲"; }
+.sort-desc::after { content: " ▼"; }
+
+/* ───────────────────────────────────────────────
+   COLUMN COLOURS (12 columns)
+   Adjust these however you like
+   ─────────────────────────────────────────────── */
+.data-table th:nth-child(1),
+.data-table td:nth-child(1) { background: #f3e5f5; } /* lilac */
+.data-table th:nth-child(2),
+.data-table td:nth-child(2) { background: #e8f5e9; } /* green */
+.data-table th:nth-child(3),
+.data-table td:nth-child(3) { background: #e3f2fd; } /* blue */
+.data-table th:nth-child(4),
+.data-table td:nth-child(4) { background: #fff3e0; } /* orange */
+.data-table th:nth-child(5),
+.data-table td:nth-child(5) { background: #fce4ec; } /* pink */
+.data-table th:nth-child(6),
+.data-table td:nth-child(6) { background: #ede7f6; } /* purple */
+.data-table th:nth-child(7),
+.data-table td:nth-child(7) { background: #e0f7fa; } /* teal */
+.data-table th:nth-child(8),
+.data-table td:nth-child(8) { background: #f1f8e9; } /* lime */
+.data-table th:nth-child(9),
+.data-table td:nth-child(9) { background: #fff8e1; } /* yellow */
+.data-table th:nth-child(10),
+.data-table td:nth-child(10) { background: #f9fbe7; } /* pale green */
+.data-table th:nth-child(11),
+.data-table td:nth-child(11) { background: #e8eaf6; } /* indigo */
+.data-table th:nth-child(12),
+.data-table td:nth-child(12) { background: #fbe9e7; } /* coral */
+
+/* Make header text readable on coloured backgrounds */
+.data-table th {
+  color: #222;
+  font-weight: bold;
+}
+
+/* ───────────────────────────────────────────────
+   FILTER BAR (NSHD purple theme)
+   ─────────────────────────────────────────────── */
 .filters {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 10px;
+  margin: 15px 0;
+  padding: 10px;
+  background: #ede7f6;
+  border: 1px solid #b39ddb;
+  border-radius: 6px;
 }
 
+.filters select,
+.filters input {
+  padding: 6px 10px;
+  border: 1px solid #7e57c2;
+  border-radius: 4px;
+  background: white;
+}
+
+.filters select:focus,
+.filters input:focus {
+  outline: 2px solid #7e57c2;
+}
+
+/* ───────────────────────────────────────────────
+   PAGINATION
+   ─────────────────────────────────────────────── */
 .pagination {
   margin: 10px 0;
   display: flex;
@@ -45,9 +110,63 @@ table.data-table {
 
 .btn-pg {
   padding: 4px 8px;
+  border: 1px solid #7e57c2;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .btn-pg.active {
-  background: #444;
+  background: #7e57c2;
   color: white;
+}
+
+.btn-pg:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ───────────────────────────────────────────────
+   DARK MODE SUPPORT
+   ─────────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #121212;
+    color: #eee;
+  }
+
+  .data-table tbody tr:nth-child(even) {
+    background: #1e1e1e;
+  }
+
+  .data-table tbody tr:hover {
+    background: #2a1f3d;
+  }
+
+  .data-table th {
+    background: #7e57c2;
+    color: white;
+  }
+
+  .filters {
+    background: #2a1f3d;
+    border-color: #9575cd;
+  }
+
+  .filters select,
+  .filters input {
+    background: #1e1e1e;
+    color: white;
+    border-color: #9575cd;
+  }
+
+  .btn-pg {
+    background: #1e1e1e;
+    color: white;
+    border-color: #9575cd;
+  }
+
+  .btn-pg.active {
+    background: #9575cd;
+  }
 }
