@@ -4,7 +4,7 @@ title: View All Data Dictionary
 nav_order: 3
 ---
 
-<link rel="stylesheet" href="/data_dict/assets/js/table.js">
+<link rel="stylesheet" href="/data_dict/assets/css/table.css">
 
 # Data Dictionary
 
