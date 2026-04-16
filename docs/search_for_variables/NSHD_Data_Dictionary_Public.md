@@ -1,6 +1,6 @@
 ---
 layout: default
-title: View All Data Dictionary
+title: Search Data Dictionary
 nav_order: 3
 ---
 
