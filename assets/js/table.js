@@ -4,7 +4,7 @@ let filtered  = [];
 let sortCol   = null;
 let sortDir   = 1;
 let page      = 1;
-let pageSize  = 25;
+let pageSize  = 10;
 
 const COLS = ['Topic','Subtopic 1','Subtopic 2','Subtopic 3','Subtopic 4',
               'NSHD Variable Name','Showcase Field ID','Order',
