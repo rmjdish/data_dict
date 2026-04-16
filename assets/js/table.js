@@ -115,6 +115,13 @@ function render() {
 
   renderPagination('pagination-top',  total, pages);
   renderPagination('pagination-bottom', total, pages);
+
+	const scrollBody = document.querySelector('.scroll-body');
+	const rowHeight = 42; // approx row height
+	const visibleRows = slice.length;
+
+	scrollBody.style.maxHeight = `${Math.min(visibleRows * rowHeight, window.innerHeight - 300)}px`;
+
 }
 
 function renderPagination(id, total, pages) {
