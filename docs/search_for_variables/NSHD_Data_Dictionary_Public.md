@@ -6,7 +6,7 @@ nav_order: 3
 
 <link rel="stylesheet" href="/data_dict/assets/css/table.css">
 
-# Data Dictionary
+# NSHD Data Dictionary
 
 <div class="filters">
   <select id="f-topic"><option value="">Topic</option></select>
@@ -14,6 +14,9 @@ nav_order: 3
   <select id="f-sub2"><option value="">Subtopic 2</option></select>
   <select id="f-sub3"><option value="">Subtopic 3</option></select>
   <select id="f-sub4"><option value="">Subtopic 4</option></select>
+</div>
+
+<div class="search-row">
   <input id="search" type="text" placeholder="Search…" />
 </div>
 
