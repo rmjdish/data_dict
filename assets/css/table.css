@@ -1,18 +1,17 @@
 /* ============================================================
    PAGE SCOPE (must match filename: NSHD_Data_Dictionary_Public.md)
    ============================================================ */
-.page-nshd_data_dictionary_public {}
+.page-search-data-dictionary {}
 
 
 /* ============================================================
    FILTER BAR — Sticky Layer 1 (Top)
    ============================================================ */
-.page-nshd_data_dictionary_public .filters {
+.page-search-data-dictionary .filters {
   display: flex;
   gap: 12px;
   flex-wrap: nowrap;
   margin-bottom: 12px;
-
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -21,7 +20,7 @@
 }
 
 /* Locked filter widths */
-.page-nshd_data_dictionary_public .filters select {
+.page-search-data-dictionary .filters select {
   width: 250px !important;
   min-width: 250px !important;
   max-width: 250px !important;
@@ -37,7 +36,7 @@
 /* ============================================================
    SEARCH BAR — Sticky Layer 2
    ============================================================ */
-.page-nshd_data_dictionary_public .search-row {
+.page-search-data-dictionary .search-row {
   position: sticky;
   top: 60px; /* filters height */
   z-index: 900;
@@ -45,7 +44,7 @@
   padding: 8px 0 12px 0;
 }
 
-.page-nshd_data_dictionary_public .search-row input {
+.page-search-data-dictionary .search-row input {
   width: 260px;
   padding: 6px 10px;
   border: 1px solid #7e57c2;
@@ -56,7 +55,7 @@
 /* ============================================================
    TOP PAGINATION — Sticky Layer 3
    ============================================================ */
-.page-nshd_data_dictionary_public #pagination-top {
+.page-search-data-dictionary #pagination-top {
   position: sticky;
   top: 110px; /* filters + search */
   z-index: 800;
@@ -68,7 +67,7 @@
 /* ============================================================
    TABLE HEADER — Sticky Layer 4
    ============================================================ */
-.page-nshd_data_dictionary_public .data-table thead th {
+.page-search-data-dictionary .data-table thead th {
   position: sticky;
   top: 160px; /* filters + search + pagination */
   z-index: 700;
@@ -81,7 +80,7 @@
 /* ============================================================
    TABLE WRAPPER — Only the body scrolls
    ============================================================ */
-.page-nshd_data_dictionary_public .table-wrapper {
+.page-search-data-dictionary .table-wrapper {
   max-height: calc(100vh - 220px);
   overflow-y: auto;
   border: 1px solid #ccc;
@@ -155,14 +154,14 @@ table.data-table {
 /* ============================================================
    PAGINATION BUTTONS
    ============================================================ */
-.page-nshd_data_dictionary_public .pagination {
+.page-search-data-dictionary .pagination {
   margin: 10px 0;
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-.page-nshd_data_dictionary_public .btn-pg {
+.page-search-data-dictionary .btn-pg {
   padding: 4px 8px;
   border: 1px solid #7e57c2;
   background: white;
@@ -170,12 +169,12 @@ table.data-table {
   cursor: pointer;
 }
 
-.page-nshd_data_dictionary_public .btn-pg.active {
+.page-search-data-dictionary .btn-pg.active {
   background: #7e57c2;
   color: white;
 }
 
-.page-nshd_data_dictionary_public .btn-pg:disabled {
+.page-search-data-dictionary .btn-pg:disabled {
   opacity: 0.4;
   cursor: not-allowed;
 }
