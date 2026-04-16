@@ -13,4 +13,4 @@ sass:
     - assets/css
 
 include:
-  - assets/css/table.css
+    - assets/css/table.css
