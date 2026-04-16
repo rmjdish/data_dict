@@ -4,7 +4,7 @@ title: View All Data Dictionary
 nav_order: 3
 ---
 
-<link rel="stylesheet" href="/assets/css/table.css">
+<link rel="stylesheet" href="/data_dict/assets/js/table.js">
 
 # Data Dictionary
 
@@ -43,4 +43,4 @@ nav_order: 3
 
 <div id="pagination-bottom" class="pagination"></div>
 
-<script src="/assets/js/table.js"></script>
+<script src="/data_dict/assets/js/table.js"></script>
