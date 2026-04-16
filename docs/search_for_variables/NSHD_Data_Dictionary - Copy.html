@@ -499,6 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const FILTER_COLS = ['Topic','Subtopic 1','Subtopic 2','Subtopic 3','Subtopic 4'];
   const FILTER_IDS  = ['f-topic','f-sub1','f-sub2','f-sub3','f-sub4'];
 
+  let RAW_DATA = [];
   let filtered  = [...RAW_DATA];
   let sortCol   = null;
   let sortDir   = 1; // 1 = asc, -1 = desc
