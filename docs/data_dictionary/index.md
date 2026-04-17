@@ -15,13 +15,13 @@ classes: page-search-data-dictionary
   <!-- SEARCH + PAGE SIZE + PAGINATION (sticky) -->
   <div id="search-pagination-top" class="search-pagination-top">
     <input id="globalSearch" type="text" placeholder="Search…" />
-	<button id="resetFiltersBtn">Reset Filters</button>	
     <select id="pageSize">
       <option value="15">15</option>
       <option value="30">30</option>
       <option value="50">50</option>
       <option value="100">100</option>
     </select>
+	<button id="resetFiltersBtn">Reset Filters</button>	
     <div id="paginationTop"></div>
   </div>
 
