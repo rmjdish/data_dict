@@ -15,7 +15,7 @@ classes: page-search-data-dictionary
     <input id="globalSearch" type="text" placeholder="Search…" />
     <select id="pageSize">
       <option value="15">15</option>
-      <option value="20">20</option>
+      <option value="300">30</option>
       <option value="50">50</option>
       <option value="100">100</option>
     </select>
