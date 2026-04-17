@@ -132,7 +132,6 @@ classes: page-search-data-dictionary
   z-index: 50;
   padding: 0; /* padding moved into .th-inner */
   border-bottom: 2px solid #4b067a;
-  background: transparent !important; /* pastel colours applied below */
 }
 
 /* ⭐ HEADER INNER WRAPPER — TRANSPARENT (so pastel shows fully) */
