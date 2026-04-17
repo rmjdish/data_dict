@@ -40,7 +40,11 @@ function buildFilters() {
       select.innerHTML += `<option value="${v}">${v}</option>`;
     });
 
-    select.addEventListener("change", applyFilters);
+    select.addEventListener("change", () => {
+      applyFilters();
+      updateAllFilters();
+    });
+
     bar.appendChild(select);
   });
 }
@@ -59,6 +63,32 @@ function applyFilters() {
   renderTable();
   renderPagination();
 }
+
+function updateAllFilters() {
+  const rows = filteredData;
+
+  filterColumns.forEach(col => {
+    const select = document.querySelector(`#filter-bar select[data-column="${col}"]`);
+    const currentValue = select.value;
+
+    const values = [...new Set(rows.map(r => r[col]).filter(v => v && v !== ""))].sort();
+
+    // Rebuild dropdown
+    select.innerHTML = `<option value="">${col}</option>`;
+    values.forEach(v => {
+      const opt = document.createElement("option");
+      opt.value = v;
+      opt.textContent = v;
+      select.appendChild(opt);
+    });
+
+    // Restore previously selected value if still valid
+    if (values.includes(currentValue)) {
+      select.value = currentValue;
+    }
+  });
+}
+
 
 document.getElementById("globalSearch").addEventListener("input", e => {
   const q = e.target.value.toLowerCase();
