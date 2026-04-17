@@ -126,7 +126,7 @@ classes: page-search-data-dictionary
   position: relative;
 }
 
-/* Sticky header */
+/* Sticky header (safe version) */
 .page-search-data-dictionary #myTable thead th {
   position: sticky;
   top: 0;
@@ -134,6 +134,11 @@ classes: page-search-data-dictionary
   color: black !important;
   padding: 8px;
   border-bottom: 2px solid #4b067a;
+  background: inherit !important;
+}
+
+/* Only sortable headers get flex layout */
+.sortable-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
