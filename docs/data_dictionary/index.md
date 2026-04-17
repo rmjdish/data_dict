@@ -130,8 +130,7 @@ classes: page-search-data-dictionary
   position: sticky;
   top: 0;
   z-index: 50;
-  padding: 0;
-  background: transparent !important; /* must be transparent */
+  padding: 0; /* padding moved into .th-inner */
   border-bottom: 2px solid #4b067a;
 }
 
