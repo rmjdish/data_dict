@@ -1,7 +1,7 @@
 title: MRC National Survey of Health and Development
 description: A website home to the NSHD Metadata and documentation.
 
-remote_theme: just-the-docs/just-the-docs
+theme: just-the-docs/just-the-docs
 
 url: https://rmjdish.github.io
 baseurl: "/data_dict"
@@ -12,3 +12,6 @@ aux_links:
 sass:
   load_paths:
     - assets/css
+
+include:
+    - assets/css/table.css
