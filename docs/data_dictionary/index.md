@@ -49,6 +49,16 @@ classes: page-search-data-dictionary
   font-size: 14px;
 }
 
+
+/* Table wrapper must constrain width */
+.page-search-data-dictionary #table-wrapper {
+  max-height: 70vh;
+  overflow-y: auto;
+  overflow-x: auto;
+  position: relative;
+}
+
+
 /* Sticky header */
 .page-search-data-dictionary #myTable thead th {
   position: sticky;
@@ -56,32 +66,9 @@ classes: page-search-data-dictionary
   background: #6a0dad;
   color: white;
   padding: 8px;
-  z-index: 10;
+  z-index: 20;
   text-align: left;
   border-bottom: 2px solid #4b067a;
-}
-
-/* Alternate row shading */
-.page-search-data-dictionary #myTable tbody tr:nth-child(odd) {
-  background: #f7f7f7;
-}
-.page-search-data-dictionary #myTable tbody tr:nth-child(even) {
-  background: #ececec;
-}
-
-/* Cell padding */
-.page-search-data-dictionary #myTable td {
-  padding: 6px 10px;
-  vertical-align: top;
-  word-wrap: break-word;
-}
-
-
-/* Table wrapper must constrain width */
-.page-search-data-dictionary #table-wrapper {
-  width: 100%;
-  overflow-x: auto;
-  display: block;
 }
 
 /* Table layout */
@@ -92,6 +79,28 @@ classes: page-search-data-dictionary
   font-family: Arial, sans-serif;
   font-size: 14px;
 }
+
+
+/* Alternate row shading */
+.page-search-data-dictionary #myTable tbody tr {
+  background: inherit;
+}
+
+.page-search-data-dictionary #myTable tbody tr:nth-child(odd) {
+  background-color: #f7f7f7 !important;
+}
+
+.page-search-data-dictionary #myTable tbody tr:nth-child(even) {
+  background-color: #ececec !important;
+}
+
+/* Cell padding */
+.page-search-data-dictionary #myTable td {
+  padding: 6px 10px;
+  vertical-align: top;
+  word-wrap: break-word;
+}
+
 
 /* Allow columns to shrink */
 .page-search-data-dictionary #myTable th,
