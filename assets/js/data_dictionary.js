@@ -26,6 +26,9 @@ fetch("NSHD_Data_Dictionary_Public.json")
     applyFilters();
   });
 
+/* ---------------------------------------------------
+   BUILD FILTERS
+--------------------------------------------------- */
 function buildFilters() {
   const bar = document.getElementById("filter-bar");
   bar.innerHTML = "";
@@ -40,6 +43,7 @@ function buildFilters() {
       select.innerHTML += `<option value="${v}">${v}</option>`;
     });
 
+    // ⭐ NEW: cascading filters
     select.addEventListener("change", () => {
       applyFilters();
       updateAllFilters();
@@ -49,6 +53,9 @@ function buildFilters() {
   });
 }
 
+/* ---------------------------------------------------
+   APPLY FILTERS
+--------------------------------------------------- */
 function applyFilters() {
   const activeFilters = {};
   document.querySelectorAll("#filter-bar select").forEach(sel => {
@@ -62,8 +69,12 @@ function applyFilters() {
   currentPage = 1;
   renderTable();
   renderPagination();
+  updateResultsCount();   // ⭐ NEW
 }
 
+/* ---------------------------------------------------
+   UPDATE FILTER OPTIONS (CASCADING)
+--------------------------------------------------- */
 function updateAllFilters() {
   const rows = filteredData;
 
@@ -89,7 +100,9 @@ function updateAllFilters() {
   });
 }
 
-
+/* ---------------------------------------------------
+   GLOBAL SEARCH
+--------------------------------------------------- */
 document.getElementById("globalSearch").addEventListener("input", e => {
   const q = e.target.value.toLowerCase();
 
@@ -100,84 +113,24 @@ document.getElementById("globalSearch").addEventListener("input", e => {
   currentPage = 1;
   renderTable();
   renderPagination();
+  updateResultsCount();   // ⭐ NEW
 });
 
+/* ---------------------------------------------------
+   PAGE SIZE CHANGE
+--------------------------------------------------- */
 document.getElementById("pageSize").addEventListener("change", e => {
   pageSize = Number(e.target.value);
   currentPage = 1;
   renderTable();
   renderPagination();
+  updateResultsCount();   // ⭐ NEW
 });
 
+/* ---------------------------------------------------
+   RESET FILTERS BUTTON
+--------------------------------------------------- */
 document.getElementById("resetFiltersBtn").addEventListener("click", resetAllFilters);
-
-function buildTableHeader() {
-  const headerRow = document.getElementById("table-header");
-  headerRow.innerHTML = "";
-
-  // ⭐ Create <colgroup> dynamically
-  const table = document.getElementById("myTable");
-  const colgroup = document.createElement("colgroup");
-
-  colgroup.innerHTML = tableColumns
-    .map((_, i) => `<col class="col-${i+1}">`)
-    .join("");
-
-  // Insert colgroup before thead
-  table.prepend(colgroup);
-
-  // Build header cells
-  tableColumns.forEach(col => {
-    const th = document.createElement("th");
-    th.textContent = col;
-    headerRow.appendChild(th);
-  });
-}
-
-function renderTable() {
-  const body = document.getElementById("table-body");
-  body.innerHTML = "";
-
-  const start = (currentPage - 1) * pageSize;
-  const end = start + pageSize;
-
-  filteredData.slice(start, end).forEach(row => {
-    const tr = document.createElement("tr");
-
-    tableColumns.forEach(col => {
-      const td = document.createElement("td");
-      td.textContent = row[col] ?? "";
-      tr.appendChild(td);
-    });
-
-    body.appendChild(tr);
-  });
-
-  // ⭐ Force layout rules to apply
-  document.getElementById("myTable").style.tableLayout = "fixed";
-}
-
-function renderPagination() {
-  const totalPages = Math.ceil(filteredData.length / pageSize) || 1;
-
-  const top = document.getElementById("paginationTop");
-  const bottom = document.getElementById("paginationBottom");
-
-  const html = `
-    <button ${currentPage === 1 ? "disabled" : ""} onclick="changePage(-1)">Prev</button>
-    <span>Page ${currentPage} of ${totalPages}</span>
-    <button ${currentPage === totalPages ? "disabled" : ""} onclick="changePage(1)">Next</button>
-  `;
-
-  top.innerHTML = html;
-  bottom.innerHTML = html;
-}
-
-function changePage(delta) {
-  currentPage += delta;
-  renderTable();
-  renderPagination();
-}
 
 function resetAllFilters() {
   // Reset dropdowns
@@ -200,4 +153,90 @@ function resetAllFilters() {
   // Re-render table + pagination
   renderTable();
   renderPagination();
+  updateResultsCount();   // ⭐ NEW
+}
+
+/* ---------------------------------------------------
+   BUILD TABLE HEADER
+--------------------------------------------------- */
+function buildTableHeader() {
+  const headerRow = document.getElementById("table-header");
+  headerRow.innerHTML = "";
+
+  const table = document.getElementById("myTable");
+  const colgroup = document.createElement("colgroup");
+
+  colgroup.innerHTML = tableColumns
+    .map((_, i) => `<col class="col-${i+1}">`)
+    .join("");
+
+  table.prepend(colgroup);
+
+  tableColumns.forEach(col => {
+    const th = document.createElement("th");
+    th.textContent = col;
+    headerRow.appendChild(th);
+  });
+}
+
+/* ---------------------------------------------------
+   RENDER TABLE
+--------------------------------------------------- */
+function renderTable() {
+  const body = document.getElementById("table-body");
+  body.innerHTML = "";
+
+  const start = (currentPage - 1) * pageSize;
+  const end = start + pageSize;
+
+  filteredData.slice(start, end).forEach(row => {
+    const tr = document.createElement("tr");
+
+    tableColumns.forEach(col => {
+      const td = document.createElement("td");
+      td.textContent = row[col] ?? "";
+      tr.appendChild(td);
+    });
+
+    body.appendChild(tr);
+  });
+
+  document.getElementById("myTable").style.tableLayout = "fixed";
+}
+
+/* ---------------------------------------------------
+   PAGINATION
+--------------------------------------------------- */
+function renderPagination() {
+  const totalPages = Math.ceil(filteredData.length / pageSize) || 1;
+
+  const top = document.getElementById("paginationTop");
+  const bottom = document.getElementById("paginationBottom");
+
+  const html = `
+    <button ${currentPage === 1 ? "disabled" : ""} onclick="changePage(-1)">Prev</button>
+    <span>Page ${currentPage} of ${totalPages}</span>
+    <button ${currentPage === totalPages ? "disabled" : ""} onclick="changePage(1)">Next</button>
+  `;
+
+  top.innerHTML = html;
+  bottom.innerHTML = html;
+}
+
+function changePage(delta) {
+  currentPage += delta;
+  renderTable();
+  renderPagination();
+  updateResultsCount();   // ⭐ NEW
+}
+
+/* ---------------------------------------------------
+   RESULTS COUNTER
+--------------------------------------------------- */
+function updateResultsCount() {
+  const total = rawData.length;
+  const filtered = filteredData.length;
+
+  document.getElementById("resultsCount").textContent =
+    `Showing ${filtered} of ${total} results`;
 }

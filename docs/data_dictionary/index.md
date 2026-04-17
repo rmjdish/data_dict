@@ -14,6 +14,7 @@ classes: page-search-data-dictionary
 
   <!-- SEARCH + PAGE SIZE + PAGINATION (sticky) -->
   <div id="search-pagination-top" class="search-pagination-top">
+	<div id="resultsCount"></div>
     <input id="globalSearch" type="text" placeholder="Search…" />
     <select id="pageSize">
       <option value="15">15</option>
@@ -67,7 +68,7 @@ classes: page-search-data-dictionary
 }
 
 #resetFiltersBtn {
-  margin-left: 100px;
+  margin-left: 30px;
   padding: 6px 12px;
   font-size: 14px;
   background: #4b067a;
