@@ -5,6 +5,7 @@ nav_order: 10
 classes: page-search-data-dictionary
 ---
 
+<div class="page-search-data-dictionary">
 
 <style>
 /* Scope everything to this page */
@@ -128,3 +129,5 @@ classes: page-search-data-dictionary
 
 
 <script src="/data_dict/assets/js/data_dictionary.js"></script>
+
+</div>
