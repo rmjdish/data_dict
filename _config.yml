@@ -3,7 +3,7 @@ description: A website home to the NSHD Metadata and documentation.
 theme: just-the-docs
 
 url: https://rmjdish.github.io
-baseurl: "/data_dict"
+baseurl: ""
 
 aux_links:
   Template Repository: https://github.com/just-the-docs/just-the-docs-template
