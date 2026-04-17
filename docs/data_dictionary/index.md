@@ -209,6 +209,19 @@ classes: page-search-data-dictionary
     background: #F9FBE7 !important;
 }
 
+
+/* DataTables uses .odd / .even on rows */
+#myTable tbody tr.odd td,
+#myTable tbody tr:nth-child(odd) td {
+    background-color: #fafafa !important;
+}
+
+#myTable tbody tr.even td,
+#myTable tbody tr:nth-child(even) td {
+    background-color: #ffffff !important;
+}
+
+
 /* Center-align columns 2, 3, and 7 */
 #myTable thead th:nth-child(2),
 #myTable tbody td:nth-child(2),
