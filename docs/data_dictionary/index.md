@@ -209,21 +209,6 @@ classes: page-search-data-dictionary
     background: #F9FBE7 !important;
 }
 
-#myTable td,
-#myTable th {
-    background: var(--col) !important;
-}
-
-/* Odd rows get a subtle darkening overlay */
-#myTable tbody tr:nth-child(odd) td {
-    box-shadow: inset 0 0 0 9999px rgba(0,0,0,0.04);
-}
-
-/* Even rows get no overlay (pure column colour) */
-#myTable tbody tr:nth-child(even) td {
-    box-shadow: inset 0 0 0 9999px rgba(0,0,0,0);
-}
-
 /* Center-align columns 2, 3, and 7 */
 #myTable thead th:nth-child(2),
 #myTable tbody td:nth-child(2),
