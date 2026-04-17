@@ -138,97 +138,105 @@ classes: page-search-data-dictionary
 /* Add more nth-child rules if you have more columns */
 
 
-/* -----------------------------------------------------------
-   1. Assign base colours as CSS variables per column
------------------------------------------------------------ */
+/* === Column colours for myTable (header + body) === */
 #myTable th:nth-child(1),
 #myTable td:nth-child(1),
 .dataTables_scrollHeadInner table th:nth-child(1),
-.fixedHeader-floating th:nth-child(1) { --col: #F3E5F5; }
+.fixedHeader-floating th:nth-child(1) {
+    background: #F3E5F5 !important;
+}
 
 #myTable th:nth-child(2),
 #myTable td:nth-child(2),
 .dataTables_scrollHeadInner table th:nth-child(2),
-.fixedHeader-floating th:nth-child(2) { --col: #E8F5E9; }
+.fixedHeader-floating th:nth-child(2) {
+    background: #E8F5E9 !important;
+}
 
 #myTable th:nth-child(3),
 #myTable td:nth-child(3),
 .dataTables_scrollHeadInner table th:nth-child(3),
-.fixedHeader-floating th:nth-child(3) { --col: #E3F2FD; }
+.fixedHeader-floating th:nth-child(3) {
+    background: #E3F2FD !important;
+}
 
 #myTable th:nth-child(4),
 #myTable td:nth-child(4),
 .dataTables_scrollHeadInner table th:nth-child(4),
-.fixedHeader-floating th:nth-child(4) { --col: #FFF3E0; }
+.fixedHeader-floating th:nth-child(4) {
+    background: #FFF3E0 !important;
+}
 
 #myTable th:nth-child(5),
 #myTable td:nth-child(5),
 .dataTables_scrollHeadInner table th:nth-child(5),
-.fixedHeader-floating th:nth-child(5) { --col: #FCE4EC; }
+.fixedHeader-floating th:nth-child(5) {
+    background: #FCE4EC !important;
+}
 
 #myTable th:nth-child(6),
 #myTable td:nth-child(6),
 .dataTables_scrollHeadInner table th:nth-child(6),
-.fixedHeader-floating th:nth-child(6) { --col: #EDE7F6; }
-
-#myTable th:nth-child(7),
-#myTable td:nth-child(7),
-.dataTables_scrollHeadInner table th:nth-child(7),
-.fixedHeader-floating th:nth-child(7) { --col: #E0F7FA; }
-
-#myTable th:nth-child(8),
-#myTable td:nth-child(8),
-.dataTables_scrollHeadInner table th:nth-child(8),
-.fixedHeader-floating th:nth-child(8) { --col: #F1F8E9; }
-
-#myTable th:nth-child(9),
-#myTable td:nth-child(9),
-.dataTables_scrollHeadInner table th:nth-child(9),
-.fixedHeader-floating th:nth-child(9) { --col: #FFF8E1; }
-
-#myTable th:nth-child(10),
-#myTable td:nth-child(10),
-.dataTables_scrollHeadInner table th:nth-child(10),
-.fixedHeader-floating th:nth-child(10) { --col: #F9FBE7; }
-
-
-/* -----------------------------------------------------------
-   2. Apply base colour to all cells
------------------------------------------------------------ */
-#myTable th,
-#myTable td {
-    background: var(--col) !important;
+.fixedHeader-floating th:nth-child(6) {
+    background: #EDE7F6 !important;
 }
 
-
-/* -----------------------------------------------------------
-   3. Alternate row shading (per column)
-   - odd rows get a subtle dark overlay
------------------------------------------------------------ */
-#myTable tbody tr:nth-child(odd) td {
-    box-shadow: inset 0 0 0 9999px rgba(0,0,0,0.04);
-}
-
-#myTable tbody tr:nth-child(even) td {
-    box-shadow: inset 0 0 0 9999px rgba(0,0,0,0);
-}
-
-
-/* -----------------------------------------------------------
-   4. Centre-align columns 2, 3, and 7
------------------------------------------------------------ */
-#myTable th:nth-child(2),
-#myTable td:nth-child(2),
-.dataTables_scrollHeadInner table th:nth-child(2),
-.fixedHeader-floating th:nth-child(2),
-#myTable th:nth-child(3),
-#myTable td:nth-child(3),
-.dataTables_scrollHeadInner table th:nth-child(3),
-.fixedHeader-floating th:nth-child(3),
 #myTable th:nth-child(7),
 #myTable td:nth-child(7),
 .dataTables_scrollHeadInner table th:nth-child(7),
 .fixedHeader-floating th:nth-child(7) {
+    background: #E0F7FA !important;
+}
+
+#myTable th:nth-child(8),
+#myTable td:nth-child(8),
+.dataTables_scrollHeadInner table th:nth-child(8),
+.fixedHeader-floating th:nth-child(8) {
+    background: #F1F8E9 !important;
+}
+
+#myTable th:nth-child(9),
+#myTable td:nth-child(9),
+.dataTables_scrollHeadInner table th:nth-child(9),
+.fixedHeader-floating th:nth-child(9) {
+    background: #FFF8E1 !important;
+}
+
+#myTable th:nth-child(10),
+#myTable td:nth-child(10),
+.dataTables_scrollHeadInner table th:nth-child(10),
+.fixedHeader-floating th:nth-child(10) {
+    background: #F9FBE7 !important;
+}
+
+#myTable td,
+#myTable th {
+    background: var(--col) !important;
+}
+
+/* Odd rows get a subtle darkening overlay */
+#myTable tbody tr:nth-child(odd) td {
+    box-shadow: inset 0 0 0 9999px rgba(0,0,0,0.04);
+}
+
+/* Even rows get no overlay (pure column colour) */
+#myTable tbody tr:nth-child(even) td {
+    box-shadow: inset 0 0 0 9999px rgba(0,0,0,0);
+}
+
+/* Center-align columns 2, 3, and 7 */
+#myTable thead th:nth-child(2),
+#myTable tbody td:nth-child(2),
+.dataTables_scrollHeadInner table thead th:nth-child(2),
+.fixedHeader-floating thead th:nth-child(2),
+#myTable thead th:nth-child(3),
+#myTable tbody td:nth-child(3),
+.dataTables_scrollHeadInner table thead th:nth-child(3),
+.fixedHeader-floating thead th:nth-child(3),
+#myTable thead th:nth-child(7),
+#myTable tbody td:nth-child(7),
+.dataTables_scrollHeadInner table thead th:nth-child(7),
+.fixedHeader-floating thead th:nth-child(7) {
     text-align: center !important;
 }
 
