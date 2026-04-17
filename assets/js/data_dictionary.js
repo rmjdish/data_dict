@@ -1,4 +1,3 @@
-<script>
 let rawData = [];
 let filteredData = [];
 let currentPage = 1;
@@ -132,4 +131,4 @@ function changePage(delta) {
   renderTable();
   renderPagination();
 }
-</script>
+
