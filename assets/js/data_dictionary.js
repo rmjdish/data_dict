@@ -26,6 +26,10 @@ fetch("NSHD_Data_Dictionary_Public.json")
     buildFilters();
     buildTableHeader();
     applyFilters();
+
+    // ⭐ NEW: hide loading screen, show UI
+    document.getElementById("loadingScreen").style.display = "none";
+    document.getElementById("dataUI").style.display = "block";
   });
 
 /* ---------------------------------------------------

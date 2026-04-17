@@ -7,14 +7,23 @@ classes: page-search-data-dictionary
 
 <div class="page-search-data-dictionary">
 
+<!-- ⭐ LOADING SCREEN (shown before data loads) -->
+<div id="loadingScreen" class="loading-screen">
+  <div class="spinner"></div>
+  <div>Loading data…</div>
+</div>
+
+<!-- ⭐ MAIN UI (hidden until data loads) -->
+<div id="dataUI" style="display:none;">
+
 <div id="data-dictionary-app">
 
-  <!-- FILTER BAR (5 filters in a straight line) -->
+  <!-- FILTER BAR -->
   <div id="filter-bar" class="filter-bar"></div>
 
-  <!-- SEARCH + PAGE SIZE + PAGINATION (sticky) -->
+  <!-- SEARCH + PAGE SIZE + RESET + PAGINATION -->
   <div id="search-pagination-top" class="search-pagination-top">
-	<div id="resultsCount"></div>
+    <div id="resultsCount"></div>
     <input id="globalSearch" type="text" placeholder="Search…" />
     <select id="pageSize">
       <option value="15">15</option>
@@ -22,11 +31,11 @@ classes: page-search-data-dictionary
       <option value="50">50</option>
       <option value="100">100</option>
     </select>
-	<button id="resetFiltersBtn">Reset Filters</button>	
+    <button id="resetFiltersBtn">Reset Filters</button>
     <div id="paginationTop"></div>
   </div>
 
-  <!-- TABLE WRAPPER (scrolls) -->
+  <!-- TABLE WRAPPER -->
   <div id="table-wrapper">
     <table id="myTable">
       <thead>
@@ -40,17 +49,43 @@ classes: page-search-data-dictionary
   <div id="paginationBottom"></div>
 
 </div>
+</div> <!-- end dataUI -->
 
 <style>
+
+/* ⭐ LOADING SCREEN */
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  font-size: 18px;
+  color: #4b067a;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ddd;
+  border-top-color: #4b067a;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 /* Scope everything to this page */
 .page-search-data-dictionary #myTable {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed; /* allows column width control */
+  table-layout: fixed;
   font-family: Arial, sans-serif;
   font-size: 14px;
 }
-
 
 /* Filter bar layout */
 .page-search-data-dictionary #filter-bar {
@@ -62,11 +97,12 @@ classes: page-search-data-dictionary
 
 /* Filter widths */
 .page-search-data-dictionary #filter-bar select {
-  width: 250px;     /* ← change this */
+  width: 250px;
   padding: 6px 10px;
   font-size: 14px;
 }
 
+/* Reset button */
 #resetFiltersBtn {
   margin-left: 30px;
   padding: 6px 12px;
@@ -82,9 +118,7 @@ classes: page-search-data-dictionary
   background: #36045a;
 }
 
-
-
-/* Sticky container for header */
+/* Sticky container */
 .page-search-data-dictionary #table-wrapper {
   max-height: 70vh;
   overflow-y: auto;
@@ -96,21 +130,26 @@ classes: page-search-data-dictionary
 .page-search-data-dictionary #myTable thead th {
   position: sticky;
   top: 0;
-  z-index: 30;
-  color: black !important; /* force black text */
+  z-index: 50;
+  color: black !important;
   padding: 8px;
   border-bottom: 2px solid #4b067a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Table layout */
-.page-search-data-dictionary #myTable {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
+/* Sort icons */
+.sortable-header .sort-icon {
+  font-size: 12px;
+  margin-left: 6px;
+  opacity: 0.3;
+  transition: opacity 0.2s ease;
 }
 
+.sortable-header:hover .sort-icon {
+  opacity: 0.8;
+}
 
 /* Alternate row shading */
 .page-search-data-dictionary #myTable tbody tr:nth-child(odd) {
@@ -127,7 +166,6 @@ classes: page-search-data-dictionary
   word-wrap: break-word;
 }
 
-
 /* Allow columns to shrink */
 .page-search-data-dictionary #myTable th,
 .page-search-data-dictionary #myTable td {
@@ -138,11 +176,7 @@ classes: page-search-data-dictionary
   white-space: normal;
 }
 
-
-
-/* -----------------------------------------
-   COLUMN WIDTHS — customise these as needed
-   ----------------------------------------- */
+/* Column widths */
 .page-search-data-dictionary #myTable col.col-1 { width: 170px; }
 .page-search-data-dictionary #myTable col.col-2 { width: 110px; }
 .page-search-data-dictionary #myTable col.col-3 { width: 70px; }
@@ -151,106 +185,25 @@ classes: page-search-data-dictionary
 .page-search-data-dictionary #myTable col.col-6 { width: 150px; }
 .page-search-data-dictionary #myTable col.col-7 { width: 130px; }
 
-/* Add more nth-child rules if you have more columns */
+/* Column colours */
+#myTable th:nth-child(1), #myTable td:nth-child(1) { background: #F3E5F5 !important; }
+#myTable th:nth-child(2), #myTable td:nth-child(2) { background: #E8F5E9 !important; }
+#myTable th:nth-child(3), #myTable td:nth-child(3) { background: #E3F2FD !important; }
+#myTable th:nth-child(4), #myTable td:nth-child(4) { background: #FFF3E0 !important; }
+#myTable th:nth-child(5), #myTable td:nth-child(5) { background: #FCE4EC !important; }
+#myTable th:nth-child(6), #myTable td:nth-child(6) { background: #EDE7F6 !important; }
+#myTable th:nth-child(7), #myTable td:nth-child(7) { background: #E0F7FA !important; }
+#myTable th:nth-child(8), #myTable td:nth-child(8) { background: #F1F8E9 !important; }
+#myTable th:nth-child(9), #myTable td:nth-child(9) { background: #FFF8E1 !important; }
+#myTable th:nth-child(10), #myTable td:nth-child(10) { background: #F9FBE7 !important; }
 
-
-/* === Column colours for myTable (header + body) === */
-#myTable th:nth-child(1),
-#myTable td:nth-child(1),
-.dataTables_scrollHeadInner table th:nth-child(1),
-.fixedHeader-floating th:nth-child(1) {
-    background: #F3E5F5 !important;
+/* Alignment */
+#myTable th:nth-child(1), #myTable td:nth-child(1) { text-align: left !important; }
+#myTable th:nth-child(2), #myTable td:nth-child(2),
+#myTable th:nth-child(3), #myTable td:nth-child(3),
+#myTable th:nth-child(7), #myTable td:nth-child(7) {
+  text-align: center !important;
 }
-
-#myTable th:nth-child(2),
-#myTable td:nth-child(2),
-.dataTables_scrollHeadInner table th:nth-child(2),
-.fixedHeader-floating th:nth-child(2) {
-    background: #E8F5E9 !important;
-}
-
-#myTable th:nth-child(3),
-#myTable td:nth-child(3),
-.dataTables_scrollHeadInner table th:nth-child(3),
-.fixedHeader-floating th:nth-child(3) {
-    background: #E3F2FD !important;
-}
-
-#myTable th:nth-child(4),
-#myTable td:nth-child(4),
-.dataTables_scrollHeadInner table th:nth-child(4),
-.fixedHeader-floating th:nth-child(4) {
-    background: #FFF3E0 !important;
-}
-
-#myTable th:nth-child(5),
-#myTable td:nth-child(5),
-.dataTables_scrollHeadInner table th:nth-child(5),
-.fixedHeader-floating th:nth-child(5) {
-    background: #FCE4EC !important;
-}
-
-#myTable th:nth-child(6),
-#myTable td:nth-child(6),
-.dataTables_scrollHeadInner table th:nth-child(6),
-.fixedHeader-floating th:nth-child(6) {
-    background: #EDE7F6 !important;
-}
-
-#myTable th:nth-child(7),
-#myTable td:nth-child(7),
-.dataTables_scrollHeadInner table th:nth-child(7),
-.fixedHeader-floating th:nth-child(7) {
-    background: #E0F7FA !important;
-}
-
-#myTable th:nth-child(8),
-#myTable td:nth-child(8),
-.dataTables_scrollHeadInner table th:nth-child(8),
-.fixedHeader-floating th:nth-child(8) {
-    background: #F1F8E9 !important;
-}
-
-#myTable th:nth-child(9),
-#myTable td:nth-child(9),
-.dataTables_scrollHeadInner table th:nth-child(9),
-.fixedHeader-floating th:nth-child(9) {
-    background: #FFF8E1 !important;
-}
-
-#myTable th:nth-child(10),
-#myTable td:nth-child(10),
-.dataTables_scrollHeadInner table th:nth-child(10),
-.fixedHeader-floating th:nth-child(10) {
-    background: #F9FBE7 !important;
-}
-
-/* left-align columns 1 */
-#myTable thead th:nth-child(1),
-#myTable tbody td:nth-child(1),
-.dataTables_scrollHeadInner table thead th:nth-child(1),
-.fixedHeader-floating thead th:nth-child(1) {
-    text-align: left !important;
-}
-
-/* Center-align columns 2, 3, and 7 */
-
-#myTable thead th:nth-child(2),
-#myTable tbody td:nth-child(2),
-.dataTables_scrollHeadInner table thead th:nth-child(2),
-.fixedHeader-floating thead th:nth-child(2),
-#myTable thead th:nth-child(3),
-#myTable tbody td:nth-child(3),
-.dataTables_scrollHeadInner table thead th:nth-child(3),
-.fixedHeader-floating thead th:nth-child(3),
-#myTable thead th:nth-child(7),
-#myTable tbody td:nth-child(7),
-.dataTables_scrollHeadInner table thead th:nth-child(7),
-.fixedHeader-floating thead th:nth-child(7) {
-    text-align: center !important;
-}
-
-
 
 </style>
 
