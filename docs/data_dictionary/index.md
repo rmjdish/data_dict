@@ -50,6 +50,24 @@ classes: page-search-data-dictionary
 }
 
 
+/* Filter bar layout */
+.page-search-data-dictionary #filter-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: nowrap;
+}
+
+/* Filter widths */
+.page-search-data-dictionary #filter-bar select {
+  width: 250px;     /* ← change this */
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+
+
+
 /* Table wrapper must constrain width */
 .page-search-data-dictionary #table-wrapper {
   max-height: 70vh;
@@ -117,11 +135,13 @@ classes: page-search-data-dictionary
 /* -----------------------------------------
    COLUMN WIDTHS — customise these as needed
    ----------------------------------------- */
-.page-search-data-dictionary #myTable col.col-1 { width: 120px; }
-.page-search-data-dictionary #myTable col.col-2 { width: 180px; }
-.page-search-data-dictionary #myTable col.col-3 { width: 200px; }
-.page-search-data-dictionary #myTable col.col-4 { width: 250px; }
-.page-search-data-dictionary #myTable col.col-5 { width: 300px; }
+.page-search-data-dictionary #myTable col.col-1 { width: 200px; }
+.page-search-data-dictionary #myTable col.col-2 { width: 80px; }
+.page-search-data-dictionary #myTable col.col-3 { width: 80px; }
+.page-search-data-dictionary #myTable col.col-4 { width: 200px; }
+.page-search-data-dictionary #myTable col.col-5 { width: 400px; }
+.page-search-data-dictionary #myTable col.col-7 { width: 250px; }
+.page-search-data-dictionary #myTable col.col-8 { width: 100px; }
 
 /* Add more nth-child rules if you have more columns */
 
