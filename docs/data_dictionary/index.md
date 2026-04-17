@@ -209,7 +209,16 @@ classes: page-search-data-dictionary
     background: #F9FBE7 !important;
 }
 
+/* left-align column 1 */
+#myTable thead th:nth-child(1),
+#myTable tbody td:nth-child(1),
+.dataTables_scrollHeadInner table thead th:nth-child(1),
+.fixedHeader-floating thead th:nth-child(1) {
+    text-align: left !important;
+}
+
 /* Center-align columns 2, 3, and 7 */
+
 #myTable thead th:nth-child(2),
 #myTable tbody td:nth-child(2),
 .dataTables_scrollHeadInner table thead th:nth-child(2),
