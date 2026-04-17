@@ -78,7 +78,7 @@ classes: page-search-data-dictionary
   to { transform: rotate(360deg); }
 }
 
-/* Scope everything to this page */
+/* TABLE BASE */
 .page-search-data-dictionary #myTable {
   width: 100%;
   border-collapse: collapse;
@@ -87,7 +87,7 @@ classes: page-search-data-dictionary
   font-size: 14px;
 }
 
-/* Filter bar layout */
+/* FILTER BAR */
 .page-search-data-dictionary #filter-bar {
   display: flex;
   gap: 12px;
@@ -95,14 +95,13 @@ classes: page-search-data-dictionary
   flex-wrap: nowrap;
 }
 
-/* Filter widths */
 .page-search-data-dictionary #filter-bar select {
   width: 250px;
   padding: 6px 10px;
   font-size: 14px;
 }
 
-/* Reset button */
+/* RESET BUTTON */
 #resetFiltersBtn {
   margin-left: 30px;
   padding: 6px 12px;
@@ -118,7 +117,7 @@ classes: page-search-data-dictionary
   background: #36045a;
 }
 
-/* Sticky container */
+/* TABLE WRAPPER */
 .page-search-data-dictionary #table-wrapper {
   max-height: 70vh;
   overflow-y: auto;
@@ -131,25 +130,25 @@ classes: page-search-data-dictionary
   position: sticky;
   top: 0;
   z-index: 50;
-  padding: 0; /* we move padding into .th-inner */
+  padding: 0; /* padding moved into .th-inner */
   background: transparent !important;
   border-bottom: 2px solid #4b067a;
 }
 
-/* ⭐ HEADER INNER WRAPPER — full dark grey */
-.th-inner {
+/* ⭐ HEADER INNER WRAPPER — FULL GREY */
+#myTable thead th .th-inner {
   width: 100%;
   height: 100%;
   padding: 8px;
   box-sizing: border-box;
-  background: #333333 !important;
+  background: #A9A9A9 !important; /* full grey header */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Sort icons */
-.sortable-header .sort-icon {
+/* SORT ICONS */
+.sort-icon {
   font-size: 12px;
   margin-left: 6px;
   opacity: 0.4;
@@ -160,7 +159,7 @@ classes: page-search-data-dictionary
   opacity: 0.9;
 }
 
-/* Alternate row shading */
+/* BODY ROW SHADING */
 .page-search-data-dictionary #myTable tbody tr:nth-child(odd) {
   background-color: #f7f7f7 !important;
 }
@@ -168,14 +167,14 @@ classes: page-search-data-dictionary
   background-color: #ececec !important;
 }
 
-/* Cell padding */
+/* BODY CELL PADDING */
 .page-search-data-dictionary #myTable td {
   padding: 6px 10px;
   vertical-align: top;
   word-wrap: break-word;
 }
 
-/* Allow columns to shrink */
+/* ALLOW SHRINKING */
 .page-search-data-dictionary #myTable th,
 .page-search-data-dictionary #myTable td {
   min-width: 0;
@@ -185,7 +184,7 @@ classes: page-search-data-dictionary
   white-space: normal;
 }
 
-/* Column widths */
+/* COLUMN WIDTHS */
 .page-search-data-dictionary #myTable col.col-1 { width: 170px; }
 .page-search-data-dictionary #myTable col.col-2 { width: 110px; }
 .page-search-data-dictionary #myTable col.col-3 { width: 70px; }
@@ -194,7 +193,7 @@ classes: page-search-data-dictionary
 .page-search-data-dictionary #myTable col.col-6 { width: 150px; }
 .page-search-data-dictionary #myTable col.col-7 { width: 130px; }
 
-/* Column colours */
+/* ⭐ BODY COLUMN COLOURS — ONLY tbody */
 #myTable tbody td:nth-child(1) { background: #F3E5F5 !important; }
 #myTable tbody td:nth-child(2) { background: #E8F5E9 !important; }
 #myTable tbody td:nth-child(3) { background: #E3F2FD !important; }
@@ -206,10 +205,7 @@ classes: page-search-data-dictionary
 #myTable tbody td:nth-child(9) { background: #FFF8E1 !important; }
 #myTable tbody td:nth-child(10) { background: #F9FBE7 !important; }
 
-
-/* Header text colours matching column colours */
-/* Sorting icon text colours matching column colours */
-
+/* ⭐ HEADER TEXT COLOURS MATCHING COLUMN COLOURS */
 #myTable thead th:nth-child(1) .header-label,
 #myTable thead th:nth-child(1) .sort-icon { color: #F3E5F5 !important; }
 
@@ -240,8 +236,7 @@ classes: page-search-data-dictionary
 #myTable thead th:nth-child(10) .header-label,
 #myTable thead th:nth-child(10) .sort-icon { color: #F9FBE7 !important; }
 
-
-/* Alignment */
+/* ALIGNMENT */
 #myTable th:nth-child(1), #myTable td:nth-child(1) { text-align: left !important; }
 #myTable th:nth-child(2), #myTable td:nth-child(2),
 #myTable th:nth-child(3), #myTable td:nth-child(3),
