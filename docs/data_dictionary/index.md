@@ -17,7 +17,7 @@ classes: page-search-data-dictionary
     <input id="globalSearch" type="text" placeholder="Search…" />
     <select id="pageSize">
       <option value="15">15</option>
-      <option value="300">30</option>
+      <option value="30">30</option>
       <option value="50">50</option>
       <option value="100">100</option>
     </select>
@@ -75,6 +75,35 @@ classes: page-search-data-dictionary
   vertical-align: top;
   word-wrap: break-word;
 }
+
+
+/* Table wrapper must constrain width */
+.page-search-data-dictionary #table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+/* Table layout */
+.page-search-data-dictionary #myTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+/* Allow columns to shrink */
+.page-search-data-dictionary #myTable th,
+.page-search-data-dictionary #myTable td {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+}
+
+
 
 /* -----------------------------------------
    COLUMN WIDTHS — customise these as needed
