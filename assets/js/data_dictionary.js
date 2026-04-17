@@ -109,6 +109,8 @@ document.getElementById("pageSize").addEventListener("change", e => {
   renderPagination();
 });
 
+document.getElementById("resetFiltersBtn").addEventListener("click", resetAllFilters);
+
 function buildTableHeader() {
   const headerRow = document.getElementById("table-header");
   headerRow.innerHTML = "";
@@ -177,3 +179,25 @@ function changePage(delta) {
   renderPagination();
 }
 
+function resetAllFilters() {
+  // Reset dropdowns
+  document.querySelectorAll("#filter-bar select").forEach(sel => {
+    sel.value = "";
+  });
+
+  // Reset search
+  document.getElementById("globalSearch").value = "";
+
+  // Reset data
+  filteredData = [...rawData];
+
+  // Reset pagination
+  currentPage = 1;
+
+  // Rebuild filters to full lists
+  updateAllFilters();
+
+  // Re-render table + pagination
+  renderTable();
+  renderPagination();
+}
