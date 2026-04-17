@@ -125,23 +125,23 @@ classes: page-search-data-dictionary
   position: relative;
 }
 
-/* ⭐ STICKY HEADER — remove pastel backgrounds */
+/* ⭐ STICKY HEADER */
 .page-search-data-dictionary #myTable thead th {
   position: sticky;
   top: 0;
   z-index: 50;
   padding: 0; /* padding moved into .th-inner */
-  background: transparent !important;
   border-bottom: 2px solid #4b067a;
+  background: transparent !important; /* pastel colours applied below */
 }
 
-/* ⭐ HEADER INNER WRAPPER — FULL GREY */
+/* ⭐ HEADER INNER WRAPPER — TRANSPARENT (so pastel shows fully) */
 #myTable thead th .th-inner {
   width: 100%;
   height: 100%;
   padding: 8px;
   box-sizing: border-box;
-  background: #A9A9A9 !important; /* full grey header */
+  background: transparent !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -193,48 +193,23 @@ classes: page-search-data-dictionary
 .page-search-data-dictionary #myTable col.col-6 { width: 150px; }
 .page-search-data-dictionary #myTable col.col-7 { width: 130px; }
 
-/* ⭐ BODY COLUMN COLOURS — ONLY tbody */
-#myTable tbody td:nth-child(1) { background: #F3E5F5 !important; }
-#myTable tbody td:nth-child(2) { background: #E8F5E9 !important; }
-#myTable tbody td:nth-child(3) { background: #E3F2FD !important; }
-#myTable tbody td:nth-child(4) { background: #FFF3E0 !important; }
-#myTable tbody td:nth-child(5) { background: #FCE4EC !important; }
-#myTable tbody td:nth-child(6) { background: #EDE7F6 !important; }
-#myTable tbody td:nth-child(7) { background: #E0F7FA !important; }
-#myTable tbody td:nth-child(8) { background: #F1F8E9 !important; }
-#myTable tbody td:nth-child(9) { background: #FFF8E1 !important; }
-#myTable tbody td:nth-child(10) { background: #F9FBE7 !important; }
+/* ⭐ COLUMN COLOURS — APPLY TO BOTH HEADER + BODY */
+#myTable th:nth-child(1), #myTable tbody td:nth-child(1) { background: #F3E5F5 !important; }
+#myTable th:nth-child(2), #myTable tbody td:nth-child(2) { background: #E8F5E9 !important; }
+#myTable th:nth-child(3), #myTable tbody td:nth-child(3) { background: #E3F2FD !important; }
+#myTable th:nth-child(4), #myTable tbody td:nth-child(4) { background: #FFF3E0 !important; }
+#myTable th:nth-child(5), #myTable tbody td:nth-child(5) { background: #FCE4EC !important; }
+#myTable th:nth-child(6), #myTable tbody td:nth-child(6) { background: #EDE7F6 !important; }
+#myTable th:nth-child(7), #myTable tbody td:nth-child(7) { background: #E0F7FA !important; }
+#myTable th:nth-child(8), #myTable tbody td:nth-child(8) { background: #F1F8E9 !important; }
+#myTable th:nth-child(9), #myTable tbody td:nth-child(9) { background: #FFF8E1 !important; }
+#myTable th:nth-child(10), #myTable tbody td:nth-child(10) { background: #F9FBE7 !important; }
 
-/* ⭐ HEADER TEXT COLOURS MATCHING COLUMN COLOURS */
-#myTable thead th:nth-child(1) .header-label,
-#myTable thead th:nth-child(1) .sort-icon { color: #F3E5F5 !important; }
-
-#myTable thead th:nth-child(2) .header-label,
-#myTable thead th:nth-child(2) .sort-icon { color: #E8F5E9 !important; }
-
-#myTable thead th:nth-child(3) .header-label,
-#myTable thead th:nth-child(3) .sort-icon { color: #E3F2FD !important; }
-
-#myTable thead th:nth-child(4) .header-label,
-#myTable thead th:nth-child(4) .sort-icon { color: #FFF3E0 !important; }
-
-#myTable thead th:nth-child(5) .header-label,
-#myTable thead th:nth-child(5) .sort-icon { color: #FCE4EC !important; }
-
-#myTable thead th:nth-child(6) .header-label,
-#myTable thead th:nth-child(6) .sort-icon { color: #EDE7F6 !important; }
-
-#myTable thead th:nth-child(7) .header-label,
-#myTable thead th:nth-child(7) .sort-icon { color: #E0F7FA !important; }
-
-#myTable thead th:nth-child(8) .header-label,
-#myTable thead th:nth-child(8) .sort-icon { color: #F1F8E9 !important; }
-
-#myTable thead th:nth-child(9) .header-label,
-#myTable thead th:nth-child(9) .sort-icon { color: #FFF8E1 !important; }
-
-#myTable thead th:nth-child(10) .header-label,
-#myTable thead th:nth-child(10) .sort-icon { color: #F9FBE7 !important; }
+/* ⭐ HEADER TEXT + ICONS = BLACK */
+#myTable thead th .header-label,
+#myTable thead th .sort-icon {
+  color: black !important;
+}
 
 /* ALIGNMENT */
 #myTable th:nth-child(1), #myTable td:nth-child(1) { text-align: left !important; }
