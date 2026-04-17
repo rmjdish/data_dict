@@ -143,13 +143,13 @@ classes: page-search-data-dictionary
 /* -----------------------------------------
    COLUMN WIDTHS — customise these as needed
    ----------------------------------------- */
-.page-search-data-dictionary #myTable col.col-1 { width: 150px; }
+.page-search-data-dictionary #myTable col.col-1 { width: 170px; }
 .page-search-data-dictionary #myTable col.col-2 { width: 110px; }
-.page-search-data-dictionary #myTable col.col-3 { width: 80px; }
-.page-search-data-dictionary #myTable col.col-4 { width: 175px; }
+.page-search-data-dictionary #myTable col.col-3 { width: 70px; }
+.page-search-data-dictionary #myTable col.col-4 { width: 140px; }
 .page-search-data-dictionary #myTable col.col-5 { width: 500px; }
 .page-search-data-dictionary #myTable col.col-6 { width: 150px; }
-.page-search-data-dictionary #myTable col.col-7 { width: 100px; }
+.page-search-data-dictionary #myTable col.col-7 { width: 130px; }
 
 /* Add more nth-child rules if you have more columns */
 
