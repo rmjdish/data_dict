@@ -11,18 +11,21 @@ classes: page-search-data-dictionary
 .page-search-data-dictionary #myTable {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed; /* allows column width control */
   font-family: Arial, sans-serif;
   font-size: 14px;
 }
 
-/* Header styling */
+/* Sticky header */
 .page-search-data-dictionary #myTable thead th {
+  position: sticky;
+  top: 0;
   background: #6a0dad;
   color: white;
   padding: 8px;
-  position: sticky;
-  top: 0;
-  z-index: 5;
+  z-index: 10;
+  text-align: left;
+  border-bottom: 2px solid #4b067a;
 }
 
 /* Alternate row shading */
@@ -37,54 +40,44 @@ classes: page-search-data-dictionary
 .page-search-data-dictionary #myTable td {
   padding: 6px 10px;
   vertical-align: top;
+  word-wrap: break-word;
 }
 
-/* Column colours (example for first 6 visible columns) */
-.page-search-data-dictionary #myTable thead th:nth-child(1) { background: #e0f2f1; }
-.page-search-data-dictionary #myTable thead th:nth-child(2) { background: #e3f2fd; }
-.page-search-data-dictionary #myTable thead th:nth-child(3) { background: #fce4ec; }
-.page-search-data-dictionary #myTable thead th:nth-child(4) { background: #fff3e0; }
-.page-search-data-dictionary #myTable thead th:nth-child(5) { background: #ede7f6; }
-.page-search-data-dictionary #myTable thead th:nth-child(6) { background: #f1f8e9; }
+/* -----------------------------------------
+   COLUMN WIDTHS — customise these as needed
+   ----------------------------------------- */
 
-/* Filter bar styling */
-.page-search-data-dictionary #filter-bar {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-  position: sticky;
-  top: 0;
-  background: white;
-  padding: 10px 0;
-  z-index: 10;
+/* Column 1 */
+.page-search-data-dictionary #myTable th:nth-child(1),
+.page-search-data-dictionary #myTable td:nth-child(1) {
+  width: 120px;
 }
 
-.page-search-data-dictionary #filter-bar select {
+/* Column 2 */
+.page-search-data-dictionary #myTable th:nth-child(2),
+.page-search-data-dictionary #myTable td:nth-child(2) {
+  width: 180px;
+}
+
+/* Column 3 */
+.page-search-data-dictionary #myTable th:nth-child(3),
+.page-search-data-dictionary #myTable td:nth-child(3) {
   width: 200px;
-  padding: 6px;
 }
 
-/* Search + pagination bar */
-.page-search-data-dictionary #search-pagination-top {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 10px;
-  position: sticky;
-  top: 50px;
-  background: white;
-  padding: 10px 0;
-  z-index: 9;
-}
-
-.page-search-data-dictionary #globalSearch {
-  padding: 6px;
+/* Column 4 */
+.page-search-data-dictionary #myTable th:nth-child(4),
+.page-search-data-dictionary #myTable td:nth-child(4) {
   width: 250px;
 }
 
-.page-search-data-dictionary #pageSize {
-  padding: 6px;
+/* Column 5 */
+.page-search-data-dictionary #myTable th:nth-child(5),
+.page-search-data-dictionary #myTable td:nth-child(5) {
+  width: 300px;
 }
+
+/* Add more nth-child rules if you have more columns */
 </style>
 
 
