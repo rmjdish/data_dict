@@ -77,20 +77,13 @@ classes: page-search-data-dictionary
 }
 
 /* Sticky header */
-/* If filter bar is sticky */
-.page-search-data-dictionary #filter-bar {
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  background: white;
-  padding: 8px 0;
-}
-
-/* Then table header sticks BELOW it */
 .page-search-data-dictionary #myTable thead th {
   position: sticky;
-  top: 48px;   /* height of filter bar */
+  top: 0;
   z-index: 30;
+  color: black !important; /* force black text */
+  padding: 8px;
+  border-bottom: 2px solid #4b067a;
 }
 
 /* Table layout */
@@ -216,7 +209,7 @@ classes: page-search-data-dictionary
     background: #F9FBE7 !important;
 }
 
-/* left-align column 1 */
+/* left-align columns 1 */
 #myTable thead th:nth-child(1),
 #myTable tbody td:nth-child(1),
 .dataTables_scrollHeadInner table thead th:nth-child(1),
