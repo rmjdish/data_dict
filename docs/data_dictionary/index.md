@@ -127,28 +127,105 @@ classes: page-search-data-dictionary
 /* -----------------------------------------
    COLUMN WIDTHS — customise these as needed
    ----------------------------------------- */
-.page-search-data-dictionary #myTable col.col-1 { width: 200px; }
-.page-search-data-dictionary #myTable col.col-2 { width: 80px; }
+.page-search-data-dictionary #myTable col.col-1 { width: 150px; }
+.page-search-data-dictionary #myTable col.col-2 { width: 110px; }
 .page-search-data-dictionary #myTable col.col-3 { width: 80px; }
-.page-search-data-dictionary #myTable col.col-4 { width: 200px; }
-.page-search-data-dictionary #myTable col.col-5 { width: 400px; }
-.page-search-data-dictionary #myTable col.col-6 { width: 250px; }
+.page-search-data-dictionary #myTable col.col-4 { width: 175px; }
+.page-search-data-dictionary #myTable col.col-5 { width: 500px; }
+.page-search-data-dictionary #myTable col.col-6 { width: 150px; }
 .page-search-data-dictionary #myTable col.col-7 { width: 100px; }
 
 /* Add more nth-child rules if you have more columns */
 
 
-.page-search-data-dictionary #myTable thead th:nth-child(1) { background: #e3f2fd; }
-.page-search-data-dictionary #myTable thead th:nth-child(2) { background: #e3f2fd; }
-.page-search-data-dictionary #myTable thead th:nth-child(3) { background: #e3f2fd; }
-.page-search-data-dictionary #myTable thead th:nth-child(4) { background: #fff3e0; }
-.page-search-data-dictionary #myTable thead th:nth-child(5) { background: #fff3e0; }
-.page-search-data-dictionary #myTable thead th:nth-child(6) { background: #fff3e0; }
-.page-search-data-dictionary #myTable thead th:nth-child(7) { background: #fff3e0; }
-/* …continue as needed */
+/* === Column colours for myTable (header + body) === */
+#myTable th:nth-child(1),
+#myTable td:nth-child(1),
+.dataTables_scrollHeadInner table th:nth-child(1),
+.fixedHeader-floating th:nth-child(1) {
+    background: #F3E5F5 !important;
+}
 
-.page-search-data-dictionary #myTable tbody tr:nth-child(odd)  { background: #fafafa; }
-.page-search-data-dictionary #myTable tbody tr:nth-child(even) { background: #f0f0f0; }
+#myTable th:nth-child(2),
+#myTable td:nth-child(2),
+.dataTables_scrollHeadInner table th:nth-child(2),
+.fixedHeader-floating th:nth-child(2) {
+    background: #E8F5E9 !important;
+}
+
+#myTable th:nth-child(3),
+#myTable td:nth-child(3),
+.dataTables_scrollHeadInner table th:nth-child(3),
+.fixedHeader-floating th:nth-child(3) {
+    background: #E3F2FD !important;
+}
+
+#myTable th:nth-child(4),
+#myTable td:nth-child(4),
+.dataTables_scrollHeadInner table th:nth-child(4),
+.fixedHeader-floating th:nth-child(4) {
+    background: #FFF3E0 !important;
+}
+
+#myTable th:nth-child(5),
+#myTable td:nth-child(5),
+.dataTables_scrollHeadInner table th:nth-child(5),
+.fixedHeader-floating th:nth-child(5) {
+    background: #FCE4EC !important;
+}
+
+#myTable th:nth-child(6),
+#myTable td:nth-child(6),
+.dataTables_scrollHeadInner table th:nth-child(6),
+.fixedHeader-floating th:nth-child(6) {
+    background: #EDE7F6 !important;
+}
+
+#myTable th:nth-child(7),
+#myTable td:nth-child(7),
+.dataTables_scrollHeadInner table th:nth-child(7),
+.fixedHeader-floating th:nth-child(7) {
+    background: #E0F7FA !important;
+}
+
+#myTable th:nth-child(8),
+#myTable td:nth-child(8),
+.dataTables_scrollHeadInner table th:nth-child(8),
+.fixedHeader-floating th:nth-child(8) {
+    background: #F1F8E9 !important;
+}
+
+#myTable th:nth-child(9),
+#myTable td:nth-child(9),
+.dataTables_scrollHeadInner table th:nth-child(9),
+.fixedHeader-floating th:nth-child(9) {
+    background: #FFF8E1 !important;
+}
+
+#myTable th:nth-child(10),
+#myTable td:nth-child(10),
+.dataTables_scrollHeadInner table th:nth-child(10),
+.fixedHeader-floating th:nth-child(10) {
+    background: #F9FBE7 !important;
+}
+
+/* Center-align columns 2, 3, and 7 */
+#myTable thead th:nth-child(2),
+#myTable tbody td:nth-child(2),
+.dataTables_scrollHeadInner table thead th:nth-child(2),
+.fixedHeader-floating thead th:nth-child(2),
+#myTable thead th:nth-child(3),
+#myTable tbody td:nth-child(3),
+.dataTables_scrollHeadInner table thead th:nth-child(3),
+.fixedHeader-floating thead th:nth-child(3),
+#myTable thead th:nth-child(7),
+#myTable tbody td:nth-child(7),
+.dataTables_scrollHeadInner table thead th:nth-child(7),
+.fixedHeader-floating thead th:nth-child(7) {
+    text-align: center !important;
+}
+
+
 
 </style>
 
