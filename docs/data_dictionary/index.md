@@ -126,35 +126,38 @@ classes: page-search-data-dictionary
   position: relative;
 }
 
-/* Sticky header (safe version) */
+/* ⭐ STICKY HEADER — remove pastel backgrounds */
 .page-search-data-dictionary #myTable thead th {
   position: sticky;
   top: 0;
   z-index: 50;
-  color: black !important;
-  padding: 8px;
+  padding: 0; /* we move padding into .th-inner */
+  background: transparent !important;
   border-bottom: 2px solid #4b067a;
-  background: inherit !important;
 }
 
-/* Inner wrapper handles layout, not the <th> */
+/* ⭐ HEADER INNER WRAPPER — full dark grey */
 .th-inner {
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  background: #333333 !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
 }
 
 /* Sort icons */
 .sortable-header .sort-icon {
   font-size: 12px;
   margin-left: 6px;
-  opacity: 0.3;
+  opacity: 0.4;
   transition: opacity 0.2s ease;
 }
 
 .sortable-header:hover .sort-icon {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 /* Alternate row shading */
@@ -192,29 +195,18 @@ classes: page-search-data-dictionary
 .page-search-data-dictionary #myTable col.col-7 { width: 130px; }
 
 /* Column colours */
-#myTable th:nth-child(1), #myTable td:nth-child(1) { background: #F3E5F5 !important; }
-#myTable th:nth-child(2), #myTable td:nth-child(2) { background: #E8F5E9 !important; }
-#myTable th:nth-child(3), #myTable td:nth-child(3) { background: #E3F2FD !important; }
-#myTable th:nth-child(4), #myTable td:nth-child(4) { background: #FFF3E0 !important; }
-#myTable th:nth-child(5), #myTable td:nth-child(5) { background: #FCE4EC !important; }
-#myTable th:nth-child(6), #myTable td:nth-child(6) { background: #EDE7F6 !important; }
-#myTable th:nth-child(7), #myTable td:nth-child(7) { background: #E0F7FA !important; }
-#myTable th:nth-child(8), #myTable td:nth-child(8) { background: #F1F8E9 !important; }
-#myTable th:nth-child(9), #myTable td:nth-child(9) { background: #FFF8E1 !important; }
-#myTable th:nth-child(10), #myTable td:nth-child(10) { background: #F9FBE7 !important; }
+#myTable tbody td:nth-child(1) { background: #F3E5F5 !important; }
+#myTable tbody td:nth-child(2) { background: #E8F5E9 !important; }
+#myTable tbody td:nth-child(3) { background: #E3F2FD !important; }
+#myTable tbody td:nth-child(4) { background: #FFF3E0 !important; }
+#myTable tbody td:nth-child(5) { background: #FCE4EC !important; }
+#myTable tbody td:nth-child(6) { background: #EDE7F6 !important; }
+#myTable tbody td:nth-child(7) { background: #E0F7FA !important; }
+#myTable tbody td:nth-child(8) { background: #F1F8E9 !important; }
+#myTable tbody td:nth-child(9) { background: #FFF8E1 !important; }
+#myTable tbody td:nth-child(10) { background: #F9FBE7 !important; }
 
-/* Make header inner wrapper fill the entire header cell */
-#myTable thead th .th-inner {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px; /* match your th padding */
-  box-sizing: border-box;
-  background: #333333 !important; /* your dark grey */
-}
-}
+
 /* Header text colours matching column colours */
 /* Sorting icon text colours matching column colours */
 
