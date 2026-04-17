@@ -108,36 +108,11 @@ classes: page-search-data-dictionary
 /* -----------------------------------------
    COLUMN WIDTHS — customise these as needed
    ----------------------------------------- */
-
-/* Column 1 */
-.page-search-data-dictionary #myTable th:nth-child(6),
-.page-search-data-dictionary #myTable td:nth-child(6) {
-  width: 120px;
-}
-
-/* Column 2 */
-.page-search-data-dictionary #myTable th:nth-child(7),
-.page-search-data-dictionary #myTable td:nth-child(7) {
-  width: 180px;
-}
-
-/* Column 3 */
-.page-search-data-dictionary #myTable th:nth-child(8),
-.page-search-data-dictionary #myTable td:nth-child(8) {
-  width: 200px;
-}
-
-/* Column 4 */
-.page-search-data-dictionary #myTable th:nth-child(9),
-.page-search-data-dictionary #myTable td:nth-child(9) {
-  width: 250px;
-}
-
-/* Column 5 */
-.page-search-data-dictionary #myTable th:nth-child(10),
-.page-search-data-dictionary #myTable td:nth-child(10) {
-  width: 300px;
-}
+.page-search-data-dictionary #myTable col.col-1 { width: 120px; }
+.page-search-data-dictionary #myTable col.col-2 { width: 180px; }
+.page-search-data-dictionary #myTable col.col-3 { width: 200px; }
+.page-search-data-dictionary #myTable col.col-4 { width: 250px; }
+.page-search-data-dictionary #myTable col.col-5 { width: 300px; }
 
 /* Add more nth-child rules if you have more columns */
 

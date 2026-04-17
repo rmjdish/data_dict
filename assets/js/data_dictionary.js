@@ -83,6 +83,18 @@ function buildTableHeader() {
   const headerRow = document.getElementById("table-header");
   headerRow.innerHTML = "";
 
+  // ⭐ Create <colgroup> dynamically
+  const table = document.getElementById("myTable");
+  const colgroup = document.createElement("colgroup");
+
+  colgroup.innerHTML = tableColumns
+    .map((_, i) => `<col class="col-${i+1}">`)
+    .join("");
+
+  // Insert colgroup before thead
+  table.prepend(colgroup);
+
+  // Build header cells
   tableColumns.forEach(col => {
     const th = document.createElement("th");
     th.textContent = col;
