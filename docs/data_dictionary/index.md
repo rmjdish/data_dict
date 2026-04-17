@@ -1,7 +1,7 @@
 ---
 layout: default
-title: NSHD Data Dictionary
-nav_order: 10
+title: Search Data Dictionary
+nav_order: 1
 classes: page-search-data-dictionary
 ---
 
