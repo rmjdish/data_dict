@@ -81,32 +81,32 @@ classes: page-search-data-dictionary
    ----------------------------------------- */
 
 /* Column 1 */
-.page-search-data-dictionary #myTable th:nth-child(1),
-.page-search-data-dictionary #myTable td:nth-child(1) {
+.page-search-data-dictionary #myTable th:nth-child(6),
+.page-search-data-dictionary #myTable td:nth-child(6) {
   width: 120px;
 }
 
 /* Column 2 */
-.page-search-data-dictionary #myTable th:nth-child(2),
-.page-search-data-dictionary #myTable td:nth-child(2) {
+.page-search-data-dictionary #myTable th:nth-child(7),
+.page-search-data-dictionary #myTable td:nth-child(7) {
   width: 180px;
 }
 
 /* Column 3 */
-.page-search-data-dictionary #myTable th:nth-child(3),
-.page-search-data-dictionary #myTable td:nth-child(3) {
+.page-search-data-dictionary #myTable th:nth-child(8),
+.page-search-data-dictionary #myTable td:nth-child(8) {
   width: 200px;
 }
 
 /* Column 4 */
-.page-search-data-dictionary #myTable th:nth-child(4),
-.page-search-data-dictionary #myTable td:nth-child(4) {
+.page-search-data-dictionary #myTable th:nth-child(9),
+.page-search-data-dictionary #myTable td:nth-child(9) {
   width: 250px;
 }
 
 /* Column 5 */
-.page-search-data-dictionary #myTable th:nth-child(5),
-.page-search-data-dictionary #myTable td:nth-child(5) {
+.page-search-data-dictionary #myTable th:nth-child(10),
+.page-search-data-dictionary #myTable td:nth-child(10) {
   width: 300px;
 }
 
