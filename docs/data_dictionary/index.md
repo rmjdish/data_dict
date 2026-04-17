@@ -68,7 +68,7 @@ classes: page-search-data-dictionary
 
 
 
-/* Table wrapper must constrain width */
+/* Sticky container for header */
 .page-search-data-dictionary #table-wrapper {
   max-height: 70vh;
   overflow-y: auto;
@@ -76,16 +76,13 @@ classes: page-search-data-dictionary
   position: relative;
 }
 
-
 /* Sticky header */
 .page-search-data-dictionary #myTable thead th {
   position: sticky;
   top: 0;
-  background: #6a0dad;
-  color: white;
+  z-index: 30;
+  color: black !important; /* force black text */
   padding: 8px;
-  z-index: 20;
-  text-align: left;
   border-bottom: 2px solid #4b067a;
 }
 
@@ -100,14 +97,9 @@ classes: page-search-data-dictionary
 
 
 /* Alternate row shading */
-.page-search-data-dictionary #myTable tbody tr {
-  background: inherit;
-}
-
 .page-search-data-dictionary #myTable tbody tr:nth-child(odd) {
   background-color: #f7f7f7 !important;
 }
-
 .page-search-data-dictionary #myTable tbody tr:nth-child(even) {
   background-color: #ececec !important;
 }
@@ -140,8 +132,8 @@ classes: page-search-data-dictionary
 .page-search-data-dictionary #myTable col.col-3 { width: 80px; }
 .page-search-data-dictionary #myTable col.col-4 { width: 200px; }
 .page-search-data-dictionary #myTable col.col-5 { width: 400px; }
-.page-search-data-dictionary #myTable col.col-7 { width: 250px; }
-.page-search-data-dictionary #myTable col.col-8 { width: 100px; }
+.page-search-data-dictionary #myTable col.col-6 { width: 250px; }
+.page-search-data-dictionary #myTable col.col-7 { width: 100px; }
 
 /* Add more nth-child rules if you have more columns */
 
