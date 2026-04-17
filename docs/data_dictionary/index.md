@@ -137,11 +137,12 @@ classes: page-search-data-dictionary
   background: inherit !important;
 }
 
-/* Only sortable headers get flex layout */
-.sortable-header {
+/* Inner wrapper handles layout, not the <th> */
+.th-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 /* Sort icons */

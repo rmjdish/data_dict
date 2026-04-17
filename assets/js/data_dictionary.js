@@ -219,34 +219,33 @@ function buildTableHeader() {
 
   table.prepend(colgroup);
 
-  tableColumns.forEach(col => {
-    const th = document.createElement("th");
-    th.classList.add("sortable-header");
+tableColumns.forEach(col => {
+  const th = document.createElement("th");
+  th.classList.add("sortable-header");
 
-    // Label + icon container
-    th.innerHTML = `
+  th.innerHTML = `
+    <div class="th-inner">
       <span class="header-label">${col}</span>
       <span class="sort-icon">⇅</span>
-    `;
+    </div>
+  `;
 
-    th.style.cursor = "pointer";
+  th.addEventListener("click", () => {
+    if (sortColumn === col) {
+      sortDirection *= -1;
+    } else {
+      sortColumn = col;
+      sortDirection = 1;
+    }
 
-    th.addEventListener("click", () => {
-      if (sortColumn === col) {
-        sortDirection *= -1; // toggle
-      } else {
-        sortColumn = col;
-        sortDirection = 1;
-      }
-
-      updateSortIcons();
-      currentPage = 1;
-      renderTable();
-      renderPagination();
-    });
-
-    headerRow.appendChild(th);
+    updateSortIcons();
+    currentPage = 1;
+    renderTable();
+    renderPagination();
   });
+
+  headerRow.appendChild(th);
+});
 }
 
 /* ---------------------------------------------------
