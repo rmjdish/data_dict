@@ -3,7 +3,7 @@
   position: static !important;
 }
 
-	
+
 	/* -----------------------------------------------------------
 	   SIDEBAR LAYOUT
 	----------------------------------------------------------- */
@@ -357,3 +357,14 @@
 		white-space: nowrap;
 	}
 }
+
+
+.page-search-data-dictionary #myTable thead th:nth-child(1) { background: #e0f2f1; }
+.page-search-data-dictionary #myTable thead th:nth-child(2) { background: #e3f2fd; }
+.page-search-data-dictionary #myTable thead th:nth-child(3) { background: #fce4ec; }
+.page-search-data-dictionary #myTable thead th:nth-child(4) { background: #fff3e0; }
+.page-search-data-dictionary #myTable thead th:nth-child(5) { background: #ede7f6; }
+/* …continue as needed */
+
+.page-search-data-dictionary #myTable tbody tr:nth-child(odd)  { background: #fafafa; }
+.page-search-data-dictionary #myTable tbody tr:nth-child(even) { background: #f0f0f0; }
