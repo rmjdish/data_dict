@@ -37,4 +37,4 @@ classes: page-search-data-dictionary
 
 </div>
 
-<script src="/data_dict/assets/js/data_dictionary.js"></script>
+<script src="/assets/js/data_dictionary.js"></script>
