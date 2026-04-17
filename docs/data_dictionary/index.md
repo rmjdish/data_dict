@@ -48,35 +48,7 @@ classes: page-search-data-dictionary
    COLUMN WIDTHS — customise these as needed
    ----------------------------------------- */
 
-/* Column 1 */
-.page-search-data-dictionary #myTable th:nth-child(1),
-.page-search-data-dictionary #myTable td:nth-child(1) {
-  width: 120px;
-}
 
-/* Column 2 */
-.page-search-data-dictionary #myTable th:nth-child(2),
-.page-search-data-dictionary #myTable td:nth-child(2) {
-  width: 180px;
-}
-
-/* Column 3 */
-.page-search-data-dictionary #myTable th:nth-child(3),
-.page-search-data-dictionary #myTable td:nth-child(3) {
-  width: 200px;
-}
-
-/* Column 4 */
-.page-search-data-dictionary #myTable th:nth-child(4),
-.page-search-data-dictionary #myTable td:nth-child(4) {
-  width: 250px;
-}
-
-/* Column 5 */
-.page-search-data-dictionary #myTable th:nth-child(5),
-.page-search-data-dictionary #myTable td:nth-child(5) {
-  width: 300px;
-}
 
 /* Add more nth-child rules if you have more columns */
 </style>
@@ -125,6 +97,36 @@ classes: page-search-data-dictionary
 
 .page-search-data-dictionary #myTable tbody tr:nth-child(odd)  { background: #fafafa; }
 .page-search-data-dictionary #myTable tbody tr:nth-child(even) { background: #f0f0f0; }
+
+/* Column 1 */
+.page-search-data-dictionary #myTable th:nth-child(1),
+.page-search-data-dictionary #myTable td:nth-child(1) {
+  width: 120px;
+}
+
+/* Column 2 */
+.page-search-data-dictionary #myTable th:nth-child(2),
+.page-search-data-dictionary #myTable td:nth-child(2) {
+  width: 180px;
+}
+
+/* Column 3 */
+.page-search-data-dictionary #myTable th:nth-child(3),
+.page-search-data-dictionary #myTable td:nth-child(3) {
+  width: 200px;
+}
+
+/* Column 4 */
+.page-search-data-dictionary #myTable th:nth-child(4),
+.page-search-data-dictionary #myTable td:nth-child(4) {
+  width: 250px;
+}
+
+/* Column 5 */
+.page-search-data-dictionary #myTable th:nth-child(5),
+.page-search-data-dictionary #myTable td:nth-child(5) {
+  width: 300px;
+}
 
 
 
