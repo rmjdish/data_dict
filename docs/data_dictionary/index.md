@@ -96,12 +96,26 @@ classes: page-search-data-dictionary
 .page-search-data-dictionary #myTable thead th {
   position: sticky;
   top: 0;
-  z-index: 30;
-  color: black !important; /* force black text */
+  z-index: 50;
+  background: inherit !important;
   padding: 8px;
   border-bottom: 2px solid #4b067a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+/* Sort icons */
+.sortable-header .sort-icon {
+  font-size: 12px;
+  margin-left: 6px;
+  opacity: 0.3;
+  transition: opacity 0.2s ease;
+}
+
+.sortable-header:hover .sort-icon {
+  opacity: 0.8;
+}
 /* Table layout */
 .page-search-data-dictionary #myTable {
   width: 100%;

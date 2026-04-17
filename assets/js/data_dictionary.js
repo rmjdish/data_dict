@@ -113,7 +113,7 @@ function sortData() {
     const valA = a[sortColumn] ?? "";
     const valB = b[sortColumn] ?? "";
 
-    // Numeric sort if both values are numbers
+    // Numeric sort
     if (!isNaN(valA) && !isNaN(valB)) {
       return (Number(valA) - Number(valB)) * sortDirection;
     }
@@ -122,6 +122,25 @@ function sortData() {
     return String(valA).localeCompare(String(valB)) * sortDirection;
   });
 }
+
+/* ---------------------------------------------------
+   SORT ICONS
+--------------------------------------------------- */
+function updateSortIcons() {
+  document.querySelectorAll("#table-header th").forEach(th => {
+    const label = th.querySelector(".header-label").textContent;
+    const icon = th.querySelector(".sort-icon");
+
+    if (label === sortColumn) {
+      icon.textContent = sortDirection === 1 ? "▲" : "▼";
+      icon.style.opacity = 1;
+    } else {
+      icon.textContent = "⇅";
+      icon.style.opacity = 0.3;
+    }
+  });
+}
+
 
 
 /* ---------------------------------------------------
@@ -196,27 +215,34 @@ function buildTableHeader() {
 
   table.prepend(colgroup);
 
-tableColumns.forEach(col => {
-  const th = document.createElement("th");
-  th.textContent = col;
+  tableColumns.forEach(col => {
+    const th = document.createElement("th");
+    th.classList.add("sortable-header");
 
-  // ⭐ NEW: make header clickable
-  th.style.cursor = "pointer";
-  th.addEventListener("click", () => {
-    if (sortColumn === col) {
-      sortDirection *= 1; // toggle asc/desc
-    } else {
-      sortColumn = col;
-      sortDirection = 1;
-    }
+    // Label + icon container
+    th.innerHTML = `
+      <span class="header-label">${col}</span>
+      <span class="sort-icon">⇅</span>
+    `;
 
-    currentPage = 1;
-    renderTable();
-    renderPagination();
+    th.style.cursor = "pointer";
+
+    th.addEventListener("click", () => {
+      if (sortColumn === col) {
+        sortDirection *= -1; // toggle
+      } else {
+        sortColumn = col;
+        sortDirection = 1;
+      }
+
+      updateSortIcons();
+      currentPage = 1;
+      renderTable();
+      renderPagination();
+    });
+
+    headerRow.appendChild(th);
   });
-
-  headerRow.appendChild(th);
-});
 }
 
 /* ---------------------------------------------------
