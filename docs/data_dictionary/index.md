@@ -67,7 +67,7 @@ classes: page-search-data-dictionary
 }
 
 #resetFiltersBtn {
-  margin-left: 10px;
+  margin-left: 100px;
   padding: 6px 12px;
   font-size: 14px;
   background: #4b067a;
