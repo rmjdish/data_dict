@@ -13,7 +13,7 @@ const filterColumns = [
 
 let tableColumns = [];
 
-fetch("data_dict/docs/data_dictionary/NSHD_Data_Dictionary_Public.json")
+fetch("/data_dict/docs/data_dictionary/NSHD_Data_Dictionary_Public.json")
   .then(r => r.json())
   .then(data => {
     rawData = data;
