@@ -25,12 +25,14 @@ classes: page-search-data-dictionary
   </div>
 
   <!-- TABLE WRAPPER (scrolls) -->
-<div id="table-wrapper" class="page-search-data-dictionary">
+  <div id="table-wrapper">
     <table id="myTable">
-        <thead>…</thead>
-        <tbody>…</tbody>
+      <thead>
+        <tr id="table-header"></tr>
+      </thead>
+      <tbody id="table-body"></tbody>
     </table>
-</div>
+  </div>
 
   <!-- BOTTOM PAGINATION -->
   <div id="paginationBottom"></div>
@@ -77,11 +79,10 @@ classes: page-search-data-dictionary
 .page-search-data-dictionary #myTable thead th {
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 30;
   color: black !important; /* force black text */
   padding: 8px;
   border-bottom: 2px solid #4b067a;
-  background: inherit !important; /* keeps your column colours */
 }
 
 /* Table layout */
@@ -232,13 +233,7 @@ classes: page-search-data-dictionary
     text-align: center !important;
 }
 
-/* FINAL sticky header fix */
-.page-search-data-dictionary #myTable thead th {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: inherit !important;
-}
+
 
 </style>
 
