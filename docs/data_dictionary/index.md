@@ -5,6 +5,90 @@ nav_order: 10
 classes: page-search-data-dictionary
 ---
 
+
+<style>
+/* Scope everything to this page */
+.page-search-data-dictionary #myTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+/* Header styling */
+.page-search-data-dictionary #myTable thead th {
+  background: #6a0dad;
+  color: white;
+  padding: 8px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+/* Alternate row shading */
+.page-search-data-dictionary #myTable tbody tr:nth-child(odd) {
+  background: #f7f7f7;
+}
+.page-search-data-dictionary #myTable tbody tr:nth-child(even) {
+  background: #ececec;
+}
+
+/* Cell padding */
+.page-search-data-dictionary #myTable td {
+  padding: 6px 10px;
+  vertical-align: top;
+}
+
+/* Column colours (example for first 6 visible columns) */
+.page-search-data-dictionary #myTable thead th:nth-child(1) { background: #e0f2f1; }
+.page-search-data-dictionary #myTable thead th:nth-child(2) { background: #e3f2fd; }
+.page-search-data-dictionary #myTable thead th:nth-child(3) { background: #fce4ec; }
+.page-search-data-dictionary #myTable thead th:nth-child(4) { background: #fff3e0; }
+.page-search-data-dictionary #myTable thead th:nth-child(5) { background: #ede7f6; }
+.page-search-data-dictionary #myTable thead th:nth-child(6) { background: #f1f8e9; }
+
+/* Filter bar styling */
+.page-search-data-dictionary #filter-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  position: sticky;
+  top: 0;
+  background: white;
+  padding: 10px 0;
+  z-index: 10;
+}
+
+.page-search-data-dictionary #filter-bar select {
+  width: 200px;
+  padding: 6px;
+}
+
+/* Search + pagination bar */
+.page-search-data-dictionary #search-pagination-top {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+  position: sticky;
+  top: 50px;
+  background: white;
+  padding: 10px 0;
+  z-index: 9;
+}
+
+.page-search-data-dictionary #globalSearch {
+  padding: 6px;
+  width: 250px;
+}
+
+.page-search-data-dictionary #pageSize {
+  padding: 6px;
+}
+</style>
+
+
+
 <div id="data-dictionary-app">
 
   <!-- FILTER BAR (5 filters in a straight line) -->
@@ -36,5 +120,18 @@ classes: page-search-data-dictionary
   <div id="paginationBottom"></div>
 
 </div>
+
+
+.page-search-data-dictionary #myTable thead th:nth-child(1) { background: #e0f2f1; }
+.page-search-data-dictionary #myTable thead th:nth-child(2) { background: #e3f2fd; }
+.page-search-data-dictionary #myTable thead th:nth-child(3) { background: #fce4ec; }
+.page-search-data-dictionary #myTable thead th:nth-child(4) { background: #fff3e0; }
+.page-search-data-dictionary #myTable thead th:nth-child(5) { background: #ede7f6; }
+/* …continue as needed */
+
+.page-search-data-dictionary #myTable tbody tr:nth-child(odd)  { background: #fafafa; }
+.page-search-data-dictionary #myTable tbody tr:nth-child(even) { background: #f0f0f0; }
+
+
 
 <script src="/data_dict/assets/js/data_dictionary.js"></script>
