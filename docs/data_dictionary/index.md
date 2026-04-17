@@ -203,33 +203,51 @@ classes: page-search-data-dictionary
 #myTable th:nth-child(9), #myTable td:nth-child(9) { background: #FFF8E1 !important; }
 #myTable th:nth-child(10), #myTable td:nth-child(10) { background: #F9FBE7 !important; }
 
+/* Make header inner wrapper fill the entire header cell */
 #myTable thead th .th-inner {
-  background: #333333 !important;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px; /* match your th padding */
+  box-sizing: border-box;
+  background: #333333 !important; /* your dark grey */
+}
 }
 /* Header text colours matching column colours */
-#myTable thead th:nth-child(1) .header-label { color: #F3E5F5 !important; }
-#myTable thead th:nth-child(2) .header-label { color: #E8F5E9 !important; }
-#myTable thead th:nth-child(3) .header-label { color: #E3F2FD !important; }
-#myTable thead th:nth-child(4) .header-label { color: #FFF3E0 !important; }
-#myTable thead th:nth-child(5) .header-label { color: #FCE4EC !important; }
-#myTable thead th:nth-child(6) .header-label { color: #EDE7F6 !important; }
-#myTable thead th:nth-child(7) .header-label { color: #E0F7FA !important; }
-#myTable thead th:nth-child(8) .header-label { color: #F1F8E9 !important; }
-#myTable thead th:nth-child(9) .header-label { color: #FFF8E1 !important; }
-#myTable thead th:nth-child(10) .header-label { color: #F9FBE7 !important; }
-
 /* Sorting icon text colours matching column colours */
 
+#myTable thead th:nth-child(1) .header-label,
 #myTable thead th:nth-child(1) .sort-icon { color: #F3E5F5 !important; }
+
+#myTable thead th:nth-child(2) .header-label,
 #myTable thead th:nth-child(2) .sort-icon { color: #E8F5E9 !important; }
+
+#myTable thead th:nth-child(3) .header-label,
 #myTable thead th:nth-child(3) .sort-icon { color: #E3F2FD !important; }
+
+#myTable thead th:nth-child(4) .header-label,
 #myTable thead th:nth-child(4) .sort-icon { color: #FFF3E0 !important; }
+
+#myTable thead th:nth-child(5) .header-label,
 #myTable thead th:nth-child(5) .sort-icon { color: #FCE4EC !important; }
+
+#myTable thead th:nth-child(6) .header-label,
 #myTable thead th:nth-child(6) .sort-icon { color: #EDE7F6 !important; }
+
+#myTable thead th:nth-child(7) .header-label,
 #myTable thead th:nth-child(7) .sort-icon { color: #E0F7FA !important; }
+
+#myTable thead th:nth-child(8) .header-label,
 #myTable thead th:nth-child(8) .sort-icon { color: #F1F8E9 !important; }
+
+#myTable thead th:nth-child(9) .header-label,
 #myTable thead th:nth-child(9) .sort-icon { color: #FFF8E1 !important; }
+
+#myTable thead th:nth-child(10) .header-label,
 #myTable thead th:nth-child(10) .sort-icon { color: #F9FBE7 !important; }
+
 
 /* Alignment */
 #myTable th:nth-child(1), #myTable td:nth-child(1) { text-align: left !important; }
