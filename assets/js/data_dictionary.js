@@ -108,6 +108,9 @@ function renderTable() {
 
     body.appendChild(tr);
   });
+
+  // ⭐ Force layout rules to apply
+  document.getElementById("myTable").style.tableLayout = "fixed";
 }
 
 function renderPagination() {
