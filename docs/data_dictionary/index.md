@@ -130,7 +130,8 @@ classes: page-search-data-dictionary
   position: sticky;
   top: 0;
   z-index: 50;
-  padding: 0; /* padding moved into .th-inner */
+  padding: 0;
+  background: transparent !important; /* must be transparent */
   border-bottom: 2px solid #4b067a;
 }
 
@@ -192,17 +193,29 @@ classes: page-search-data-dictionary
 .page-search-data-dictionary #myTable col.col-6 { width: 150px; }
 .page-search-data-dictionary #myTable col.col-7 { width: 130px; }
 
-/* ⭐ COLUMN COLOURS — APPLY TO BOTH HEADER + BODY */
-#myTable th:nth-child(1), #myTable tbody td:nth-child(1) { background: #F3E5F5 !important; }
-#myTable th:nth-child(2), #myTable tbody td:nth-child(2) { background: #E8F5E9 !important; }
-#myTable th:nth-child(3), #myTable tbody td:nth-child(3) { background: #E3F2FD !important; }
-#myTable th:nth-child(4), #myTable tbody td:nth-child(4) { background: #FFF3E0 !important; }
-#myTable th:nth-child(5), #myTable tbody td:nth-child(5) { background: #FCE4EC !important; }
-#myTable th:nth-child(6), #myTable tbody td:nth-child(6) { background: #EDE7F6 !important; }
-#myTable th:nth-child(7), #myTable tbody td:nth-child(7) { background: #E0F7FA !important; }
-#myTable th:nth-child(8), #myTable tbody td:nth-child(8) { background: #F1F8E9 !important; }
-#myTable th:nth-child(9), #myTable tbody td:nth-child(9) { background: #FFF8E1 !important; }
-#myTable th:nth-child(10), #myTable tbody td:nth-child(10) { background: #F9FBE7 !important; }
+/* ⭐ COLUMN COLOURS — APPLY TO BODY CELLS */
+#myTable tbody td:nth-child(1) { background: #F3E5F5 !important; }
+#myTable tbody td:nth-child(2) { background: #E8F5E9 !important; }
+#myTable tbody td:nth-child(3) { background: #E3F2FD !important; }
+#myTable tbody td:nth-child(4) { background: #FFF3E0 !important; }
+#myTable tbody td:nth-child(5) { background: #FCE4EC !important; }
+#myTable tbody td:nth-child(6) { background: #EDE7F6 !important; }
+#myTable tbody td:nth-child(7) { background: #E0F7FA !important; }
+#myTable tbody td:nth-child(8) { background: #F1F8E9 !important; }
+#myTable tbody td:nth-child(9) { background: #FFF8E1 !important; }
+#myTable tbody td:nth-child(10) { background: #F9FBE7 !important; }
+
+/* ⭐ COLUMN COLOURS — APPLY TO HEADER INNER WRAPPER */
+#myTable thead th:nth-child(1) .th-inner { background: #F3E5F5 !important; }
+#myTable thead th:nth-child(2) .th-inner { background: #E8F5E9 !important; }
+#myTable thead th:nth-child(3) .th-inner { background: #E3F2FD !important; }
+#myTable thead th:nth-child(4) .th-inner { background: #FFF3E0 !important; }
+#myTable thead th:nth-child(5) .th-inner { background: #FCE4EC !important; }
+#myTable thead th:nth-child(6) .th-inner { background: #EDE7F6 !important; }
+#myTable thead th:nth-child(7) .th-inner { background: #E0F7FA !important; }
+#myTable thead th:nth-child(8) .th-inner { background: #F1F8E9 !important; }
+#myTable thead th:nth-child(9) .th-inner { background: #FFF8E1 !important; }
+#myTable thead th:nth-child(10) .th-inner { background: #F9FBE7 !important; }
 
 /* ⭐ HEADER TEXT + ICONS = BLACK */
 #myTable thead th .header-label,
