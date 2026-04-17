@@ -77,13 +77,20 @@ classes: page-search-data-dictionary
 }
 
 /* Sticky header */
-.page-search-data-dictionary #myTable thead th {
+/* If filter bar is sticky */
+.page-search-data-dictionary #filter-bar {
   position: sticky;
   top: 0;
+  z-index: 40;
+  background: white;
+  padding: 8px 0;
+}
+
+/* Then table header sticks BELOW it */
+.page-search-data-dictionary #myTable thead th {
+  position: sticky;
+  top: 48px;   /* height of filter bar */
   z-index: 30;
-  color: black !important; /* force black text */
-  padding: 8px;
-  border-bottom: 2px solid #4b067a;
 }
 
 /* Table layout */
