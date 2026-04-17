@@ -11,6 +11,3 @@ aux_links:
 sass:
   load_paths:
     - assets/css
-
-include:
-    - assets/css/table.css
