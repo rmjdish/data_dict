@@ -2,6 +2,8 @@ let rawData = [];
 let filteredData = [];
 let currentPage = 1;
 let pageSize = 15;
+let sortColumn = null;
+let sortDirection = 1; // 1 = asc, -1 = desc
 
 const filterColumns = [
   "Topic",
@@ -100,6 +102,28 @@ function updateAllFilters() {
   });
 }
 
+
+/* ---------------------------------------------------
+   SORTING LOGIC
+--------------------------------------------------- */
+function sortData() {
+  if (!sortColumn) return;
+
+  filteredData.sort((a, b) => {
+    const valA = a[sortColumn] ?? "";
+    const valB = b[sortColumn] ?? "";
+
+    // Numeric sort if both values are numbers
+    if (!isNaN(valA) && !isNaN(valB)) {
+      return (Number(valA) - Number(valB)) * sortDirection;
+    }
+
+    // Text sort
+    return String(valA).localeCompare(String(valB)) * sortDirection;
+  });
+}
+
+
 /* ---------------------------------------------------
    GLOBAL SEARCH
 --------------------------------------------------- */
@@ -172,17 +196,34 @@ function buildTableHeader() {
 
   table.prepend(colgroup);
 
-  tableColumns.forEach(col => {
-    const th = document.createElement("th");
-    th.textContent = col;
-    headerRow.appendChild(th);
+tableColumns.forEach(col => {
+  const th = document.createElement("th");
+  th.textContent = col;
+
+  // ⭐ NEW: make header clickable
+  th.style.cursor = "pointer";
+  th.addEventListener("click", () => {
+    if (sortColumn === col) {
+      sortDirection *= 1; // toggle asc/desc
+    } else {
+      sortColumn = col;
+      sortDirection = 1;
+    }
+
+    currentPage = 1;
+    renderTable();
+    renderPagination();
   });
+
+  headerRow.appendChild(th);
+});
 }
 
 /* ---------------------------------------------------
    RENDER TABLE
 --------------------------------------------------- */
 function renderTable() {
+  sortData(); // ⭐ NEW
   const body = document.getElementById("table-body");
   body.innerHTML = "";
 
