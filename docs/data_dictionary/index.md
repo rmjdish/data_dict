@@ -273,16 +273,15 @@ classes: page-search-data-dictionary
 }
 
 /* ALIGNMENT */
-#myTable th:nth-child(0), #myTable td:nth-child(0)
-#myTable th:nth-child(4), #myTable td:nth-child(4)
-#myTable th:nth-child(5), #myTable td:nth-child(5) { 
+#myTable th:nth-child(1), #myTable td:nth-child(1),
+#myTable th:nth-child(3), #myTable td:nth-child(3),
+#myTable th:nth-child(4), #myTable td:nth-child(4),  
+#myTable th:nth-child(4), #myTable td:nth-child(5) { 
   text-align: left !important; 
 }
 
 #myTable th:nth-child(2), #myTable td:nth-child(2),
-#myTable th:nth-child(3), #myTable td:nth-child(3),
-#myTable th:nth-child(6), #myTable td:nth-child(6),   /* ⭐ NEW */
-#myTable th:nth-child(7), #myTable td:nth-child(7) {
+#myTable th:nth-child(6), #myTable td:nth-child(6) {
   text-align: center !important;
 }
 
