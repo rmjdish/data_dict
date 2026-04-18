@@ -262,11 +262,39 @@ function renderTable() {
   filteredData.slice(start, end).forEach(row => {
     const tr = document.createElement("tr");
 
-    tableColumns.forEach(col => {
-      const td = document.createElement("td");
-      td.textContent = row[col] ?? "";
-      tr.appendChild(td);
-    });
+	tableColumns.forEach(col => {
+	  const td = document.createElement("td");
+	  const value = row[col] ?? "";
+
+	  /* ⭐ 1. MAKE SHOWCASE FIELD ID INTO A LINK */
+	  if (col === "Showcase Field ID" && value !== "") {
+		td.innerHTML = `
+		  <a href="https://datashare.ndph.ox.ac.uk/nshd46/field.cgi?id=${value}"
+			 target="_blank"
+			 class="field-link">
+			 ${value}
+		  </a>
+		`;
+	  }
+
+	  /* ⭐ 2. MAKE NSHD VARIABLE NAME INTO A LINK */
+	  else if (col === "NSHD Variable Name" && value !== "") {
+		td.innerHTML = `
+		  <a href="https://rmjdish.github.io/data_dict/docs/variable_metadata/${value}"
+			 target="_blank"
+			 class="field-link">
+			 ${value}
+		  </a>
+		`;
+	  }
+
+	  /* ⭐ 3. DEFAULT CELL */
+	  else {
+		td.textContent = value;
+	  }
+
+	  tr.appendChild(td);
+	});
 
     body.appendChild(tr);
   });
