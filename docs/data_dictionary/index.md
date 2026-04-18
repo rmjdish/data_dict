@@ -87,7 +87,8 @@ classes: page-search-data-dictionary
 .page-search-data-dictionary #myTable {
   width: 100%;
   max-width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;          /* visually same as collapse */
   table-layout: fixed;
   font-family: Arial, sans-serif;
   font-size: 14px;
@@ -196,8 +197,10 @@ classes: page-search-data-dictionary
   top: 0;
   z-index: 50;
   padding: 0; /* padding moved into .th-inner */
-  border-bottom: 2px solid #4b067a;
+  border-bottom: none;                              /* remove old border */
+  box-shadow: inset 0 -2px 0 #4b067a;              /* replaces border-bottom */
 }
+
 
 /* ⭐ HEADER INNER WRAPPER — TRANSPARENT (so pastel shows fully) */
 #myTable thead th .th-inner {
