@@ -86,11 +86,20 @@ classes: page-search-data-dictionary
 /* TABLE BASE */
 .page-search-data-dictionary #myTable {
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
   font-family: Arial, sans-serif;
   font-size: 14px;
 }
+
+/* This allows the table to compress even further on small screens. */
+@media (max-width: 700px) {
+  #myTable col {
+    width: auto !important;
+  }
+}
+
 
 /* ⭐ FILTER BOX CONTAINER */
 .page-search-data-dictionary .filter-box {
@@ -239,14 +248,15 @@ classes: page-search-data-dictionary
   white-space: normal;
 }
 
-/* COLUMN WIDTHS */
-.page-search-data-dictionary #myTable col.col-1 { width: 170px; }
-.page-search-data-dictionary #myTable col.col-2 { width: 110px; }
-.page-search-data-dictionary #myTable col.col-3 { width: 70px; }
-.page-search-data-dictionary #myTable col.col-4 { width: 140px; }
-.page-search-data-dictionary #myTable col.col-5 { width: 500px; }
-.page-search-data-dictionary #myTable col.col-6 { width: 150px; }
-.page-search-data-dictionary #myTable col.col-7 { width: 130px; }
+/* ⭐ RESPONSIVE COLUMN WIDTHS */
+#myTable col.col-1 { width: 12%; }
+#myTable col.col-2 { width: 10%; }
+#myTable col.col-3 { width: 8%; }
+#myTable col.col-4 { width: 12%; }
+#myTable col.col-5 { width: 28%; }
+#myTable col.col-6 { width: 15%; }
+#myTable col.col-7 { width: 15%; }
+
 
 /* ⭐ COLUMN COLOURS — APPLY TO BOTH HEADER + BODY */
 #myTable th:nth-child(1), #myTable tbody td:nth-child(1) { background: #F3E5F5 !important; }
