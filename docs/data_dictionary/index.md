@@ -38,7 +38,7 @@ classes: page-search-data-dictionary
     </select>
     <button id="resetFiltersBtn">Reset Filters</button>
     <button id="downloadCsvBtn" class="download-btn">Download Results (CSV)</button>
-	<a href="/docs/myfile.xlsx" download class="download-excel-btn">Download Data Dictionary</a>	<div id="paginationTop"></div>
+	<a href="/docs/NSHD_Data_Dictionary-Public.xlsx" download class="download-excel-btn">Download Data Dictionary</a>	<div id="paginationTop"></div>
   </div>
 
   <!-- TABLE WRAPPER -->
