@@ -38,7 +38,7 @@ classes: page-search-data-dictionary
     </select>
     <button id="resetFiltersBtn">Reset Filters</button>
     <button id="downloadCsvBtn" class="download-btn">Download Results (CSV)</button>
-	<div id="paginationTop"></div>
+	<a href="/docs/myfile.xlsx" download class="download-excel-btn">Download Data Dictionary</a>	<div id="paginationTop"></div>
   </div>
 
   <!-- TABLE WRAPPER -->
@@ -193,6 +193,22 @@ classes: page-search-data-dictionary
 .page-search-data-dictionary .download-btn:hover {
     background: #45a049;
 }
+
+
+.page-search-data-dictionary .download-excel-btn {
+  margin-left: 10px;
+  padding: 6px 14px;
+  background: #1976D2; /* blue to differentiate, or choose your colour */
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.page-search-data-dictionary .download-excel-btn:hover {
+  background: #0F5BA5;
+}
+
 
 
 #resetFiltersBtn:hover {
