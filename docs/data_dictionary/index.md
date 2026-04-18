@@ -184,18 +184,18 @@ classes: page-search-data-dictionary
 
 /* TABLE WRAPPER */
 .page-search-data-dictionary #table-wrapper {
-  max-height: 70vh;
-  overflow-y: auto;
-  overflow-x: auto;
+  overflow-x: auto;   /* horizontal scroll only */
+  overflow-y: visible; /* allow page to scroll */
+  max-height: none;   /* remove vertical scroll */
   position: relative;
-   display: block;
 }
 
 /* ⭐ STICKY HEADER */
 .page-search-data-dictionary #myTable thead th {
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 100;
+  background: transparent !important;
   padding: 0; /* padding moved into .th-inner */
   border-bottom: 2px solid #4b067a;
 }
@@ -298,7 +298,6 @@ classes: page-search-data-dictionary
 .page-search-data-dictionary {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
 }
 
 .page-search-data-dictionary * {
