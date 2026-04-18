@@ -115,6 +115,26 @@ classes: page-search-data-dictionary
   flex-wrap: nowrap;
 }
 
+/* ⭐ FILTER BOX BACKGROUND (PASTEL GRADIENT) */
+.page-search-data-dictionary .filter-box {
+  background: linear-gradient(
+    90deg,
+    #F3E5F5 0%,
+    #E8F5E9 20%,
+    #E3F2FD 40%,
+    #FFF3E0 60%,
+    #FCE4EC 80%,
+    #EDE7F6 100%
+  );
+  padding: 18px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 3px solid transparent; /* border will be added below */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+
+
 
 /* FILTER BAR */
 .page-search-data-dictionary #filter-bar {
