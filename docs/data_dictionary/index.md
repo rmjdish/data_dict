@@ -291,8 +291,6 @@ classes: page-search-data-dictionary
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-  height: 100vh;
-  overflow-y: hidden;
 }
 
 .page-search-data-dictionary * {
