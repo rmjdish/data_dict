@@ -251,10 +251,10 @@ classes: page-search-data-dictionary
 /* ⭐ RESPONSIVE COLUMN WIDTHS */
 #myTable col.col-1 { width: 13%; }
 #myTable col.col-2 { width: 9%; }
-#myTable col.col-3 { width: 15%; }
-#myTable col.col-4 { width: 43%; }
-#myTable col.col-5 { width: 13%; }
-#myTable col.col-6 { width: 7%; }
+#myTable col.col-3 { width: 13%; }
+#myTable col.col-4 { width: 45%; }
+#myTable col.col-5 { width: 11%; }
+#myTable col.col-6 { width: 9%; }
 
 
 /* ⭐ COLUMN COLOURS — APPLY TO BOTH HEADER + BODY */
