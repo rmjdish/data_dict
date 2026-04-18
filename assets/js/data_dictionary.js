@@ -22,6 +22,8 @@ fetch("NSHD_Data_Dictionary_Public.json")
     filteredData = [...rawData];
 
     tableColumns = Object.keys(rawData[0]).slice(5);
+	// ⭐ REMOVE ORDER COLUMN
+	tableColumns = tableColumns.filter(col => col !== "Order");
 
     buildFilters();
     buildTableHeader();
