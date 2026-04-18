@@ -27,26 +27,19 @@ classes: page-search-data-dictionary
 </div>
 
   <!-- SEARCH + PAGE SIZE + RESET + PAGINATION -->
-<div id="search-pagination-top" class="search-pagination-top">
-
-  <!-- LEFT SIDE CONTROLS -->
-<div class="left-controls">
-  <div id="resultsCount"></div>
-  <input id="globalSearch" type="text" placeholder="Search…" />
-  <select id="pageSize">
-    <option value="15">15</option>
-    <option value="30">30</option>
-    <option value="50">50</option>
-    <option value="100">100</option>
-  </select>
-  <button id="resetFiltersBtn">Reset Filters</button>
-</div>
-
-<a href="/docs/myfile.xlsx" download class="download-excel-btn">
-  Download Excel
-</a>
-
-<div id="paginationTop"></div>
+  <div id="search-pagination-top" class="search-pagination-top">
+    <div id="resultsCount"></div>
+    <input id="globalSearch" type="text" placeholder="Search…" />
+    <select id="pageSize">
+      <option value="15">15</option>
+      <option value="30">30</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+    </select>
+    <button id="resetFiltersBtn">Reset Filters</button>
+    <button id="downloadCsvBtn" class="download-btn">Download Results (CSV)</button>
+	<div id="paginationTop"></div>
+  </div>
 
   <!-- TABLE WRAPPER -->
   <div id="table-wrapper">
@@ -205,35 +198,6 @@ classes: page-search-data-dictionary
 #resetFiltersBtn:hover {
   background: #36045a;
 }
-
-
-.page-search-data-dictionary .search-pagination-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  gap: 10px;
-}
-
-.page-search-data-dictionary .left-controls {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.page-search-data-dictionary .download-excel-btn {
-  padding: 6px 14px;
-  background: #4CAF50;
-  color: white;
-  border-radius: 4px;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.page-search-data-dictionary .download-excel-btn:hover {
-  background: #45a049;
-}
-
 
 /* TABLE WRAPPER */
 .page-search-data-dictionary #table-wrapper {
