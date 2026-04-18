@@ -30,24 +30,23 @@ classes: page-search-data-dictionary
 <div id="search-pagination-top" class="search-pagination-top">
 
   <!-- LEFT SIDE CONTROLS -->
-  <div class="left-controls">
-    <div id="resultsCount"></div>
-    <input id="globalSearch" type="text" placeholder="Search…" />
-    <select id="pageSize">
-      <option value="15">15</option>
-      <option value="30">30</option>
-      <option value="50">50</option>
-      <option value="100">100</option>
-    </select>
-    <button id="resetFiltersBtn">Reset Filters</button>
-  </div>
-
-  <!-- RIGHT SIDE DOWNLOAD BUTTON -->
-  <a href="/docs/data_dictionary/NSHD_Data_Dictionary-Public.xlsx" download class="download-excel-btn">
-    Download Excel
-  </a>
-
+<div class="left-controls">
+  <div id="resultsCount"></div>
+  <input id="globalSearch" type="text" placeholder="Search…" />
+  <select id="pageSize">
+    <option value="15">15</option>
+    <option value="30">30</option>
+    <option value="50">50</option>
+    <option value="100">100</option>
+  </select>
+  <button id="resetFiltersBtn">Reset Filters</button>
 </div>
+
+<a href="/docs/myfile.xlsx" download class="download-excel-btn">
+  Download Excel
+</a>
+
+<div id="paginationTop"></div>
 
   <!-- TABLE WRAPPER -->
   <div id="table-wrapper">
@@ -210,10 +209,10 @@ classes: page-search-data-dictionary
 
 .page-search-data-dictionary .search-pagination-top {
   display: flex;
-  justify-content: space-between; /* pushes right button to far right */
+  justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 12px;
+  gap: 10px;
 }
 
 .page-search-data-dictionary .left-controls {
