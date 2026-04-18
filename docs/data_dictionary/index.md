@@ -184,9 +184,9 @@ classes: page-search-data-dictionary
 
 /* TABLE WRAPPER */
 .page-search-data-dictionary #table-wrapper {
-  overflow-x: auto;   /* horizontal scroll only */
-  overflow-y: visible; /* allow page to scroll */
-  max-height: none;   /* remove vertical scroll */
+  max-height: 70vh;
+  overflow-y: auto;
+  overflow-x: auto;
   position: relative;
 }
 
@@ -194,8 +194,7 @@ classes: page-search-data-dictionary
 .page-search-data-dictionary #myTable thead th {
   position: sticky;
   top: 0;
-  z-index: 100;
-  background: transparent !important;
+  z-index: 50;
   padding: 0; /* padding moved into .th-inner */
   border-bottom: 2px solid #4b067a;
 }
@@ -258,21 +257,13 @@ classes: page-search-data-dictionary
 #myTable col.col-6 { width: 10%; }
 
 
-/* ⭐ BODY COLUMN COLOURS */
-#myTable tbody td:nth-child(1) { background: #F3E5F5 !important; }
-#myTable tbody td:nth-child(2) { background: #E8F5E9 !important; }
-#myTable tbody td:nth-child(3) { background: #E3F2FD !important; }
-#myTable tbody td:nth-child(4) { background: #FFF3E0 !important; }
-#myTable tbody td:nth-child(5) { background: #FCE4EC !important; }
-#myTable tbody td:nth-child(6) { background: #EDE7F6 !important; }
-
-/* ⭐ HEADER COLUMN COLOURS — APPLY TO .th-inner ONLY */
-#myTable thead th:nth-child(1) .th-inner { background: #F3E5F5 !important; }
-#myTable thead th:nth-child(2) .th-inner { background: #E8F5E9 !important; }
-#myTable thead th:nth-child(3) .th-inner { background: #E3F2FD !important; }
-#myTable thead th:nth-child(4) .th-inner { background: #FFF3E0 !important; }
-#myTable thead th:nth-child(5) .th-inner { background: #FCE4EC !important; }
-#myTable thead th:nth-child(6) .th-inner { background: #EDE7F6 !important; }
+/* ⭐ COLUMN COLOURS — APPLY TO BOTH HEADER + BODY */
+#myTable th:nth-child(1), #myTable tbody td:nth-child(1) { background: #F3E5F5 !important; }
+#myTable th:nth-child(2), #myTable tbody td:nth-child(2) { background: #E8F5E9 !important; }
+#myTable th:nth-child(3), #myTable tbody td:nth-child(3) { background: #E3F2FD !important; }
+#myTable th:nth-child(4), #myTable tbody td:nth-child(4) { background: #FFF3E0 !important; }
+#myTable th:nth-child(5), #myTable tbody td:nth-child(5) { background: #FCE4EC !important; }
+#myTable th:nth-child(6), #myTable tbody td:nth-child(6) { background: #EDE7F6 !important; }
 
 
 /* ⭐ HEADER TEXT + ICONS = BLACK */
@@ -298,6 +289,7 @@ classes: page-search-data-dictionary
 .page-search-data-dictionary {
   width: 100%;
   max-width: 100%;
+  overflow-x: hidden;
 }
 
 .page-search-data-dictionary * {
