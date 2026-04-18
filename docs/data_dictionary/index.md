@@ -87,8 +87,7 @@ classes: page-search-data-dictionary
 .page-search-data-dictionary #myTable {
   width: 100%;
   max-width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;          /* visually same as collapse */
+  border-collapse: collapse;
   table-layout: fixed;
   font-family: Arial, sans-serif;
   font-size: 14px;
@@ -185,22 +184,20 @@ classes: page-search-data-dictionary
 
 /* TABLE WRAPPER */
 .page-search-data-dictionary #table-wrapper {
+  max-height: 70vh;
+  overflow-y: auto;
   overflow-x: auto;
-  overflow-y: visible;   /* ← KEY: remove the scroll container */
   position: relative;
-  /* remove max-height entirely */
 }
 
 /* ⭐ STICKY HEADER */
 .page-search-data-dictionary #myTable thead th {
   position: sticky;
-  top: 60px;            /* ← adjust to match your nav bar height */
+  top: 0;
   z-index: 50;
-  padding: 0;
-  border-bottom: none;
-  box-shadow: inset 0 -2px 0 #4b067a;
+  padding: 0; /* padding moved into .th-inner */
+  border-bottom: 2px solid #4b067a;
 }
-
 
 /* ⭐ HEADER INNER WRAPPER — TRANSPARENT (so pastel shows fully) */
 #myTable thead th .th-inner {
@@ -252,12 +249,12 @@ classes: page-search-data-dictionary
 }
 
 /* ⭐ RESPONSIVE COLUMN WIDTHS */
-#myTable col.col-1 { width: 13%; }
+#myTable col.col-1 { width: 11%; }
 #myTable col.col-2 { width: 9%; }
-#myTable col.col-3 { width: 13%; }
-#myTable col.col-4 { width: 45%; }
-#myTable col.col-5 { width: 11%; }
-#myTable col.col-6 { width: 9%; }
+#myTable col.col-3 { width: 10%; }
+#myTable col.col-4 { width: 50%; }
+#myTable col.col-5 { width: 10%; }
+#myTable col.col-6 { width: 10%; }
 
 
 /* ⭐ COLUMN COLOURS — APPLY TO BOTH HEADER + BODY */
