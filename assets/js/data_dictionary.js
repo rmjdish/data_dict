@@ -369,7 +369,7 @@ function downloadFilteredCSV() {
 
     const link = document.createElement("a");
     link.href = url;
-    link.download = "filtered_table.csv";
+    link.download = "NSHD_Data_Dictionary_filtered_results.csv";
     link.click();
 
     URL.revokeObjectURL(url);

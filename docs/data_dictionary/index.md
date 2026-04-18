@@ -37,7 +37,7 @@ classes: page-search-data-dictionary
       <option value="100">100</option>
     </select>
     <button id="resetFiltersBtn">Reset Filters</button>
-    <button id="downloadCsvBtn" class="download-btn">Download CSV</button>
+    <button id="downloadCsvBtn" class="download-btn">Download Results (CSV)</button>
 	<div id="paginationTop"></div>
   </div>
 
