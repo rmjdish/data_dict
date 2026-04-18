@@ -340,3 +340,40 @@ function updateResultsCount() {
   document.getElementById("resultsCount").textContent =
     `Showing ${filtered} of ${total} results`;
 }
+
+
+function downloadFilteredCSV() {
+    if (!filteredData || filteredData.length === 0) {
+        alert("No data to download");
+        return;
+    }
+
+    // Extract column headers from the table
+    const headers = Object.keys(filteredData[0]);
+
+    // Build CSV content
+    let csvContent = headers.join(",") + "\n";
+
+    filteredData.forEach(row => {
+        const line = headers.map(h => {
+            const value = row[h] ?? "";
+            // Escape quotes
+            return `"${String(value).replace(/"/g, '""')}"`;
+        }).join(",");
+        csvContent += line + "\n";
+    });
+
+    // Trigger download
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "filtered_table.csv";
+    link.click();
+
+    URL.revokeObjectURL(url);
+}
+
+document.getElementById("downloadCsvBtn")
+    .addEventListener("click", downloadFilteredCSV);

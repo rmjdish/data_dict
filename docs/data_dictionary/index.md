@@ -37,7 +37,8 @@ classes: page-search-data-dictionary
       <option value="100">100</option>
     </select>
     <button id="resetFiltersBtn">Reset Filters</button>
-    <div id="paginationTop"></div>
+    <button id="downloadCsvBtn" class="download-btn">Download CSV</button>
+	<div id="paginationTop"></div>
   </div>
 
   <!-- TABLE WRAPPER -->
@@ -177,6 +178,22 @@ classes: page-search-data-dictionary
   border-radius: 4px;
   cursor: pointer;
 }
+
+.page-search-data-dictionary .download-btn {
+    margin-left: 10px;
+    padding: 6px 14px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.page-search-data-dictionary .download-btn:hover {
+    background: #45a049;
+}
+
 
 #resetFiltersBtn:hover {
   background: #36045a;
