@@ -197,7 +197,6 @@ classes: page-search-data-dictionary
   top: 0;
   z-index: 50;
   padding: 0; /* padding moved into .th-inner */
-  background: transparent !important; /* ⭐ MUST BE TRANSPARENT */
   border-bottom: 2px solid #4b067a;
 }
 
