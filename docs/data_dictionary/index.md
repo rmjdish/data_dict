@@ -20,8 +20,10 @@ classes: page-search-data-dictionary
 
   <!-- FILTER BAR -->
 <div id="filter-box" class="filter-box">
-  <div class="filter-title">Filters</div>
-  <div id="filter-bar" class="filter-bar"></div>
+  <div class="filter-box-inner">
+    <div class="filter-title">Filters</div>
+    <div id="filter-bar" class="filter-bar"></div>
+  </div>
 </div>
 
   <!-- SEARCH + PAGE SIZE + RESET + PAGINATION -->
@@ -116,7 +118,7 @@ classes: page-search-data-dictionary
 }
 
 /* ⭐ FILTER BOX RESPONSIVE */
-.filter-box {
+.page-search-data-dictionary .filter-box {
   background: linear-gradient(
     90deg,
     #F3E5F5,
@@ -142,33 +144,18 @@ classes: page-search-data-dictionary
 }
 
 /* ⭐ FILTER BAR SHRINKS + WRAPS */
-.filter-bar {
+.page-search-data-dictionary .filter-bar {
   display: flex;
   flex-wrap: wrap;     /* <-- THIS FIXES SHRINKING */
   gap: 10px;
 }
 
-.filter-bar select {
+.page-search-data-dictionary .filter-bar select {
   flex: 1 1 200px;     /* <-- SHRINKS DOWN TO 200px */
   min-width: 150px;    /* <-- NEVER gets too small */
 }
 
 
-
-
-/* FILTER BAR */
-.page-search-data-dictionary #filter-bar {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 12px;
-  flex-wrap: nowrap;
-}
-
-.page-search-data-dictionary #filter-bar select {
-  width: 250px;
-  padding: 6px 10px;
-  font-size: 14px;
-}
 
 /* RESET BUTTON */
 #resetFiltersBtn {
