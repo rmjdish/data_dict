@@ -19,7 +19,10 @@ classes: page-search-data-dictionary
 <div id="data-dictionary-app">
 
   <!-- FILTER BAR -->
+<div id="filter-box" class="filter-box">
+  <div class="filter-title">Filters</div>
   <div id="filter-bar" class="filter-bar"></div>
+</div>
 
   <!-- SEARCH + PAGE SIZE + RESET + PAGINATION -->
   <div id="search-pagination-top" class="search-pagination-top">
@@ -86,6 +89,32 @@ classes: page-search-data-dictionary
   font-family: Arial, sans-serif;
   font-size: 14px;
 }
+
+/* ⭐ FILTER BOX CONTAINER */
+.page-search-data-dictionary .filter-box {
+  background: #ffffff;          /* white box */
+  border: 1px solid #ccc;       /* subtle border */
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08); /* soft shadow */
+}
+
+/* ⭐ FILTER BOX TITLE */
+.page-search-data-dictionary .filter-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #4b067a;               /* matches your theme */
+}
+
+/* ⭐ FILTER BAR INSIDE THE BOX */
+.page-search-data-dictionary .filter-bar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+
 
 /* FILTER BAR */
 .page-search-data-dictionary #filter-bar {
