@@ -185,20 +185,20 @@ classes: page-search-data-dictionary
 
 /* TABLE WRAPPER */
 .page-search-data-dictionary #table-wrapper {
-  max-height: 70vh;
-  overflow-y: auto;
   overflow-x: auto;
+  overflow-y: visible;   /* ← KEY: remove the scroll container */
   position: relative;
+  /* remove max-height entirely */
 }
 
 /* ⭐ STICKY HEADER */
 .page-search-data-dictionary #myTable thead th {
   position: sticky;
-  top: 0;
+  top: 60px;            /* ← adjust to match your nav bar height */
   z-index: 50;
-  padding: 0; /* padding moved into .th-inner */
-  border-bottom: none;                              /* remove old border */
-  box-shadow: inset 0 -2px 0 #4b067a;              /* replaces border-bottom */
+  padding: 0;
+  border-bottom: none;
+  box-shadow: inset 0 -2px 0 #4b067a;
 }
 
 
