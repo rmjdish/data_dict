@@ -196,7 +196,7 @@ classes: page-search-data-dictionary
 
 
 .page-search-data-dictionary .download-excel-btn {
-  margin-left: 10px;
+  margin-left: 200px;
   padding: 6px 14px;
   background: #1976D2; /* blue to differentiate, or choose your colour */
   color: white;
