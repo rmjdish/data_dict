@@ -115,22 +115,42 @@ classes: page-search-data-dictionary
   flex-wrap: nowrap;
 }
 
-/* ⭐ FILTER BOX BACKGROUND (PASTEL GRADIENT) */
-.page-search-data-dictionary .filter-box {
+/* ⭐ FILTER BOX RESPONSIVE */
+.filter-box {
   background: linear-gradient(
     90deg,
-    #F3E5F5 0%,
-    #E8F5E9 20%,
-    #E3F2FD 40%,
-    #FFF3E0 60%,
-    #FCE4EC 80%,
-    #EDE7F6 100%
+    #F3E5F5,
+    #E8F5E9,
+    #E3F2FD,
+    #FFF3E0,
+    #FCE4EC,
+    #EDE7F6
   );
-  padding: 18px;
+  padding: 16px;
   border-radius: 10px;
   margin-bottom: 20px;
-  border: 3px solid transparent; /* border will be added below */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  border: 3px solid transparent;
+  border-image: linear-gradient(
+    90deg,
+    #F3E5F5,
+    #E8F5E9,
+    #E3F2FD,
+    #FFF3E0,
+    #FCE4EC,
+    #EDE7F6
+  ) 1;
+}
+
+/* ⭐ FILTER BAR SHRINKS + WRAPS */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;     /* <-- THIS FIXES SHRINKING */
+  gap: 10px;
+}
+
+.filter-bar select {
+  flex: 1 1 200px;     /* <-- SHRINKS DOWN TO 200px */
+  min-width: 150px;    /* <-- NEVER gets too small */
 }
 
 
@@ -266,6 +286,18 @@ classes: page-search-data-dictionary
 #myTable th:nth-child(7), #myTable td:nth-child(7) {
   text-align: center !important;
 }
+
+/* ⭐ GLOBAL RESPONSIVE SHRINKING */
+.page-search-data-dictionary {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.page-search-data-dictionary * {
+  box-sizing: border-box;
+}
+
 
 </style>
 
