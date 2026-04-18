@@ -273,7 +273,7 @@ classes: page-search-data-dictionary
 }
 
 /* ALIGNMENT */
-#myTable th:nth-child(1), #myTable td:nth-child(1)
+#myTable th:nth-child(0), #myTable td:nth-child(0)
 #myTable th:nth-child(4), #myTable td:nth-child(4)
 #myTable th:nth-child(5), #myTable td:nth-child(5) { 
   text-align: left !important; 
