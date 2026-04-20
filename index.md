@@ -24,9 +24,11 @@ classes: home-page
 
   <h2>How to Use This Site</h2>
   <p>
-    Use the navigation panel on the left to browse categories of variables. Each category contains
-    detailed metadata including variable labels, field IDs, and links to further documentation.
-    You can search and filter within any category to find the variables most relevant to your research.
+	Use the navigation panel on the left to browse categories of variables. Each category contains 
+	detailed metadata including variable labels, field IDs, and links to further documentation. 
+	You can search and filter within any category to find the variables most relevant to your research, 
+	or use the Data Dictionary search tool to query the entire metadata repository at once, allowing you 
+	to quickly locate specific variables, concepts, or keywords across all topics and sweeps.
   </p>
 
   <h2>Access and Permissions</h2>
