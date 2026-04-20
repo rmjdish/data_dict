@@ -208,27 +208,24 @@ document.addEventListener("DOMContentLoaded", function () {
         ]
     });
 
-	// ⭐ Fix header misalignment on browser resize
-	$(window).on('resize', function () {
-		table.columns.adjust();
-		if (table.fixedHeader) {
-			table.fixedHeader.adjust();
-		}
-	});
+    /* ⭐ FIX HEADER MISALIGNMENT ON RESIZE */
+    $(window).on('resize', function () {
+        table.columns.adjust();
+        if (table.fixedHeader) table.fixedHeader.adjust();
+    });
 
+    /* YADCF */
     yadcf.init(table, [
         { column_number: 3, filter_type: "select", cumulative_filtering: true }
     ]);
 
+    /* Initial adjust */
     table.columns.adjust().draw(false);
     if (table.fixedHeader) table.fixedHeader.adjust();
 
     /* ⭐ HIDE LOADING + SHOW UI */
-	document.getElementById("loadingScreen").style.display = "none";
-	document.getElementById("dataUI").style.visibility = "visible";
-
-	table.columns.adjust();
-	if (table.fixedHeader) table.fixedHeader.adjust();
+    document.getElementById("loadingScreen").style.display = "none";
+    document.getElementById("dataUI").style.visibility = "visible";
 
 });
 </script>
