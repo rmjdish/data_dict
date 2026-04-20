@@ -3,7 +3,6 @@ layout: default
 title: Browse by Category
 nav_order: 10
 classes: page-browse_by_category
-
 ---
 
 <h1>Browse by Category</h1>
@@ -20,7 +19,6 @@ classes: page-browse_by_category
   identify related variables, and compare similar measures across time points or subgroups.
 </p>
 
-<br><br>
 <h2>Navigating Topics and Subtopics in the Sidebar</h2>
 
 <p>
@@ -37,27 +35,29 @@ classes: page-browse_by_category
 </ul>
 
 <style>
-
+/* PAGE‑SPECIFIC OVERRIDES — SAFE AND ISOLATED */
 .page-browse_by_category h1 {
-  font-size: 22px !important;
-  font-weight: bold !important;
-  color: #333 !important;
-  text-decoration: underline !important;
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+  text-decoration: underline;
 }
 
 .page-browse_by_category h2 {
-  font-size: 18px !important;
-  font-weight: bold !important;
-  color: #444 !important;
+  font-size: 18px;
+  font-weight: bold;
+  color: #444;
+  margin-top: 25px;
 }
 
-.page-browse_by_category p {
-  max-width: 700px !important; /* prevents long line stretching */
-  line-height: 1.6 !important;
+.page-browse_by_category p,
+.page-browse_by_category ul {
+  max-width: 700px;
+  line-height: 1.6;
 }
 
 .page-browse_by_category ul {
-  max-width: 700px !important;
+  padding-left: 20px;
 }
-
 </style>
