@@ -44,30 +44,30 @@ classes: home-page
    ----------------------------------------- */
 
 .home-page h1 {
-  font-size: 28px;
-  font-weight: bold;
-  color: #333;
-  margin-top: 10px;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  font-size: 28px !important;
+  font-weight: bold !important;
+  color: #333 !important;
+  margin-top: 10px !important;
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
 }
 
 .home-page h2 {
-  font-size: 22px;
-  font-weight: bold;
-  color: #444;
-  margin-top: 30px;
+  font-size: 22px !important;
+  font-weight: bold !important;
+  color: #444 !important;
+  margin-top: 30px !important;
 }
 
 .home-page p {
-  max-width: 750px;
-  line-height: 1.65;
-  margin-bottom: 15px;
-  color: #333;
+  max-width: 750px !important;
+  line-height: 1.65 !important;
+  margin-bottom: 15px !important;
+  color: #333 !important;
 }
 
 .home-page {
-  padding-bottom: 20px;
+  padding-bottom: 20px !important;
 }
 </style>
 
