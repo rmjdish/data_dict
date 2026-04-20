@@ -7,7 +7,7 @@ classes: home-page
 
 <div class="home-page">
 
-  <h1>About This Resource</h1>
+  <h2>About This Resource</h2>
   <p>
     The NSHD Data Dictionary is a comprehensive metadata browser for the 1946 British birth cohort study.
     It provides researchers with detailed information about the variables, assays, and data collected
