@@ -208,6 +208,14 @@ document.addEventListener("DOMContentLoaded", function () {
         ]
     });
 
+	// ⭐ Fix header misalignment on browser resize
+	$(window).on('resize', function () {
+		table.columns.adjust();
+		if (table.fixedHeader) {
+			table.fixedHeader.adjust();
+		}
+	});
+
     yadcf.init(table, [
         { column_number: 3, filter_type: "select", cumulative_filtering: true }
     ]);
@@ -221,15 +229,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	table.columns.adjust();
 	if (table.fixedHeader) table.fixedHeader.adjust();
-
-	// ⭐ Force header + column width recalculation on window resize
-	$(window).on('resize', function () {
-		table.columns.adjust();
-		if (table.fixedHeader) {
-			table.fixedHeader.adjust();
-		}
-	});
-
 
 });
 </script>
